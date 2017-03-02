@@ -1,4 +1,4 @@
-group 'SWE443_Assignment_5'
+group 'Mancala'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
