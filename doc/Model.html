@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="includes/diagramstyle.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="includes/dagre.min.js"></script>
+<script src="includes/drawer.js"></script>
+<script src="includes/graph.js"></script>
+</head><body>
+<p>Storyboard <a href='.././src/main/java/Model.java' type='text/x-java'>Model</a></p>
+<p>Mancala Storyboard</p>
+<script>
+   var json = {
+   "typ":"class",
+   "nodes":[
+      {
+         "typ":"node",
+         "id":"House",
+         "attributes":[
+            "stones : int"
+         ],
+         "methods":[
+            "sow()"
+         ]
+      },
+      {
+         "typ":"node",
+         "id":"Store",
+         "attributes":[
+            "stones : int"
+         ],
+         "methods":[
+            "takeOppositePebbles()"
+         ]
+      },
+      {
+         "typ":"node",
+         "id":"Board",
+         "methods":[
+            "setUpBoard()"
+         ]
+      },
+      {
+         "typ":"node",
+         "id":"Game",
+         "attributes":[
+            "gameDone : boolean"
+         ]
+      },
+      {
+         "typ":"node",
+         "id":"Player",
+         "attributes":[
+            "myTurn : boolean",
+            "name : String"
+         ],
+         "methods":[
+            "ismyTurn() boolean"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "id":"House",
+            "cardinality":"many",
+            "property":"houses"
+         },
+         "target":{
+            "id":"Board",
+            "cardinality":"one",
+            "property":"board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "id":"Store",
+            "cardinality":"many",
+            "property":"stores"
+         },
+         "target":{
+            "id":"Board",
+            "cardinality":"one",
+            "property":"board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "id":"Board",
+            "cardinality":"one",
+            "property":"board"
+         },
+         "target":{
+            "id":"Game",
+            "cardinality":"one",
+            "property":"game"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "id":"Game",
+            "cardinality":"one",
+            "property":"game"
+         },
+         "target":{
+            "id":"Player",
+            "cardinality":"many",
+            "property":"player"
+         }
+      }
+   ]
+}   ;
+   new Graph(json, {"canvasid":"canvasModelClassDiagram1", "display":"html", fontsize:10, bar:false, propertyinfo:false}).layout(100,100);
+</script>
+<p>setup the board and game</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"G1 : Game",
+         "attributes":[
+            "gameDone=false"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"B2 : Board"
+      },
+      {
+         "typ":"clazz",
+         "id":"P3 : Player",
+         "attributes":[
+            "myTurn=true",
+            "name=Abe"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P4 : Player",
+         "attributes":[
+            "myTurn=false",
+            "name=Bob"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H5 : House",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H6 : House",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S7 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S8 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S9 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S10 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S11 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S12 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S13 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S14 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S15 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S16 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S17 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S18 : Store",
+         "attributes":[
+            "stones=3"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"game",
+            "id":"G1 : Game"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P3 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"game",
+            "id":"G1 : Game"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P4 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"game",
+            "id":"G1 : Game"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H5 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H6 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S15 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S16 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S17 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S18 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"B2 : Board"
+         }
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasModel4", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+
+</body>
+</html>

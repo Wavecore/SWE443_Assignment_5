@@ -25,19 +25,14 @@ import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 import swe443.assignment5.mancala.Board;
+import swe443.assignment5.mancala.util.PlayerSet;
+import swe443.assignment5.mancala.Player;
    /**
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
  */
-   public  class House implements SendableEntity
+   public  class Game implements SendableEntity
 {
-
-   
-   //==========================================================================
-   public void sow(  )
-   {
-      
-   }
 
    
    //==========================================================================
@@ -92,54 +87,44 @@ import swe443.assignment5.mancala.Board;
    public void removeYou()
    {
       setBoard(null);
+      withoutPlayer(this.getPlayer().toArray(new Player[this.getPlayer().size()]));
       firePropertyChange("REMOVE_YOU", this, null);
    }
 
    
    //==========================================================================
    
-   public static final String PROPERTY_STONES = "stones";
+   public static final String PROPERTY_GAMEDONE = "gameDone";
    
-   private int stones;
+   private boolean gameDone;
 
-   public int getStones()
+   public boolean isGameDone()
    {
-      return this.stones;
+      return this.gameDone;
    }
    
-   public void setStones(int value)
+   public void setGameDone(boolean value)
    {
-      if (this.stones != value) {
+      if (this.gameDone != value) {
       
-         int oldValue = this.stones;
-         this.stones = value;
-         this.firePropertyChange(PROPERTY_STONES, oldValue, value);
+         boolean oldValue = this.gameDone;
+         this.gameDone = value;
+         this.firePropertyChange(PROPERTY_GAMEDONE, oldValue, value);
       }
    }
    
-   public House withStones(int value)
+   public Game withGameDone(boolean value)
    {
-      setStones(value);
+      setGameDone(value);
       return this;
    } 
-
-
-   @Override
-   public String toString()
-   {
-      StringBuilder result = new StringBuilder();
-      
-      result.append(" ").append(this.getStones());
-      return result.substring(1);
-   }
-
 
    
    /********************************************************************
     * <pre>
-    *              many                       one
-    * House ----------------------------------- Board
-    *              houses                   board
+    *              one                       one
+    * Game ----------------------------------- Board
+    *              game                   board
     * </pre>
     */
    
@@ -163,14 +148,14 @@ import swe443.assignment5.mancala.Board;
          if (this.board != null)
          {
             this.board = null;
-            oldValue.withoutHouses(this);
+            oldValue.setGame(null);
          }
          
          this.board = value;
          
          if (value != null)
          {
-            value.withHouses(this);
+            value.withGame(this);
          }
          
          firePropertyChange(PROPERTY_BOARD, oldValue, value);
@@ -180,7 +165,7 @@ import swe443.assignment5.mancala.Board;
       return changed;
    }
 
-   public House withBoard(Board value)
+   public Game withBoard(Board value)
    {
       setBoard(value);
       return this;
@@ -190,6 +175,78 @@ import swe443.assignment5.mancala.Board;
    {
       Board value = new Board();
       withBoard(value);
+      return value;
+   } 
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       many
+    * Game ----------------------------------- Player
+    *              game                   player
+    * </pre>
+    */
+   
+   public static final String PROPERTY_PLAYER = "player";
+
+   private PlayerSet player = null;
+   
+   public PlayerSet getPlayer()
+   {
+      if (this.player == null)
+      {
+         return PlayerSet.EMPTY_SET;
+      }
+   
+      return this.player;
+   }
+
+   public Game withPlayer(Player... value)
+   {
+      if(value==null){
+         return this;
+      }
+      for (Player item : value)
+      {
+         if (item != null)
+         {
+            if (this.player == null)
+            {
+               this.player = new PlayerSet();
+            }
+            
+            boolean changed = this.player.add (item);
+
+            if (changed)
+            {
+               item.withGame(this);
+               firePropertyChange(PROPERTY_PLAYER, null, item);
+            }
+         }
+      }
+      return this;
+   } 
+
+   public Game withoutPlayer(Player... value)
+   {
+      for (Player item : value)
+      {
+         if ((this.player != null) && (item != null))
+         {
+            if (this.player.remove(item))
+            {
+               item.setGame(null);
+               firePropertyChange(PROPERTY_PLAYER, item, null);
+            }
+         }
+      }
+      return this;
+   }
+
+   public Player createPlayer()
+   {
+      Player value = new Player();
+      withPlayer(value);
       return value;
    } 
 }

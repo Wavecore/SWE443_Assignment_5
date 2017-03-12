@@ -24,19 +24,20 @@ package swe443.assignment5.mancala;
 import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
-import swe443.assignment5.mancala.Board;
+import de.uniks.networkparser.EntityUtil;
+import swe443.assignment5.mancala.Game;
    /**
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
  */
-   public  class House implements SendableEntity
+   public  class Player implements SendableEntity
 {
 
    
    //==========================================================================
-   public void sow(  )
+   public boolean ismyTurn(  )
    {
-      
+      return false;
    }
 
    
@@ -91,35 +92,63 @@ import swe443.assignment5.mancala.Board;
    
    public void removeYou()
    {
-      setBoard(null);
+      setGame(null);
       firePropertyChange("REMOVE_YOU", this, null);
    }
 
    
    //==========================================================================
    
-   public static final String PROPERTY_STONES = "stones";
+   public static final String PROPERTY_MYTURN = "myTurn";
    
-   private int stones;
+   private boolean myTurn;
 
-   public int getStones()
+   public boolean isMyTurn()
    {
-      return this.stones;
+      return this.myTurn;
    }
    
-   public void setStones(int value)
+   public void setMyTurn(boolean value)
    {
-      if (this.stones != value) {
+      if (this.myTurn != value) {
       
-         int oldValue = this.stones;
-         this.stones = value;
-         this.firePropertyChange(PROPERTY_STONES, oldValue, value);
+         boolean oldValue = this.myTurn;
+         this.myTurn = value;
+         this.firePropertyChange(PROPERTY_MYTURN, oldValue, value);
       }
    }
    
-   public House withStones(int value)
+   public Player withMyTurn(boolean value)
    {
-      setStones(value);
+      setMyTurn(value);
+      return this;
+   } 
+
+   
+   //==========================================================================
+   
+   public static final String PROPERTY_NAME = "name";
+   
+   private String name;
+
+   public String getName()
+   {
+      return this.name;
+   }
+   
+   public void setName(String value)
+   {
+      if ( ! EntityUtil.stringEquals(this.name, value)) {
+      
+         String oldValue = this.name;
+         this.name = value;
+         this.firePropertyChange(PROPERTY_NAME, oldValue, value);
+      }
+   }
+   
+   public Player withName(String value)
+   {
+      setName(value);
       return this;
    } 
 
@@ -129,7 +158,7 @@ import swe443.assignment5.mancala.Board;
    {
       StringBuilder result = new StringBuilder();
       
-      result.append(" ").append(this.getStones());
+      result.append(" ").append(this.getName());
       return result.substring(1);
    }
 
@@ -138,58 +167,58 @@ import swe443.assignment5.mancala.Board;
    /********************************************************************
     * <pre>
     *              many                       one
-    * House ----------------------------------- Board
-    *              houses                   board
+    * Player ----------------------------------- Game
+    *              player                   game
     * </pre>
     */
    
-   public static final String PROPERTY_BOARD = "board";
+   public static final String PROPERTY_GAME = "game";
 
-   private Board board = null;
+   private Game game = null;
 
-   public Board getBoard()
+   public Game getGame()
    {
-      return this.board;
+      return this.game;
    }
 
-   public boolean setBoard(Board value)
+   public boolean setGame(Game value)
    {
       boolean changed = false;
       
-      if (this.board != value)
+      if (this.game != value)
       {
-         Board oldValue = this.board;
+         Game oldValue = this.game;
          
-         if (this.board != null)
+         if (this.game != null)
          {
-            this.board = null;
-            oldValue.withoutHouses(this);
+            this.game = null;
+            oldValue.withoutPlayer(this);
          }
          
-         this.board = value;
+         this.game = value;
          
          if (value != null)
          {
-            value.withHouses(this);
+            value.withPlayer(this);
          }
          
-         firePropertyChange(PROPERTY_BOARD, oldValue, value);
+         firePropertyChange(PROPERTY_GAME, oldValue, value);
          changed = true;
       }
       
       return changed;
    }
 
-   public House withBoard(Board value)
+   public Player withGame(Game value)
    {
-      setBoard(value);
+      setGame(value);
       return this;
    } 
 
-   public Board createBoard()
+   public Game createGame()
    {
-      Board value = new Board();
-      withBoard(value);
+      Game value = new Game();
+      withGame(value);
       return value;
    } 
 }

@@ -1,25 +1,25 @@
 package swe443.assignment5.mancala.util;
 
 import org.sdmlib.models.pattern.PatternObject;
-import swe443.assignment5.mancala.House;
+import swe443.assignment5.mancala.Store;
 import org.sdmlib.models.pattern.AttributeConstraint;
 import org.sdmlib.models.pattern.Pattern;
 import swe443.assignment5.mancala.util.BoardPO;
 import swe443.assignment5.mancala.Board;
-import swe443.assignment5.mancala.util.HousePO;
+import swe443.assignment5.mancala.util.StorePO;
 
-public class HousePO extends PatternObject<HousePO, House>
+public class StorePO extends PatternObject<StorePO, Store>
 {
 
-    public HouseSet allMatches()
+    public StoreSet allMatches()
    {
       this.setDoAllMatches(true);
       
-      HouseSet matches = new HouseSet();
+      StoreSet matches = new StoreSet();
 
       while (this.getPattern().getHasMatch())
       {
-         matches.add((House) this.getCurrentMatch());
+         matches.add((Store) this.getCurrentMatch());
          
          this.getPattern().findMatch();
       }
@@ -28,36 +28,36 @@ public class HousePO extends PatternObject<HousePO, House>
    }
 
 
-   public HousePO(){
+   public StorePO(){
       newInstance(null);
    }
 
-   public HousePO(House... hostGraphObject) {
+   public StorePO(Store... hostGraphObject) {
       if(hostGraphObject==null || hostGraphObject.length<1){
          return ;
       }
       newInstance(null, hostGraphObject);
    }
 
-   public HousePO(String modifier)
+   public StorePO(String modifier)
    {
       this.setModifier(modifier);
    }
    
    //==========================================================================
    
-   public void sow()
+   public void takeOppositePebbles()
    {
       if (this.getPattern().getHasMatch())
       {
-          ((House) getCurrentMatch()).sow();
+          ((Store) getCurrentMatch()).takeOppositePebbles();
       }
    }
 
-   public HousePO createStonesCondition(int value)
+   public StorePO createStonesCondition(int value)
    {
       new AttributeConstraint()
-      .withAttrName(House.PROPERTY_STONES)
+      .withAttrName(Store.PROPERTY_STONES)
       .withTgtValue(value)
       .withSrc(this)
       .withModifier(this.getPattern().getModifier())
@@ -68,10 +68,10 @@ public class HousePO extends PatternObject<HousePO, House>
       return this;
    }
    
-   public HousePO createStonesCondition(int lower, int upper)
+   public StorePO createStonesCondition(int lower, int upper)
    {
       new AttributeConstraint()
-      .withAttrName(House.PROPERTY_STONES)
+      .withAttrName(Store.PROPERTY_STONES)
       .withTgtValue(lower)
       .withUpperTgtValue(upper)
       .withSrc(this)
@@ -83,10 +83,10 @@ public class HousePO extends PatternObject<HousePO, House>
       return this;
    }
    
-   public HousePO createStonesAssignment(int value)
+   public StorePO createStonesAssignment(int value)
    {
       new AttributeConstraint()
-      .withAttrName(House.PROPERTY_STONES)
+      .withAttrName(Store.PROPERTY_STONES)
       .withTgtValue(value)
       .withSrc(this)
       .withModifier(Pattern.CREATE)
@@ -101,16 +101,16 @@ public class HousePO extends PatternObject<HousePO, House>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((House) getCurrentMatch()).getStones();
+         return ((Store) getCurrentMatch()).getStones();
       }
       return 0;
    }
    
-   public HousePO withStones(int value)
+   public StorePO withStones(int value)
    {
       if (this.getPattern().getHasMatch())
       {
-         ((House) getCurrentMatch()).setStones(value);
+         ((Store) getCurrentMatch()).setStones(value);
       }
       return this;
    }
@@ -120,7 +120,7 @@ public class HousePO extends PatternObject<HousePO, House>
       BoardPO result = new BoardPO(new Board[]{});
       
       result.setModifier(this.getPattern().getModifier());
-      super.hasLink(House.PROPERTY_BOARD, result);
+      super.hasLink(Store.PROPERTY_BOARD, result);
       
       return result;
    }
@@ -130,26 +130,26 @@ public class HousePO extends PatternObject<HousePO, House>
       BoardPO result = new BoardPO(new Board[]{});
       
       result.setModifier(modifier);
-      super.hasLink(House.PROPERTY_BOARD, result);
+      super.hasLink(Store.PROPERTY_BOARD, result);
       
       return result;
    }
 
-   public HousePO createBoardLink(BoardPO tgt)
+   public StorePO createBoardLink(BoardPO tgt)
    {
-      return hasLinkConstraint(tgt, House.PROPERTY_BOARD);
+      return hasLinkConstraint(tgt, Store.PROPERTY_BOARD);
    }
 
-   public HousePO createBoardLink(BoardPO tgt, String modifier)
+   public StorePO createBoardLink(BoardPO tgt, String modifier)
    {
-      return hasLinkConstraint(tgt, House.PROPERTY_BOARD, modifier);
+      return hasLinkConstraint(tgt, Store.PROPERTY_BOARD, modifier);
    }
 
    public Board getBoard()
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((House) this.getCurrentMatch()).getBoard();
+         return ((Store) this.getCurrentMatch()).getBoard();
       }
       return null;
    }

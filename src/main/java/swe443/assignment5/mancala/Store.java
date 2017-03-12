@@ -29,12 +29,12 @@ import swe443.assignment5.mancala.Board;
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
  */
-   public  class House implements SendableEntity
+   public  class Store implements SendableEntity
 {
 
    
    //==========================================================================
-   public void sow(  )
+   public void takeOppositePebbles(  )
    {
       
    }
@@ -117,7 +117,7 @@ import swe443.assignment5.mancala.Board;
       }
    }
    
-   public House withStones(int value)
+   public Store withStones(int value)
    {
       setStones(value);
       return this;
@@ -138,8 +138,8 @@ import swe443.assignment5.mancala.Board;
    /********************************************************************
     * <pre>
     *              many                       one
-    * House ----------------------------------- Board
-    *              houses                   board
+    * Store ----------------------------------- Board
+    *              stores                   board
     * </pre>
     */
    
@@ -163,14 +163,14 @@ import swe443.assignment5.mancala.Board;
          if (this.board != null)
          {
             this.board = null;
-            oldValue.withoutHouses(this);
+            oldValue.withoutStores(this);
          }
          
          this.board = value;
          
          if (value != null)
          {
-            value.withHouses(this);
+            value.withStores(this);
          }
          
          firePropertyChange(PROPERTY_BOARD, oldValue, value);
@@ -180,7 +180,7 @@ import swe443.assignment5.mancala.Board;
       return changed;
    }
 
-   public House withBoard(Board value)
+   public Store withBoard(Board value)
    {
       setBoard(value);
       return this;

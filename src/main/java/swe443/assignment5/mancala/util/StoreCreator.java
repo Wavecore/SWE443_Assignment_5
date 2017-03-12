@@ -22,16 +22,16 @@
 package swe443.assignment5.mancala.util;
 
 import de.uniks.networkparser.interfaces.SendableEntityCreator;
-import swe443.assignment5.mancala.House;
+import swe443.assignment5.mancala.Store;
 import de.uniks.networkparser.IdMap;
 import swe443.assignment5.mancala.Board;
 
-public class HouseCreator implements SendableEntityCreator
+public class StoreCreator implements SendableEntityCreator
 {
    private final String[] properties = new String[]
    {
-      House.PROPERTY_STONES,
-      House.PROPERTY_BOARD,
+      Store.PROPERTY_STONES,
+      Store.PROPERTY_BOARD,
    };
    
    @Override
@@ -43,7 +43,7 @@ public class HouseCreator implements SendableEntityCreator
    @Override
    public Object getSendableInstance(boolean reference)
    {
-      return new House();
+      return new Store();
    }
    
    @Override
@@ -57,14 +57,14 @@ public class HouseCreator implements SendableEntityCreator
          attribute = attrName.substring(0, pos);
       }
 
-      if (House.PROPERTY_STONES.equalsIgnoreCase(attribute))
+      if (Store.PROPERTY_STONES.equalsIgnoreCase(attribute))
       {
-         return ((House) target).getStones();
+         return ((Store) target).getStones();
       }
 
-      if (House.PROPERTY_BOARD.equalsIgnoreCase(attribute))
+      if (Store.PROPERTY_BOARD.equalsIgnoreCase(attribute))
       {
-         return ((House) target).getBoard();
+         return ((Store) target).getBoard();
       }
       
       return null;
@@ -73,9 +73,9 @@ public class HouseCreator implements SendableEntityCreator
    @Override
    public boolean setValue(Object target, String attrName, Object value, String type)
    {
-      if (House.PROPERTY_STONES.equalsIgnoreCase(attrName))
+      if (Store.PROPERTY_STONES.equalsIgnoreCase(attrName))
       {
-         ((House) target).setStones(Integer.parseInt(value.toString()));
+         ((Store) target).setStones(Integer.parseInt(value.toString()));
          return true;
       }
 
@@ -84,9 +84,9 @@ public class HouseCreator implements SendableEntityCreator
          attrName = attrName + type;
       }
 
-      if (House.PROPERTY_BOARD.equalsIgnoreCase(attrName))
+      if (Store.PROPERTY_BOARD.equalsIgnoreCase(attrName))
       {
-         ((House) target).setBoard((Board) value);
+         ((Store) target).setBoard((Board) value);
          return true;
       }
       
@@ -100,6 +100,6 @@ public class HouseCreator implements SendableEntityCreator
    //==========================================================================
       public void removeObject(Object entity)
    {
-      ((House) entity).removeYou();
+      ((Store) entity).removeYou();
    }
 }

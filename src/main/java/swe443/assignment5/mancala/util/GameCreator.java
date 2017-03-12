@@ -22,16 +22,18 @@
 package swe443.assignment5.mancala.util;
 
 import de.uniks.networkparser.interfaces.SendableEntityCreator;
-import swe443.assignment5.mancala.House;
+import swe443.assignment5.mancala.Game;
 import de.uniks.networkparser.IdMap;
 import swe443.assignment5.mancala.Board;
+import swe443.assignment5.mancala.Player;
 
-public class HouseCreator implements SendableEntityCreator
+public class GameCreator implements SendableEntityCreator
 {
    private final String[] properties = new String[]
    {
-      House.PROPERTY_STONES,
-      House.PROPERTY_BOARD,
+      Game.PROPERTY_GAMEDONE,
+      Game.PROPERTY_BOARD,
+      Game.PROPERTY_PLAYER,
    };
    
    @Override
@@ -43,7 +45,7 @@ public class HouseCreator implements SendableEntityCreator
    @Override
    public Object getSendableInstance(boolean reference)
    {
-      return new House();
+      return new Game();
    }
    
    @Override
@@ -57,14 +59,19 @@ public class HouseCreator implements SendableEntityCreator
          attribute = attrName.substring(0, pos);
       }
 
-      if (House.PROPERTY_STONES.equalsIgnoreCase(attribute))
+      if (Game.PROPERTY_GAMEDONE.equalsIgnoreCase(attribute))
       {
-         return ((House) target).getStones();
+         return ((Game) target).isGameDone();
       }
 
-      if (House.PROPERTY_BOARD.equalsIgnoreCase(attribute))
+      if (Game.PROPERTY_BOARD.equalsIgnoreCase(attribute))
       {
-         return ((House) target).getBoard();
+         return ((Game) target).getBoard();
+      }
+
+      if (Game.PROPERTY_PLAYER.equalsIgnoreCase(attribute))
+      {
+         return ((Game) target).getPlayer();
       }
       
       return null;
@@ -73,9 +80,9 @@ public class HouseCreator implements SendableEntityCreator
    @Override
    public boolean setValue(Object target, String attrName, Object value, String type)
    {
-      if (House.PROPERTY_STONES.equalsIgnoreCase(attrName))
+      if (Game.PROPERTY_GAMEDONE.equalsIgnoreCase(attrName))
       {
-         ((House) target).setStones(Integer.parseInt(value.toString()));
+         ((Game) target).setGameDone((Boolean) value);
          return true;
       }
 
@@ -84,9 +91,21 @@ public class HouseCreator implements SendableEntityCreator
          attrName = attrName + type;
       }
 
-      if (House.PROPERTY_BOARD.equalsIgnoreCase(attrName))
+      if (Game.PROPERTY_BOARD.equalsIgnoreCase(attrName))
       {
-         ((House) target).setBoard((Board) value);
+         ((Game) target).setBoard((Board) value);
+         return true;
+      }
+
+      if (Game.PROPERTY_PLAYER.equalsIgnoreCase(attrName))
+      {
+         ((Game) target).withPlayer((Player) value);
+         return true;
+      }
+      
+      if ((Game.PROPERTY_PLAYER + SendableEntityCreator.REMOVE).equalsIgnoreCase(attrName))
+      {
+         ((Game) target).withoutPlayer((Player) value);
          return true;
       }
       
@@ -100,6 +119,6 @@ public class HouseCreator implements SendableEntityCreator
    //==========================================================================
       public void removeObject(Object entity)
    {
-      ((House) entity).removeYou();
+      ((Game) entity).removeYou();
    }
 }

@@ -22,7 +22,7 @@
 package swe443.assignment5.mancala.util;
 
 import de.uniks.networkparser.list.SimpleSet;
-import swe443.assignment5.mancala.House;
+import swe443.assignment5.mancala.Store;
 import de.uniks.networkparser.interfaces.Condition;
 import java.util.Collection;
 import de.uniks.networkparser.list.NumberList;
@@ -30,60 +30,60 @@ import de.uniks.networkparser.list.ObjectSet;
 import swe443.assignment5.mancala.util.BoardSet;
 import swe443.assignment5.mancala.Board;
 
-public class HouseSet extends SimpleSet<House>
+public class StoreSet extends SimpleSet<Store>
 {
 	protected Class<?> getTypClass() {
-		return House.class;
+		return Store.class;
 	}
 
-   public HouseSet()
+   public StoreSet()
    {
       // empty
    }
 
-   public HouseSet(House... objects)
+   public StoreSet(Store... objects)
    {
-      for (House obj : objects)
+      for (Store obj : objects)
       {
          this.add(obj);
       }
    }
 
-   public HouseSet(Collection<House> objects)
+   public StoreSet(Collection<Store> objects)
    {
       this.addAll(objects);
    }
 
-   public static final HouseSet EMPTY_SET = new HouseSet().withFlag(HouseSet.READONLY);
+   public static final StoreSet EMPTY_SET = new StoreSet().withFlag(StoreSet.READONLY);
 
 
-   public HousePO createHousePO()
+   public StorePO createStorePO()
    {
-      return new HousePO(this.toArray(new House[this.size()]));
+      return new StorePO(this.toArray(new Store[this.size()]));
    }
 
 
    public String getEntryType()
    {
-      return "swe443.assignment5.mancala.House";
+      return "swe443.assignment5.mancala.Store";
    }
 
 
    @Override
-   public HouseSet getNewList(boolean keyValue)
+   public StoreSet getNewList(boolean keyValue)
    {
-      return new HouseSet();
+      return new StoreSet();
    }
 
 
-   public HouseSet filter(Condition<House> condition) {
-      HouseSet filterList = new HouseSet();
+   public StoreSet filter(Condition<Store> condition) {
+      StoreSet filterList = new StoreSet();
       filterItems(filterList, condition);
       return filterList;
    }
 
    @SuppressWarnings("unchecked")
-   public HouseSet with(Object value)
+   public StoreSet with(Object value)
    {
       if (value == null)
       {
@@ -91,17 +91,17 @@ public class HouseSet extends SimpleSet<House>
       }
       else if (value instanceof java.util.Collection)
       {
-         this.addAll((Collection<House>)value);
+         this.addAll((Collection<Store>)value);
       }
       else if (value != null)
       {
-         this.add((House) value);
+         this.add((Store) value);
       }
       
       return this;
    }
    
-   public HouseSet without(House value)
+   public StoreSet without(Store value)
    {
       this.remove(value);
       return this;
@@ -110,14 +110,14 @@ public class HouseSet extends SimpleSet<House>
    
    //==========================================================================
    
-   public HouseSet sow()
+   public StoreSet takeOppositePebbles()
    {
-      return HouseSet.EMPTY_SET;
+      return StoreSet.EMPTY_SET;
    }
 
 
    /**
-    * Loop through the current set of House objects and collect a list of the stones attribute values. 
+    * Loop through the current set of Store objects and collect a list of the stones attribute values. 
     * 
     * @return List of int objects reachable via stones attribute
     */
@@ -125,7 +125,7 @@ public class HouseSet extends SimpleSet<House>
    {
       NumberList result = new NumberList();
       
-      for (House obj : this)
+      for (Store obj : this)
       {
          result.add(obj.getStones());
       }
@@ -135,17 +135,17 @@ public class HouseSet extends SimpleSet<House>
 
 
    /**
-    * Loop through the current set of House objects and collect those House objects where the stones attribute matches the parameter value. 
+    * Loop through the current set of Store objects and collect those Store objects where the stones attribute matches the parameter value. 
     * 
     * @param value Search value
     * 
-    * @return Subset of House objects that match the parameter
+    * @return Subset of Store objects that match the parameter
     */
-   public HouseSet filterStones(int value)
+   public StoreSet filterStones(int value)
    {
-      HouseSet result = new HouseSet();
+      StoreSet result = new StoreSet();
       
-      for (House obj : this)
+      for (Store obj : this)
       {
          if (value == obj.getStones())
          {
@@ -158,18 +158,18 @@ public class HouseSet extends SimpleSet<House>
 
 
    /**
-    * Loop through the current set of House objects and collect those House objects where the stones attribute is between lower and upper. 
+    * Loop through the current set of Store objects and collect those Store objects where the stones attribute is between lower and upper. 
     * 
     * @param lower Lower bound 
     * @param upper Upper bound 
     * 
-    * @return Subset of House objects that match the parameter
+    * @return Subset of Store objects that match the parameter
     */
-   public HouseSet filterStones(int lower, int upper)
+   public StoreSet filterStones(int lower, int upper)
    {
-      HouseSet result = new HouseSet();
+      StoreSet result = new StoreSet();
       
-      for (House obj : this)
+      for (Store obj : this)
       {
          if (lower <= obj.getStones() && obj.getStones() <= upper)
          {
@@ -182,15 +182,15 @@ public class HouseSet extends SimpleSet<House>
 
 
    /**
-    * Loop through the current set of House objects and assign value to the stones attribute of each of it. 
+    * Loop through the current set of Store objects and assign value to the stones attribute of each of it. 
     * 
     * @param value New attribute value
     * 
-    * @return Current set of House objects now with new attribute values.
+    * @return Current set of Store objects now with new attribute values.
     */
-   public HouseSet withStones(int value)
+   public StoreSet withStones(int value)
    {
-      for (House obj : this)
+      for (Store obj : this)
       {
          obj.setStones(value);
       }
@@ -199,7 +199,7 @@ public class HouseSet extends SimpleSet<House>
    }
 
    /**
-    * Loop through the current set of House objects and collect a set of the Board objects reached via board. 
+    * Loop through the current set of Store objects and collect a set of the Board objects reached via board. 
     * 
     * @return Set of Board objects reachable via board
     */
@@ -207,7 +207,7 @@ public class HouseSet extends SimpleSet<House>
    {
       BoardSet result = new BoardSet();
       
-      for (House obj : this)
+      for (Store obj : this)
       {
          result.with(obj.getBoard());
       }
@@ -216,13 +216,13 @@ public class HouseSet extends SimpleSet<House>
    }
 
    /**
-    * Loop through the current set of House objects and collect all contained objects with reference board pointing to the object passed as parameter. 
+    * Loop through the current set of Store objects and collect all contained objects with reference board pointing to the object passed as parameter. 
     * 
     * @param value The object required as board neighbor of the collected results. 
     * 
     * @return Set of Board objects referring to value via board
     */
-   public HouseSet filterBoard(Object value)
+   public StoreSet filterBoard(Object value)
    {
       ObjectSet neighbors = new ObjectSet();
 
@@ -235,9 +235,9 @@ public class HouseSet extends SimpleSet<House>
          neighbors.add(value);
       }
       
-      HouseSet answer = new HouseSet();
+      StoreSet answer = new StoreSet();
       
-      for (House obj : this)
+      for (Store obj : this)
       {
          if (neighbors.contains(obj.getBoard()) || (neighbors.isEmpty() && obj.getBoard() == null))
          {
@@ -249,13 +249,13 @@ public class HouseSet extends SimpleSet<House>
    }
 
    /**
-    * Loop through current set of ModelType objects and attach the House object passed as parameter to the Board attribute of each of it. 
+    * Loop through current set of ModelType objects and attach the Store object passed as parameter to the Board attribute of each of it. 
     * 
     * @return The original set of ModelType objects now with the new neighbor attached to their Board attributes.
     */
-   public HouseSet withBoard(Board value)
+   public StoreSet withBoard(Board value)
    {
-      for (House obj : this)
+      for (Store obj : this)
       {
          obj.withBoard(value);
       }
