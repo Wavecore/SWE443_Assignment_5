@@ -31,6 +31,7 @@ import swe443.assignment5.mancala.util.BoardSet;
 import swe443.assignment5.mancala.Board;
 import swe443.assignment5.mancala.util.HouseSet;
 import swe443.assignment5.mancala.House;
+import swe443.assignment5.mancala.util.StoreSet;
 
 public class StoreSet extends SimpleSet<Store>
 {
@@ -112,7 +113,22 @@ public class StoreSet extends SimpleSet<Store>
    
    //==========================================================================
    
-   public StoreSet takeOppositePebbles()
+   public NumberList takeOppositePebbles()
+   {
+      
+      NumberList result = new NumberList();
+      
+      for (Store obj : this)
+      {
+         result.add( obj.takeOppositePebbles() );
+      }
+      return result;
+   }
+
+   
+   //==========================================================================
+   
+   public StoreSet lastSownEvent()
    {
       return StoreSet.EMPTY_SET;
    }
@@ -452,6 +468,102 @@ public class StoreSet extends SimpleSet<Store>
       for (Store obj : this)
       {
          obj.withRightSide(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through the current set of Store objects and collect a set of the Store objects reached via opposite. 
+    * 
+    * @return Set of Store objects reachable via opposite
+    */
+   public StoreSet getOpposite()
+   {
+      StoreSet result = new StoreSet();
+      
+      for (Store obj : this)
+      {
+         result.with(obj.getOpposite());
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through the current set of Store objects and collect all contained objects with reference opposite pointing to the object passed as parameter. 
+    * 
+    * @param value The object required as opposite neighbor of the collected results. 
+    * 
+    * @return Set of Store objects referring to value via opposite
+    */
+   public StoreSet filterOpposite(Object value)
+   {
+      ObjectSet neighbors = new ObjectSet();
+
+      if (value instanceof Collection)
+      {
+         neighbors.addAll((Collection<?>) value);
+      }
+      else
+      {
+         neighbors.add(value);
+      }
+      
+      StoreSet answer = new StoreSet();
+      
+      for (Store obj : this)
+      {
+         if (neighbors.contains(obj.getOpposite()) || (neighbors.isEmpty() && obj.getOpposite() == null))
+         {
+            answer.add(obj);
+         }
+      }
+      
+      return answer;
+   }
+
+   /**
+    * Follow opposite reference zero or more times and collect all reachable objects. Detect cycles and deal with them. 
+    * 
+    * @return Set of Store objects reachable via opposite transitively (including the start set)
+    */
+   public StoreSet getOppositeTransitive()
+   {
+      StoreSet todo = new StoreSet().with(this);
+      
+      StoreSet result = new StoreSet();
+      
+      while ( ! todo.isEmpty())
+      {
+         Store current = todo.first();
+         
+         todo.remove(current);
+         
+         if ( ! result.contains(current))
+         {
+            result.add(current);
+            
+            if ( ! result.contains(current.getOpposite()))
+            {
+               todo.with(current.getOpposite());
+            }
+         }
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and attach the Store object passed as parameter to the Opposite attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now with the new neighbor attached to their Opposite attributes.
+    */
+   public StoreSet withOpposite(Store value)
+   {
+      for (Store obj : this)
+      {
+         obj.withOpposite(value);
       }
       
       return this;

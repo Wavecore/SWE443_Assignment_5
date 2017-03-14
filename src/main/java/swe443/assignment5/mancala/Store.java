@@ -23,6 +23,7 @@ package swe443.assignment5.mancala;
 
 import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.Board;
+import swe443.assignment5.mancala.util.StoreSet;
    /**
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
@@ -32,7 +33,14 @@ import swe443.assignment5.mancala.Board;
 
    
    //==========================================================================
-   public void takeOppositePebbles(  )
+   public int takeOppositePebbles(  )
+   {
+      return 0;
+   }
+
+   
+   //==========================================================================
+   public void lastSownEvent(  )
    {
       
    }
@@ -46,6 +54,7 @@ import swe443.assignment5.mancala.Board;
       setBoard(null);
       setLeftSide(null);
       setRightSide(null);
+      setOpposite(null);
       firePropertyChange("REMOVE_YOU", this, null);
    }
 
@@ -116,6 +125,71 @@ import swe443.assignment5.mancala.Board;
    {
       Board value = new Board();
       withBoard(value);
+      return value;
+   } 
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       one
+    * Store ----------------------------------- Store
+    *              opposite                   opposite
+    * </pre>
+    */
+   
+   public static final String PROPERTY_OPPOSITE = "opposite";
+
+   private Store opposite = null;
+
+   public Store getOpposite()
+   {
+      return this.opposite;
+   }
+   public StoreSet getOppositeTransitive()
+   {
+      StoreSet result = new StoreSet().with(this);
+      return result.getOppositeTransitive();
+   }
+
+
+   public boolean setOpposite(Store value)
+   {
+      boolean changed = false;
+      
+      if (this.opposite != value)
+      {
+         Store oldValue = this.opposite;
+         
+         if (this.opposite != null)
+         {
+            this.opposite = null;
+            oldValue.setOpposite(null);
+         }
+         
+         this.opposite = value;
+         
+         if (value != null)
+         {
+            value.withOpposite(this);
+         }
+         
+         firePropertyChange(PROPERTY_OPPOSITE, oldValue, value);
+         changed = true;
+      }
+      
+      return changed;
+   }
+
+   public Store withOpposite(Store value)
+   {
+      setOpposite(value);
+      return this;
+   } 
+
+   public Store createOpposite()
+   {
+      Store value = new Store();
+      withOpposite(value);
       return value;
    } 
 }

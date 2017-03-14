@@ -46,11 +46,11 @@ public class HousePO extends PatternObject<HousePO, House>
    
    //==========================================================================
    
-   public void sow()
+   public void lastSownEvent()
    {
       if (this.getPattern().getHasMatch())
       {
-          ((House) getCurrentMatch()).sow();
+          ((House) getCurrentMatch()).lastSownEvent();
       }
    }
 

@@ -28,7 +28,8 @@ import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.util.HouseSet;
 import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.util.StoreSet;
-import swe443.assignment5.mancala.Game;
+import swe443.assignment5.mancala.util.PlayerSet;
+import swe443.assignment5.mancala.Player;
    /**
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
@@ -97,7 +98,7 @@ import swe443.assignment5.mancala.Game;
    {
       withoutHouses(this.getHouses().toArray(new House[this.getHouses().size()]));
       withoutStores(this.getStores().toArray(new Store[this.getStores().size()]));
-      setGame(null);
+      withoutPlayer(this.getPlayer().toArray(new Player[this.getPlayer().size()]));
       firePropertyChange("REMOVE_YOU", this, null);
    }
 
@@ -255,59 +256,72 @@ import swe443.assignment5.mancala.Game;
    
    /********************************************************************
     * <pre>
-    *              one                       one
-    * Board ----------------------------------- Game
-    *              board                   game
+    *              one                       many
+    * Board ----------------------------------- Player
+    *              board                   player
     * </pre>
     */
    
-   public static final String PROPERTY_GAME = "game";
+   public static final String PROPERTY_PLAYER = "player";
 
-   private Game game = null;
-
-   public Game getGame()
+   private PlayerSet player = null;
+   
+   public PlayerSet getPlayer()
    {
-      return this.game;
-   }
-
-   public boolean setGame(Game value)
-   {
-      boolean changed = false;
-      
-      if (this.game != value)
+      if (this.player == null)
       {
-         Game oldValue = this.game;
-         
-         if (this.game != null)
-         {
-            this.game = null;
-            oldValue.setBoard(null);
-         }
-         
-         this.game = value;
-         
-         if (value != null)
-         {
-            value.withBoard(this);
-         }
-         
-         firePropertyChange(PROPERTY_GAME, oldValue, value);
-         changed = true;
+         return PlayerSet.EMPTY_SET;
       }
-      
-      return changed;
+   
+      return this.player;
    }
 
-   public Board withGame(Game value)
+   public Board withPlayer(Player... value)
    {
-      setGame(value);
+      if(value==null){
+         return this;
+      }
+      for (Player item : value)
+      {
+         if (item != null)
+         {
+            if (this.player == null)
+            {
+               this.player = new PlayerSet();
+            }
+            
+            boolean changed = this.player.add (item);
+
+            if (changed)
+            {
+               item.withBoard(this);
+               firePropertyChange(PROPERTY_PLAYER, null, item);
+            }
+         }
+      }
       return this;
    } 
 
-   public Game createGame()
+   public Board withoutPlayer(Player... value)
    {
-      Game value = new Game();
-      withGame(value);
+      for (Player item : value)
+      {
+         if ((this.player != null) && (item != null))
+         {
+            if (this.player.remove(item))
+            {
+               item.setBoard(null);
+               firePropertyChange(PROPERTY_PLAYER, item, null);
+            }
+         }
+      }
+      return this;
+   }
+
+   public Player createPlayer()
+   {
+      Player value = new Player();
+      withPlayer(value);
       return value;
    } 
 }

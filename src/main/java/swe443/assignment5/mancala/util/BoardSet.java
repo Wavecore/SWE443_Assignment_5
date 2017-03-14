@@ -31,8 +31,8 @@ import swe443.assignment5.mancala.util.HouseSet;
 import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.util.StoreSet;
 import swe443.assignment5.mancala.Store;
-import swe443.assignment5.mancala.util.GameSet;
-import swe443.assignment5.mancala.Game;
+import swe443.assignment5.mancala.util.PlayerSet;
+import swe443.assignment5.mancala.Player;
 
 public class BoardSet extends SimpleSet<Board>
 {
@@ -280,30 +280,30 @@ public class BoardSet extends SimpleSet<Board>
    }
 
    /**
-    * Loop through the current set of Board objects and collect a set of the Game objects reached via game. 
+    * Loop through the current set of Board objects and collect a set of the Player objects reached via player. 
     * 
-    * @return Set of Game objects reachable via game
+    * @return Set of Player objects reachable via player
     */
-   public GameSet getGame()
+   public PlayerSet getPlayer()
    {
-      GameSet result = new GameSet();
+      PlayerSet result = new PlayerSet();
       
       for (Board obj : this)
       {
-         result.with(obj.getGame());
+         result.with(obj.getPlayer());
       }
       
       return result;
    }
 
    /**
-    * Loop through the current set of Board objects and collect all contained objects with reference game pointing to the object passed as parameter. 
+    * Loop through the current set of Board objects and collect all contained objects with reference player pointing to the object passed as parameter. 
     * 
-    * @param value The object required as game neighbor of the collected results. 
+    * @param value The object required as player neighbor of the collected results. 
     * 
-    * @return Set of Game objects referring to value via game
+    * @return Set of Player objects referring to value via player
     */
-   public BoardSet filterGame(Object value)
+   public BoardSet filterPlayer(Object value)
    {
       ObjectSet neighbors = new ObjectSet();
 
@@ -320,7 +320,7 @@ public class BoardSet extends SimpleSet<Board>
       
       for (Board obj : this)
       {
-         if (neighbors.contains(obj.getGame()) || (neighbors.isEmpty() && obj.getGame() == null))
+         if ( ! Collections.disjoint(neighbors, obj.getPlayer()))
          {
             answer.add(obj);
          }
@@ -330,15 +330,30 @@ public class BoardSet extends SimpleSet<Board>
    }
 
    /**
-    * Loop through current set of ModelType objects and attach the Board object passed as parameter to the Game attribute of each of it. 
+    * Loop through current set of ModelType objects and attach the Board object passed as parameter to the Player attribute of each of it. 
     * 
-    * @return The original set of ModelType objects now with the new neighbor attached to their Game attributes.
+    * @return The original set of ModelType objects now with the new neighbor attached to their Player attributes.
     */
-   public BoardSet withGame(Game value)
+   public BoardSet withPlayer(Player value)
    {
       for (Board obj : this)
       {
-         obj.withGame(value);
+         obj.withPlayer(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and remove the Board object passed as parameter from the Player attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now without the old neighbor.
+    */
+   public BoardSet withoutPlayer(Player value)
+   {
+      for (Board obj : this)
+      {
+         obj.withoutPlayer(value);
       }
       
       return this;

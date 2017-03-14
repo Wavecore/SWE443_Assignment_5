@@ -13,8 +13,6 @@ class CreatorCreator{
       jsonIdMap.with(new StorePOCreator());
       jsonIdMap.with(new BoardCreator());
       jsonIdMap.with(new BoardPOCreator());
-      jsonIdMap.with(new GameCreator());
-      jsonIdMap.with(new GamePOCreator());
       jsonIdMap.with(new PlayerCreator());
       jsonIdMap.with(new PlayerPOCreator());
       return jsonIdMap;

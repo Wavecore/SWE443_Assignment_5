@@ -128,7 +128,7 @@ public class HouseSet extends SimpleSet<House>
    
    //==========================================================================
    
-   public HouseSet sow()
+   public HouseSet lastSownEvent()
    {
       return HouseSet.EMPTY_SET;
    }

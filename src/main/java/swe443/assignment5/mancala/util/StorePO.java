@@ -48,11 +48,23 @@ public class StorePO extends PatternObject<StorePO, Store>
    
    //==========================================================================
    
-   public void takeOppositePebbles()
+   public int takeOppositePebbles()
    {
       if (this.getPattern().getHasMatch())
       {
-          ((Store) getCurrentMatch()).takeOppositePebbles();
+         return ((Store) getCurrentMatch()).takeOppositePebbles();
+      }
+      return 0;
+   }
+
+   
+   //==========================================================================
+   
+   public void lastSownEvent()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Store) getCurrentMatch()).lastSownEvent();
       }
    }
 
@@ -230,6 +242,45 @@ public class StorePO extends PatternObject<StorePO, Store>
       if (this.getPattern().getHasMatch())
       {
          return ((Store) this.getCurrentMatch()).getRightSide();
+      }
+      return null;
+   }
+
+   public StorePO createOppositePO()
+   {
+      StorePO result = new StorePO(new Store[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(Store.PROPERTY_OPPOSITE, result);
+      
+      return result;
+   }
+
+   public StorePO createOppositePO(String modifier)
+   {
+      StorePO result = new StorePO(new Store[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(Store.PROPERTY_OPPOSITE, result);
+      
+      return result;
+   }
+
+   public StorePO createOppositeLink(StorePO tgt)
+   {
+      return hasLinkConstraint(tgt, Store.PROPERTY_OPPOSITE);
+   }
+
+   public StorePO createOppositeLink(StorePO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, Store.PROPERTY_OPPOSITE, modifier);
+   }
+
+   public Store getOpposite()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Store) this.getCurrentMatch()).getOpposite();
       }
       return null;
    }

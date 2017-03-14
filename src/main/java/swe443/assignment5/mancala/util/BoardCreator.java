@@ -26,7 +26,7 @@ import swe443.assignment5.mancala.Board;
 import de.uniks.networkparser.IdMap;
 import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.Store;
-import swe443.assignment5.mancala.Game;
+import swe443.assignment5.mancala.Player;
 
 public class BoardCreator implements SendableEntityCreator
 {
@@ -34,7 +34,7 @@ public class BoardCreator implements SendableEntityCreator
    {
       Board.PROPERTY_HOUSES,
       Board.PROPERTY_STORES,
-      Board.PROPERTY_GAME,
+      Board.PROPERTY_PLAYER,
    };
    
    @Override
@@ -70,9 +70,9 @@ public class BoardCreator implements SendableEntityCreator
          return ((Board) target).getStores();
       }
 
-      if (Board.PROPERTY_GAME.equalsIgnoreCase(attribute))
+      if (Board.PROPERTY_PLAYER.equalsIgnoreCase(attribute))
       {
-         return ((Board) target).getGame();
+         return ((Board) target).getPlayer();
       }
       
       return null;
@@ -110,9 +110,15 @@ public class BoardCreator implements SendableEntityCreator
          return true;
       }
 
-      if (Board.PROPERTY_GAME.equalsIgnoreCase(attrName))
+      if (Board.PROPERTY_PLAYER.equalsIgnoreCase(attrName))
       {
-         ((Board) target).setGame((Game) value);
+         ((Board) target).withPlayer((Player) value);
+         return true;
+      }
+      
+      if ((Board.PROPERTY_PLAYER + SendableEntityCreator.REMOVE).equalsIgnoreCase(attrName))
+      {
+         ((Board) target).withoutPlayer((Player) value);
          return true;
       }
       

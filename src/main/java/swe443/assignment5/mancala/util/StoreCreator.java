@@ -35,6 +35,7 @@ public class StoreCreator implements SendableEntityCreator
       Store.PROPERTY_BOARD,
       Store.PROPERTY_LEFTSIDE,
       Store.PROPERTY_RIGHTSIDE,
+      Store.PROPERTY_OPPOSITE,
    };
    
    @Override
@@ -79,6 +80,11 @@ public class StoreCreator implements SendableEntityCreator
       {
          return ((Store) target).getRightSide();
       }
+
+      if (Store.PROPERTY_OPPOSITE.equalsIgnoreCase(attribute))
+      {
+         return ((Store) target).getOpposite();
+      }
       
       return null;
    }
@@ -112,6 +118,12 @@ public class StoreCreator implements SendableEntityCreator
       if (Store.PROPERTY_RIGHTSIDE.equalsIgnoreCase(attrName))
       {
          ((Store) target).setRightSide((House) value);
+         return true;
+      }
+
+      if (Store.PROPERTY_OPPOSITE.equalsIgnoreCase(attrName))
+      {
+         ((Store) target).setOpposite((Store) value);
          return true;
       }
       

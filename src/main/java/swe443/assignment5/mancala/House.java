@@ -35,7 +35,7 @@ import swe443.assignment5.mancala.util.HouseSet;
 
    
    //==========================================================================
-   public void sow(  )
+   public void lastSownEvent(  )
    {
       
    }

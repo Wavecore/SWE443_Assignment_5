@@ -9,8 +9,9 @@ import swe443.assignment5.mancala.util.HouseSet;
 import swe443.assignment5.mancala.util.StorePO;
 import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.util.StoreSet;
-import swe443.assignment5.mancala.util.GamePO;
-import swe443.assignment5.mancala.Game;
+import swe443.assignment5.mancala.util.PlayerPO;
+import swe443.assignment5.mancala.Player;
+import swe443.assignment5.mancala.util.PlayerSet;
 
 public class BoardPO extends PatternObject<BoardPO, Board>
 {
@@ -136,41 +137,41 @@ public class BoardPO extends PatternObject<BoardPO, Board>
       return null;
    }
 
-   public GamePO createGamePO()
+   public PlayerPO createPlayerPO()
    {
-      GamePO result = new GamePO(new Game[]{});
+      PlayerPO result = new PlayerPO(new Player[]{});
       
       result.setModifier(this.getPattern().getModifier());
-      super.hasLink(Board.PROPERTY_GAME, result);
+      super.hasLink(Board.PROPERTY_PLAYER, result);
       
       return result;
    }
 
-   public GamePO createGamePO(String modifier)
+   public PlayerPO createPlayerPO(String modifier)
    {
-      GamePO result = new GamePO(new Game[]{});
+      PlayerPO result = new PlayerPO(new Player[]{});
       
       result.setModifier(modifier);
-      super.hasLink(Board.PROPERTY_GAME, result);
+      super.hasLink(Board.PROPERTY_PLAYER, result);
       
       return result;
    }
 
-   public BoardPO createGameLink(GamePO tgt)
+   public BoardPO createPlayerLink(PlayerPO tgt)
    {
-      return hasLinkConstraint(tgt, Board.PROPERTY_GAME);
+      return hasLinkConstraint(tgt, Board.PROPERTY_PLAYER);
    }
 
-   public BoardPO createGameLink(GamePO tgt, String modifier)
+   public BoardPO createPlayerLink(PlayerPO tgt, String modifier)
    {
-      return hasLinkConstraint(tgt, Board.PROPERTY_GAME, modifier);
+      return hasLinkConstraint(tgt, Board.PROPERTY_PLAYER, modifier);
    }
 
-   public Game getGame()
+   public PlayerSet getPlayer()
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Board) this.getCurrentMatch()).getGame();
+         return ((Board) this.getCurrentMatch()).getPlayer();
       }
       return null;
    }

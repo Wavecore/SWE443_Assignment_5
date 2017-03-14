@@ -24,7 +24,7 @@ package swe443.assignment5.mancala.util;
 import de.uniks.networkparser.interfaces.SendableEntityCreator;
 import swe443.assignment5.mancala.Player;
 import de.uniks.networkparser.IdMap;
-import swe443.assignment5.mancala.Game;
+import swe443.assignment5.mancala.Board;
 
 public class PlayerCreator implements SendableEntityCreator
 {
@@ -32,7 +32,7 @@ public class PlayerCreator implements SendableEntityCreator
    {
       Player.PROPERTY_MYTURN,
       Player.PROPERTY_NAME,
-      Player.PROPERTY_GAME,
+      Player.PROPERTY_BOARD,
    };
    
    @Override
@@ -68,9 +68,9 @@ public class PlayerCreator implements SendableEntityCreator
          return ((Player) target).getName();
       }
 
-      if (Player.PROPERTY_GAME.equalsIgnoreCase(attribute))
+      if (Player.PROPERTY_BOARD.equalsIgnoreCase(attribute))
       {
-         return ((Player) target).getGame();
+         return ((Player) target).getBoard();
       }
       
       return null;
@@ -96,9 +96,9 @@ public class PlayerCreator implements SendableEntityCreator
          attrName = attrName + type;
       }
 
-      if (Player.PROPERTY_GAME.equalsIgnoreCase(attrName))
+      if (Player.PROPERTY_BOARD.equalsIgnoreCase(attrName))
       {
-         ((Player) target).setGame((Game) value);
+         ((Player) target).setBoard((Board) value);
          return true;
       }
       

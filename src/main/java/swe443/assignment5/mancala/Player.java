@@ -25,7 +25,7 @@ import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 import de.uniks.networkparser.EntityUtil;
-import swe443.assignment5.mancala.Game;
+import swe443.assignment5.mancala.Board;
    /**
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
@@ -92,7 +92,7 @@ import swe443.assignment5.mancala.Game;
    
    public void removeYou()
    {
-      setGame(null);
+      setBoard(null);
       firePropertyChange("REMOVE_YOU", this, null);
    }
 
@@ -167,58 +167,58 @@ import swe443.assignment5.mancala.Game;
    /********************************************************************
     * <pre>
     *              many                       one
-    * Player ----------------------------------- Game
-    *              player                   game
+    * Player ----------------------------------- Board
+    *              player                   board
     * </pre>
     */
    
-   public static final String PROPERTY_GAME = "game";
+   public static final String PROPERTY_BOARD = "board";
 
-   private Game game = null;
+   private Board board = null;
 
-   public Game getGame()
+   public Board getBoard()
    {
-      return this.game;
+      return this.board;
    }
 
-   public boolean setGame(Game value)
+   public boolean setBoard(Board value)
    {
       boolean changed = false;
       
-      if (this.game != value)
+      if (this.board != value)
       {
-         Game oldValue = this.game;
+         Board oldValue = this.board;
          
-         if (this.game != null)
+         if (this.board != null)
          {
-            this.game = null;
+            this.board = null;
             oldValue.withoutPlayer(this);
          }
          
-         this.game = value;
+         this.board = value;
          
          if (value != null)
          {
             value.withPlayer(this);
          }
          
-         firePropertyChange(PROPERTY_GAME, oldValue, value);
+         firePropertyChange(PROPERTY_BOARD, oldValue, value);
          changed = true;
       }
       
       return changed;
    }
 
-   public Player withGame(Game value)
+   public Player withBoard(Board value)
    {
-      setGame(value);
+      setBoard(value);
       return this;
    } 
 
-   public Game createGame()
+   public Board createBoard()
    {
-      Game value = new Game();
-      withGame(value);
+      Board value = new Board();
+      withBoard(value);
       return value;
    } 
 }

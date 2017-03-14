@@ -3,7 +3,7 @@ import de.uniks.networkparser.graph.Clazz;
 import de.uniks.networkparser.graph.DataType;
 import org.sdmlib.models.classes.ClassModel;
 import org.sdmlib.storyboards.Storyboard;
-import swe443.assignment5.mancala.*;
+//import swe443.assignment5.mancala.*;
 
 
 /**
@@ -18,21 +18,20 @@ public class Model {
         ClassModel model = new ClassModel("swe443.assignment5.mancala");
         Clazz houseClass = model.createClazz("House")
                 .withAttribute("stones", DataType.INT);
-        houseClass.withMethod("sow", DataType.VOID);
+        houseClass.withMethod("lastSownEvent",DataType.VOID);
+        //houseClass.withMethod("sow", DataType.VOID);
 
         Clazz storeClass = model.createClazz("Store");
-        //        .withAttribute("stones",DataType.INT);
-        storeClass.withMethod("takeOppositePebbles", DataType.VOID);
-
-        //houseClass.withKidClazzes(storeClass);
+        storeClass.withMethod("takeOppositePebbles", DataType.INT);
+        storeClass.withMethod("lastSownEvent",DataType.VOID);
         storeClass.withSuperClazz(houseClass);
 
 
         Clazz boardClass = model.createClazz("Board");
         boardClass.withMethod("setUpBoard", DataType.VOID);
 
-        Clazz gameClass = model.createClazz("Game")
-                .withAttribute("gameDone", DataType.BOOLEAN);
+        //Clazz gameClass = model.createClazz("Game")
+        //        .withAttribute("gameDone", DataType.BOOLEAN);
 
         Clazz playerClass = model.createClazz("Player")
                 .withAttribute("myTurn", DataType.BOOLEAN)
@@ -44,11 +43,14 @@ public class Model {
         //Board has MANY stores and store has ONE board
         storeClass.withBidirectional(boardClass, "board", Cardinality.ONE, "stores", Cardinality.MANY);
         //Board has ONE game and game has ONE board
-        gameClass.withBidirectional(boardClass, "board", Cardinality.ONE, "game", Cardinality.ONE);
+     //   gameClass.withBidirectional(boardClass, "board", Cardinality.ONE, "game", Cardinality.ONE);
         //Game has MANY players and player has ONE board
-        gameClass.withBidirectional(playerClass, "player", Cardinality.MANY, "game", Cardinality.ONE);
+      //  gameClass.withBidirectional(playerClass, "player", Cardinality.MANY, "game", Cardinality.ONE);
         //House has ONE house on its rightSide
+        boardClass.withBidirectional(playerClass,"player", Cardinality.MANY, "board", Cardinality.ONE);
+
         houseClass.withBidirectional(houseClass,"rightSide", Cardinality.ONE, "leftSide", Cardinality.ONE);
+        storeClass.withBidirectional(storeClass,"opposite",Cardinality.ONE,"opposite",Cardinality.ONE);
 
         model.generate();
 
@@ -61,7 +63,7 @@ public class Model {
         storyboard.add("setup the board and game");
 
 
-
+/*
         //Initalize the Game and board
         Game mancala = new Game();
         Board mainBoard = new Board().withGame(mancala);
@@ -121,7 +123,7 @@ public class Model {
         storyboard.addObjectDiagram(mancala, mainBoard, abe, bob);
         storyboard.dumpHTML();
 
-
+*/
 
 
     }
