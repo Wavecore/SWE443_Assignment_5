@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017 hlope
+   Copyright (c) 2017 Wave
    
    Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
    and associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -24,10 +24,10 @@ package swe443.assignment5.mancala;
 import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
+import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.util.HouseSet;
 import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.util.StoreSet;
-import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.Game;
    /**
     * 
@@ -169,6 +169,13 @@ import swe443.assignment5.mancala.Game;
    public House createHouses()
    {
       House value = new House();
+      withHouses(value);
+      return value;
+   } 
+
+   public Store createHousesStore()
+   {
+      Store value = new Store();
       withHouses(value);
       return value;
    } 

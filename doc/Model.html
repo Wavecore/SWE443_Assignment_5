@@ -30,9 +30,6 @@
       {
          "typ":"node",
          "id":"Store",
-         "attributes":[
-            "stones : int"
-         ],
          "methods":[
             "takeOppositePebbles()"
          ]
@@ -64,6 +61,19 @@
       }
    ],
    "edges":[
+      {
+         "typ":"GENERALISATION",
+         "source":{
+            "id":"Store",
+            "cardinality":"one",
+            "property":"store"
+         },
+         "target":{
+            "id":"House",
+            "cardinality":"one",
+            "property":"house"
+         }
+      },
       {
          "typ":"ASSOCIATION",
          "source":{

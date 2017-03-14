@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017 hlope
+   Copyright (c) 2017 Wave
    
    Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
    and associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -24,6 +24,8 @@ package swe443.assignment5.mancala.util;
 import de.uniks.networkparser.list.SimpleSet;
 import swe443.assignment5.mancala.House;
 import de.uniks.networkparser.interfaces.Condition;
+import swe443.assignment5.mancala.Store;
+import swe443.assignment5.mancala.util.StoreSet;
 import java.util.Collection;
 import de.uniks.networkparser.list.NumberList;
 import de.uniks.networkparser.list.ObjectSet;
@@ -80,6 +82,21 @@ public class HouseSet extends SimpleSet<House>
       HouseSet filterList = new HouseSet();
       filterItems(filterList, condition);
       return filterList;
+   }
+
+   public StoreSet instanceOfStore()
+   {
+      StoreSet result = new StoreSet();
+      
+      for(Object obj : this)
+      {
+         if (obj instanceof Store)
+         {
+            result.with(obj);
+         }
+      }
+      
+      return result;
    }
 
    @SuppressWarnings("unchecked")

@@ -20,9 +20,13 @@ public class Model {
                 .withAttribute("stones", DataType.INT);
         houseClass.withMethod("sow", DataType.VOID);
 
-        Clazz storeClass = model.createClazz("Store")
-                .withAttribute("stones",DataType.INT);
+        Clazz storeClass = model.createClazz("Store");
+        //        .withAttribute("stones",DataType.INT);
         storeClass.withMethod("takeOppositePebbles", DataType.VOID);
+
+        //houseClass.withKidClazzes(storeClass);
+        storeClass.withSuperClazz(houseClass);
+
 
         Clazz boardClass = model.createClazz("Board");
         boardClass.withMethod("setUpBoard", DataType.VOID);
@@ -53,6 +57,9 @@ public class Model {
 
         //create object diagram//
         storyboard.add("setup the board and game");
+
+
+
         //Initalize the Game and board
         Game mancala = new Game();
         Board mainBoard = new Board().withGame(mancala);
@@ -63,18 +70,30 @@ public class Model {
 
 
         //Initalize 12 Stores
-        Store sOne = new Store().withBoard(mainBoard).withStones(3);
-        Store sTwo = new Store().withBoard(mainBoard).withStones(3);
-        Store sThree = new Store().withBoard(mainBoard).withStones(3);
-        Store sFour = new Store().withBoard(mainBoard).withStones(3);
-        Store sFive = new Store().withBoard(mainBoard).withStones(3);
-        Store sSix = new Store().withBoard(mainBoard).withStones(3);
-        Store sSeven = new Store().withBoard(mainBoard).withStones(3);
-        Store sEight = new Store().withBoard(mainBoard).withStones(3);
-        Store sNine = new Store().withBoard(mainBoard).withStones(3);
-        Store sTen = new Store().withBoard(mainBoard).withStones(3);
-        Store sEleven = new Store().withBoard(mainBoard).withStones(3);
-        Store sTwelve = new Store().withBoard(mainBoard).withStones(3);
+        Store sOne = new Store().withBoard(mainBoard);
+        sOne.withStones(3);
+        Store sTwo = new Store().withBoard(mainBoard);
+        sTwo.withStones(3);
+        Store sThree = new Store().withBoard(mainBoard);
+        sThree.withStones(3);
+        Store sFour = new Store().withBoard(mainBoard);
+        sFour.withStones(3);
+        Store sFive = new Store().withBoard(mainBoard);
+        sFive.withStones(3);
+        Store sSix = new Store().withBoard(mainBoard);
+        sSix.withStones(3);
+        Store sSeven = new Store().withBoard(mainBoard);
+        sSeven.withStones(3);
+        Store sEight = new Store().withBoard(mainBoard);
+        sEight.withStones(3);
+        Store sNine = new Store().withBoard(mainBoard);
+        sNine.withStones(3);
+        Store sTen = new Store().withBoard(mainBoard);
+        sTen.withStones(3);
+        Store sEleven = new Store().withBoard(mainBoard);
+        sEleven.withStones(3);
+        Store sTwelve = new Store().withBoard(mainBoard);
+        sTwelve.withStones(3);
 
         //Initialize 2 Houses
         House hAbe = new House().withBoard(mainBoard).withStones(0);
@@ -84,7 +103,6 @@ public class Model {
 
         storyboard.addObjectDiagram(mancala, mainBoard, abe, bob);
         storyboard.dumpHTML();
-
 
 
 

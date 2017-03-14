@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017 hlope
+   Copyright (c) 2017 Wave
    
    Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
    and associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -24,13 +24,14 @@ package swe443.assignment5.mancala.util;
 import de.uniks.networkparser.interfaces.SendableEntityCreator;
 import swe443.assignment5.mancala.Store;
 import de.uniks.networkparser.IdMap;
+import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.Board;
 
 public class StoreCreator implements SendableEntityCreator
 {
    private final String[] properties = new String[]
    {
-      Store.PROPERTY_STONES,
+      House.PROPERTY_STONES,
       Store.PROPERTY_BOARD,
    };
    
@@ -57,9 +58,9 @@ public class StoreCreator implements SendableEntityCreator
          attribute = attrName.substring(0, pos);
       }
 
-      if (Store.PROPERTY_STONES.equalsIgnoreCase(attribute))
+      if (House.PROPERTY_STONES.equalsIgnoreCase(attribute))
       {
-         return ((Store) target).getStones();
+         return ((House) target).getStones();
       }
 
       if (Store.PROPERTY_BOARD.equalsIgnoreCase(attribute))
@@ -73,9 +74,9 @@ public class StoreCreator implements SendableEntityCreator
    @Override
    public boolean setValue(Object target, String attrName, Object value, String type)
    {
-      if (Store.PROPERTY_STONES.equalsIgnoreCase(attrName))
+      if (House.PROPERTY_STONES.equalsIgnoreCase(attrName))
       {
-         ((Store) target).setStones(Integer.parseInt(value.toString()));
+         ((House) target).setStones(Integer.parseInt(value.toString()));
          return true;
       }
 

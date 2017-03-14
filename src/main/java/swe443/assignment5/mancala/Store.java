@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017 hlope
+   Copyright (c) 2017 Wave
    
    Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
    and associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -21,15 +21,13 @@
    
 package swe443.assignment5.mancala;
 
-import de.uniks.networkparser.interfaces.SendableEntity;
-import java.beans.PropertyChangeSupport;
-import java.beans.PropertyChangeListener;
+import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.Board;
    /**
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
  */
-   public  class Store implements SendableEntity
+   public  class Store extends House
 {
 
    
@@ -42,86 +40,12 @@ import swe443.assignment5.mancala.Board;
    
    //==========================================================================
    
-   protected PropertyChangeSupport listeners = null;
-   
-   public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
-   {
-      if (listeners != null) {
-   		listeners.firePropertyChange(propertyName, oldValue, newValue);
-   		return true;
-   	}
-   	return false;
-   }
-   
-   public boolean addPropertyChangeListener(PropertyChangeListener listener) 
-   {
-   	if (listeners == null) {
-   		listeners = new PropertyChangeSupport(this);
-   	}
-   	listeners.addPropertyChangeListener(listener);
-   	return true;
-   }
-   
-   public boolean addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
-   	if (listeners == null) {
-   		listeners = new PropertyChangeSupport(this);
-   	}
-   	listeners.addPropertyChangeListener(propertyName, listener);
-   	return true;
-   }
-   
-   public boolean removePropertyChangeListener(PropertyChangeListener listener) {
-   	if (listeners == null) {
-   		listeners.removePropertyChangeListener(listener);
-   	}
-   	listeners.removePropertyChangeListener(listener);
-   	return true;
-   }
-
-   public boolean removePropertyChangeListener(String propertyName,PropertyChangeListener listener) {
-   	if (listeners != null) {
-   		listeners.removePropertyChangeListener(propertyName, listener);
-   	}
-   	return true;
-   }
-
-   
-   //==========================================================================
-   
-   
+   @Override
    public void removeYou()
    {
       setBoard(null);
       firePropertyChange("REMOVE_YOU", this, null);
    }
-
-   
-   //==========================================================================
-   
-   public static final String PROPERTY_STONES = "stones";
-   
-   private int stones;
-
-   public int getStones()
-   {
-      return this.stones;
-   }
-   
-   public void setStones(int value)
-   {
-      if (this.stones != value) {
-      
-         int oldValue = this.stones;
-         this.stones = value;
-         this.firePropertyChange(PROPERTY_STONES, oldValue, value);
-      }
-   }
-   
-   public Store withStones(int value)
-   {
-      setStones(value);
-      return this;
-   } 
 
 
    @Override
