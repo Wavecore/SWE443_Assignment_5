@@ -25,6 +25,7 @@ import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 import swe443.assignment5.mancala.Board;
+import swe443.assignment5.mancala.util.HouseSet;
    /**
     * 
     * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
@@ -92,6 +93,8 @@ import swe443.assignment5.mancala.Board;
    public void removeYou()
    {
       setBoard(null);
+      setLeftSide(null);
+      setRightSide(null);
       firePropertyChange("REMOVE_YOU", this, null);
    }
 
@@ -190,6 +193,136 @@ import swe443.assignment5.mancala.Board;
    {
       Board value = new Board();
       withBoard(value);
+      return value;
+   } 
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       one
+    * House ----------------------------------- House
+    *              rightSide                   leftSide
+    * </pre>
+    */
+   
+   public static final String PROPERTY_LEFTSIDE = "leftSide";
+
+   private House leftSide = null;
+
+   public House getLeftSide()
+   {
+      return this.leftSide;
+   }
+   public HouseSet getLeftSideTransitive()
+   {
+      HouseSet result = new HouseSet().with(this);
+      return result.getLeftSideTransitive();
+   }
+
+
+   public boolean setLeftSide(House value)
+   {
+      boolean changed = false;
+      
+      if (this.leftSide != value)
+      {
+         House oldValue = this.leftSide;
+         
+         if (this.leftSide != null)
+         {
+            this.leftSide = null;
+            oldValue.setRightSide(null);
+         }
+         
+         this.leftSide = value;
+         
+         if (value != null)
+         {
+            value.withRightSide(this);
+         }
+         
+         firePropertyChange(PROPERTY_LEFTSIDE, oldValue, value);
+         changed = true;
+      }
+      
+      return changed;
+   }
+
+   public House withLeftSide(House value)
+   {
+      setLeftSide(value);
+      return this;
+   } 
+
+   public House createLeftSide()
+   {
+      House value = new House();
+      withLeftSide(value);
+      return value;
+   } 
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       one
+    * House ----------------------------------- House
+    *              leftSide                   rightSide
+    * </pre>
+    */
+   
+   public static final String PROPERTY_RIGHTSIDE = "rightSide";
+
+   private House rightSide = null;
+
+   public House getRightSide()
+   {
+      return this.rightSide;
+   }
+   public HouseSet getRightSideTransitive()
+   {
+      HouseSet result = new HouseSet().with(this);
+      return result.getRightSideTransitive();
+   }
+
+
+   public boolean setRightSide(House value)
+   {
+      boolean changed = false;
+      
+      if (this.rightSide != value)
+      {
+         House oldValue = this.rightSide;
+         
+         if (this.rightSide != null)
+         {
+            this.rightSide = null;
+            oldValue.setLeftSide(null);
+         }
+         
+         this.rightSide = value;
+         
+         if (value != null)
+         {
+            value.withLeftSide(this);
+         }
+         
+         firePropertyChange(PROPERTY_RIGHTSIDE, oldValue, value);
+         changed = true;
+      }
+      
+      return changed;
+   }
+
+   public House withRightSide(House value)
+   {
+      setRightSide(value);
+      return this;
+   } 
+
+   public House createRightSide()
+   {
+      House value = new House();
+      withRightSide(value);
       return value;
    } 
 }

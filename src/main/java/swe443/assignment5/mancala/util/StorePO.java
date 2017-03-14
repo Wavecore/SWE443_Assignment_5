@@ -7,6 +7,8 @@ import org.sdmlib.models.pattern.Pattern;
 import swe443.assignment5.mancala.util.BoardPO;
 import swe443.assignment5.mancala.Board;
 import swe443.assignment5.mancala.util.StorePO;
+import swe443.assignment5.mancala.util.HousePO;
+import swe443.assignment5.mancala.House;
 
 public class StorePO extends PatternObject<StorePO, Store>
 {
@@ -150,6 +152,84 @@ public class StorePO extends PatternObject<StorePO, Store>
       if (this.getPattern().getHasMatch())
       {
          return ((Store) this.getCurrentMatch()).getBoard();
+      }
+      return null;
+   }
+
+   public HousePO createLeftSidePO()
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(Store.PROPERTY_LEFTSIDE, result);
+      
+      return result;
+   }
+
+   public HousePO createLeftSidePO(String modifier)
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(Store.PROPERTY_LEFTSIDE, result);
+      
+      return result;
+   }
+
+   public StorePO createLeftSideLink(HousePO tgt)
+   {
+      return hasLinkConstraint(tgt, Store.PROPERTY_LEFTSIDE);
+   }
+
+   public StorePO createLeftSideLink(HousePO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, Store.PROPERTY_LEFTSIDE, modifier);
+   }
+
+   public House getLeftSide()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Store) this.getCurrentMatch()).getLeftSide();
+      }
+      return null;
+   }
+
+   public HousePO createRightSidePO()
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(Store.PROPERTY_RIGHTSIDE, result);
+      
+      return result;
+   }
+
+   public HousePO createRightSidePO(String modifier)
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(Store.PROPERTY_RIGHTSIDE, result);
+      
+      return result;
+   }
+
+   public StorePO createRightSideLink(HousePO tgt)
+   {
+      return hasLinkConstraint(tgt, Store.PROPERTY_RIGHTSIDE);
+   }
+
+   public StorePO createRightSideLink(HousePO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, Store.PROPERTY_RIGHTSIDE, modifier);
+   }
+
+   public House getRightSide()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Store) this.getCurrentMatch()).getRightSide();
       }
       return null;
    }

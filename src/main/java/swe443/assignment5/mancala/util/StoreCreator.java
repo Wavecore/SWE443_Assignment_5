@@ -33,6 +33,8 @@ public class StoreCreator implements SendableEntityCreator
    {
       House.PROPERTY_STONES,
       Store.PROPERTY_BOARD,
+      Store.PROPERTY_LEFTSIDE,
+      Store.PROPERTY_RIGHTSIDE,
    };
    
    @Override
@@ -67,6 +69,16 @@ public class StoreCreator implements SendableEntityCreator
       {
          return ((Store) target).getBoard();
       }
+
+      if (Store.PROPERTY_LEFTSIDE.equalsIgnoreCase(attribute))
+      {
+         return ((Store) target).getLeftSide();
+      }
+
+      if (Store.PROPERTY_RIGHTSIDE.equalsIgnoreCase(attribute))
+      {
+         return ((Store) target).getRightSide();
+      }
       
       return null;
    }
@@ -88,6 +100,18 @@ public class StoreCreator implements SendableEntityCreator
       if (Store.PROPERTY_BOARD.equalsIgnoreCase(attrName))
       {
          ((Store) target).setBoard((Board) value);
+         return true;
+      }
+
+      if (Store.PROPERTY_LEFTSIDE.equalsIgnoreCase(attrName))
+      {
+         ((Store) target).setLeftSide((House) value);
+         return true;
+      }
+
+      if (Store.PROPERTY_RIGHTSIDE.equalsIgnoreCase(attrName))
+      {
+         ((Store) target).setRightSide((House) value);
          return true;
       }
       

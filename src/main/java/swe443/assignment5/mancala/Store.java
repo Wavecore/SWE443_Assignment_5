@@ -44,6 +44,8 @@ import swe443.assignment5.mancala.Board;
    public void removeYou()
    {
       setBoard(null);
+      setLeftSide(null);
+      setRightSide(null);
       firePropertyChange("REMOVE_YOU", this, null);
    }
 

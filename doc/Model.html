@@ -90,6 +90,19 @@
       {
          "typ":"ASSOCIATION",
          "source":{
+            "id":"House",
+            "cardinality":"one",
+            "property":"rightSide"
+         },
+         "target":{
+            "id":"House",
+            "cardinality":"one",
+            "property":"leftSide"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
             "id":"Store",
             "cardinality":"many",
             "property":"stores"
@@ -481,6 +494,188 @@
             "cardinality":"one",
             "property":"board",
             "id":"B2 : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H5 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H5 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S18 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H6 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H6 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S8 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S9 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S10 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S11 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S13 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S15 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S14 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S16 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S15 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S17 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S16 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S18 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S17 : Store"
          }
       }
    ]

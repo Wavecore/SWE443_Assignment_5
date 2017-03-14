@@ -32,6 +32,8 @@ public class HouseCreator implements SendableEntityCreator
    {
       House.PROPERTY_STONES,
       House.PROPERTY_BOARD,
+      House.PROPERTY_LEFTSIDE,
+      House.PROPERTY_RIGHTSIDE,
    };
    
    @Override
@@ -66,6 +68,16 @@ public class HouseCreator implements SendableEntityCreator
       {
          return ((House) target).getBoard();
       }
+
+      if (House.PROPERTY_LEFTSIDE.equalsIgnoreCase(attribute))
+      {
+         return ((House) target).getLeftSide();
+      }
+
+      if (House.PROPERTY_RIGHTSIDE.equalsIgnoreCase(attribute))
+      {
+         return ((House) target).getRightSide();
+      }
       
       return null;
    }
@@ -87,6 +99,18 @@ public class HouseCreator implements SendableEntityCreator
       if (House.PROPERTY_BOARD.equalsIgnoreCase(attrName))
       {
          ((House) target).setBoard((Board) value);
+         return true;
+      }
+
+      if (House.PROPERTY_LEFTSIDE.equalsIgnoreCase(attrName))
+      {
+         ((House) target).setLeftSide((House) value);
+         return true;
+      }
+
+      if (House.PROPERTY_RIGHTSIDE.equalsIgnoreCase(attrName))
+      {
+         ((House) target).setRightSide((House) value);
          return true;
       }
       

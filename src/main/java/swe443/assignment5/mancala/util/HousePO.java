@@ -154,4 +154,82 @@ public class HousePO extends PatternObject<HousePO, House>
       return null;
    }
 
+   public HousePO createLeftSidePO()
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(House.PROPERTY_LEFTSIDE, result);
+      
+      return result;
+   }
+
+   public HousePO createLeftSidePO(String modifier)
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(House.PROPERTY_LEFTSIDE, result);
+      
+      return result;
+   }
+
+   public HousePO createLeftSideLink(HousePO tgt)
+   {
+      return hasLinkConstraint(tgt, House.PROPERTY_LEFTSIDE);
+   }
+
+   public HousePO createLeftSideLink(HousePO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, House.PROPERTY_LEFTSIDE, modifier);
+   }
+
+   public House getLeftSide()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((House) this.getCurrentMatch()).getLeftSide();
+      }
+      return null;
+   }
+
+   public HousePO createRightSidePO()
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(House.PROPERTY_RIGHTSIDE, result);
+      
+      return result;
+   }
+
+   public HousePO createRightSidePO(String modifier)
+   {
+      HousePO result = new HousePO(new House[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(House.PROPERTY_RIGHTSIDE, result);
+      
+      return result;
+   }
+
+   public HousePO createRightSideLink(HousePO tgt)
+   {
+      return hasLinkConstraint(tgt, House.PROPERTY_RIGHTSIDE);
+   }
+
+   public HousePO createRightSideLink(HousePO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, House.PROPERTY_RIGHTSIDE, modifier);
+   }
+
+   public House getRightSide()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((House) this.getCurrentMatch()).getRightSide();
+      }
+      return null;
+   }
+
 }

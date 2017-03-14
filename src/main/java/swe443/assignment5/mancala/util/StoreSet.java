@@ -29,6 +29,8 @@ import de.uniks.networkparser.list.NumberList;
 import de.uniks.networkparser.list.ObjectSet;
 import swe443.assignment5.mancala.util.BoardSet;
 import swe443.assignment5.mancala.Board;
+import swe443.assignment5.mancala.util.HouseSet;
+import swe443.assignment5.mancala.House;
 
 public class StoreSet extends SimpleSet<Store>
 {
@@ -258,6 +260,198 @@ public class StoreSet extends SimpleSet<Store>
       for (Store obj : this)
       {
          obj.withBoard(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through the current set of Store objects and collect a set of the House objects reached via leftSide. 
+    * 
+    * @return Set of House objects reachable via leftSide
+    */
+   public HouseSet getLeftSide()
+   {
+      HouseSet result = new HouseSet();
+      
+      for (Store obj : this)
+      {
+         result.with(obj.getLeftSide());
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through the current set of Store objects and collect all contained objects with reference leftSide pointing to the object passed as parameter. 
+    * 
+    * @param value The object required as leftSide neighbor of the collected results. 
+    * 
+    * @return Set of House objects referring to value via leftSide
+    */
+   public StoreSet filterLeftSide(Object value)
+   {
+      ObjectSet neighbors = new ObjectSet();
+
+      if (value instanceof Collection)
+      {
+         neighbors.addAll((Collection<?>) value);
+      }
+      else
+      {
+         neighbors.add(value);
+      }
+      
+      StoreSet answer = new StoreSet();
+      
+      for (Store obj : this)
+      {
+         if (neighbors.contains(obj.getLeftSide()) || (neighbors.isEmpty() && obj.getLeftSide() == null))
+         {
+            answer.add(obj);
+         }
+      }
+      
+      return answer;
+   }
+
+   /**
+    * Follow leftSide reference zero or more times and collect all reachable objects. Detect cycles and deal with them. 
+    * 
+    * @return Set of House objects reachable via leftSide transitively (including the start set)
+    */
+   public HouseSet getLeftSideTransitive()
+   {
+      HouseSet todo = new HouseSet().with(this);
+      
+      HouseSet result = new HouseSet();
+      
+      while ( ! todo.isEmpty())
+      {
+         House current = todo.first();
+         
+         todo.remove(current);
+         
+         if ( ! result.contains(current))
+         {
+            result.add(current);
+            
+            if ( ! result.contains(current.getLeftSide()))
+            {
+               todo.with(current.getLeftSide());
+            }
+         }
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and attach the Store object passed as parameter to the LeftSide attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now with the new neighbor attached to their LeftSide attributes.
+    */
+   public StoreSet withLeftSide(House value)
+   {
+      for (Store obj : this)
+      {
+         obj.withLeftSide(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through the current set of Store objects and collect a set of the House objects reached via rightSide. 
+    * 
+    * @return Set of House objects reachable via rightSide
+    */
+   public HouseSet getRightSide()
+   {
+      HouseSet result = new HouseSet();
+      
+      for (Store obj : this)
+      {
+         result.with(obj.getRightSide());
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through the current set of Store objects and collect all contained objects with reference rightSide pointing to the object passed as parameter. 
+    * 
+    * @param value The object required as rightSide neighbor of the collected results. 
+    * 
+    * @return Set of House objects referring to value via rightSide
+    */
+   public StoreSet filterRightSide(Object value)
+   {
+      ObjectSet neighbors = new ObjectSet();
+
+      if (value instanceof Collection)
+      {
+         neighbors.addAll((Collection<?>) value);
+      }
+      else
+      {
+         neighbors.add(value);
+      }
+      
+      StoreSet answer = new StoreSet();
+      
+      for (Store obj : this)
+      {
+         if (neighbors.contains(obj.getRightSide()) || (neighbors.isEmpty() && obj.getRightSide() == null))
+         {
+            answer.add(obj);
+         }
+      }
+      
+      return answer;
+   }
+
+   /**
+    * Follow rightSide reference zero or more times and collect all reachable objects. Detect cycles and deal with them. 
+    * 
+    * @return Set of House objects reachable via rightSide transitively (including the start set)
+    */
+   public HouseSet getRightSideTransitive()
+   {
+      HouseSet todo = new HouseSet().with(this);
+      
+      HouseSet result = new HouseSet();
+      
+      while ( ! todo.isEmpty())
+      {
+         House current = todo.first();
+         
+         todo.remove(current);
+         
+         if ( ! result.contains(current))
+         {
+            result.add(current);
+            
+            if ( ! result.contains(current.getRightSide()))
+            {
+               todo.with(current.getRightSide());
+            }
+         }
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and attach the Store object passed as parameter to the RightSide attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now with the new neighbor attached to their RightSide attributes.
+    */
+   public StoreSet withRightSide(House value)
+   {
+      for (Store obj : this)
+      {
+         obj.withRightSide(value);
       }
       
       return this;

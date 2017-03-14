@@ -47,6 +47,8 @@ public class Model {
         gameClass.withBidirectional(boardClass, "board", Cardinality.ONE, "game", Cardinality.ONE);
         //Game has MANY players and player has ONE board
         gameClass.withBidirectional(playerClass, "player", Cardinality.MANY, "game", Cardinality.ONE);
+        //House has ONE house on its rightSide
+        houseClass.withBidirectional(houseClass,"rightSide", Cardinality.ONE, "leftSide", Cardinality.ONE);
 
         model.generate();
 
@@ -74,30 +76,45 @@ public class Model {
         sOne.withStones(3);
         Store sTwo = new Store().withBoard(mainBoard);
         sTwo.withStones(3);
+        sTwo.setLeftSide(sOne);
         Store sThree = new Store().withBoard(mainBoard);
         sThree.withStones(3);
+        sThree.setLeftSide(sTwo);
         Store sFour = new Store().withBoard(mainBoard);
         sFour.withStones(3);
+        sFour.setLeftSide(sThree);
         Store sFive = new Store().withBoard(mainBoard);
         sFive.withStones(3);
+        sFive.setLeftSide(sFour);
         Store sSix = new Store().withBoard(mainBoard);
         sSix.withStones(3);
+        sSix.setLeftSide(sFive);
+
         Store sSeven = new Store().withBoard(mainBoard);
         sSeven.withStones(3);
         Store sEight = new Store().withBoard(mainBoard);
         sEight.withStones(3);
+        sEight.setLeftSide(sSeven);
         Store sNine = new Store().withBoard(mainBoard);
         sNine.withStones(3);
+        sNine.setLeftSide(sEight);
         Store sTen = new Store().withBoard(mainBoard);
         sTen.withStones(3);
+        sTen.setLeftSide(sNine);
         Store sEleven = new Store().withBoard(mainBoard);
         sEleven.withStones(3);
+        sEleven.setLeftSide(sTen);
         Store sTwelve = new Store().withBoard(mainBoard);
         sTwelve.withStones(3);
+        sTwelve.setLeftSide(sEleven);
 
         //Initialize 2 Houses
         House hAbe = new House().withBoard(mainBoard).withStones(0);
+        hAbe.setLeftSide(sSix);
+        hAbe.setRightSide(sSeven);
         House hBob = new House().withBoard(mainBoard).withStones(0);
+        hBob.setLeftSide(sTwelve);
+        hBob.setRightSide(sOne);
 
 
 
