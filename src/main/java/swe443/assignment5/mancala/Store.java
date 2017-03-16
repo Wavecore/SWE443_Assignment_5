@@ -33,13 +33,13 @@ import swe443.assignment5.mancala.util.StoreSet;
 
    
    //==========================================================================
-   public int takeOppositePebbles(int current)
+   public int takeOppositePebbles()
    {
-       Store opp = getBoard().getStores().get(current).getOpposite();
+       Store opp = getOpposite();
        System.out.println("Opposite: " + opp);
 
        int opposite = opp.getStones();
-       getBoard().getStores().get(current).getOpposite().setStones(0);
+       opp.setStones(0);
        System.out.println("Opposite side stolen!");
        return opposite;
    }
@@ -51,14 +51,22 @@ import swe443.assignment5.mancala.util.StoreSet;
        System.out.println("Stone count = " + getStones());
 
        if(getStones() == 1) {
-           int opposite = takeOppositePebbles(current);
-           int currentStore = getBoard().getStores().get(current).getStones();
+           int opposite = takeOppositePebbles();
+           int currentStore = getStones();
 
            System.out.println("Current Store Count: " + currentStore + ", Opposite Store Count: " + opposite);
 
-           getBoard().getStores().get(current).setStones(0);
-           System.out.println(getBoard().getStores().get(current).getRightSide());
-           getBoard().getStores().get(current).getRightSide().setStones(getBoard().getStores().get(current).getRightSide().getStones() + currentStore + opposite);
+           setStones(0);
+           System.out.println("Before House1: " + board.getHouses().get(0).getStones());
+           System.out.println("Before House2: " + board.getHouses().get(1).getStones());
+
+           if(current < 6)
+               board.getHouses().get(0).setStones(board.getHouses().get(0).getStones() + currentStore + opposite);
+           else
+               board.getHouses().get(1).setStones(board.getHouses().get(1).getStones() + currentStore + opposite);
+           
+           System.out.println("After House1: " + board.getHouses().get(0).getStones());
+           System.out.println("After House2: " + board.getHouses().get(1).getStones());
        }
 
        if(getBoard().getPlayer().get(0).isMyTurn()) {

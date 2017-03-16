@@ -422,8 +422,8 @@ public  class Board implements SendableEntity
                     stoneCount--;
                     if (stoneCount < 1) {
                         System.out.println("lastEvent position: Home");
-                        System.out.println("Player gets to play again");
-//                    getStores().get(current).lastSownEvent();
+//                        System.out.println("Player gets to play again");
+                        getStores().get(current).getRightSide().lastSownEvent();
                         return true;
                     }
                 }

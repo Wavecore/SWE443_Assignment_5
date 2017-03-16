@@ -120,7 +120,7 @@ public class StoreSet extends SimpleSet<Store>
       
       for (Store obj : this)
       {
-         result.add( obj.takeOppositePebbles(0) );
+         result.add( obj.takeOppositePebbles() );
       }
       return result;
    }

@@ -52,7 +52,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         return getCurrentMatch().takeOppositePebbles(0);
+         return getCurrentMatch().takeOppositePebbles();
       }
       return 0;
    }
