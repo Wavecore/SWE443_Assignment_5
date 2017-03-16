@@ -27,6 +27,7 @@ import java.beans.PropertyChangeListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.util.HouseSet;
 import swe443.assignment5.mancala.House;
@@ -393,6 +394,8 @@ public  class Board implements SendableEntity
 
     public boolean makeMove(Player player, int i) {
 
+        if(isGameOver())
+            return false;
 
         if(!player.isMyTurn())
             return false;
@@ -400,7 +403,7 @@ public  class Board implements SendableEntity
         System.out.println("selects position " + (i + 1));
         if(i < 0 || i > 11)
             return false;
-        if (getStores().get(i).getStones() < 1)
+        if(getStores().get(i).getStones() < 1)
             return false;
 
         int stoneCount = getStores().get(i).getStones();
@@ -409,32 +412,117 @@ public  class Board implements SendableEntity
         int j = i + 1;
         int current = 0;
 
-        while(stoneCount > 0)
-        {
-            current = j % (getStores().size());
+//        System.out.println("i: " + i);
+//        System.out.println("Stone count: " + stoneCount);
 
-            getStores().get(current).setStones(getStores().get(current).getStones()+1);
-            stoneCount--;
-            if(current == 5 || current == 11)
-            {
-                if(stoneCount > 0) {
-                    getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
-                    stoneCount--;
-                    if (stoneCount < 1) {
-                        System.out.println("lastEvent position: Home");
-//                        System.out.println("Player gets to play again");
-                        getStores().get(current).getRightSide().lastSownEvent();
-                        return true;
-                    }
+
+        if((i == 5 || i == 11) && stoneCount == 1)
+        {
+            current = i % (getStores().size());
+            System.out.println("Next available spot is a House");
+            if (stoneCount > 0) {
+                getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
+                stoneCount--;
+                if (stoneCount < 1) {
+                    System.out.println("lastEvent position: Home");
+                    getStores().get(current).getRightSide().lastSownEvent();
+                    return true;
                 }
             }
-            j++;
         }
 
-        System.out.println("lastEvent position:  " + (current+1));
-        getStores().get(current).lastSownEvent(current);
+        else
+        {
+            while (stoneCount > 0) {
+                current = j % (getStores().size());
 
+                getStores().get(current).setStones(getStores().get(current).getStones() + 1);
+                stoneCount--;
+                if (current == 5 || current == 11) {
+                    if (stoneCount > 0) {
+                        getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
+                        stoneCount--;
+                        if (stoneCount < 1) {
+                            System.out.println("lastEvent position: Home");
+//                        System.out.println("Player gets to play again");
+                            getStores().get(current).getRightSide().lastSownEvent();
+                            return true;
+                        }
+                    }
+                }
+                j++;
+            }
+
+            System.out.println("lastEvent position:  " + (current + 1));
+            getStores().get(current).lastSownEvent(current);
+        }
         return true;
+    }
+
+    private boolean isGameOver = false;
+
+    public boolean isGameOver()
+    {
+        return this.isGameOver;
+    }
+
+    public boolean setIsGameOver(boolean isGameOver)
+    {
+        this.isGameOver = isGameOver;
+        return isGameOver();
+    }
+
+    private Player checkWinner()
+    {
+
+        if(getHouses().get(0).getStones() > getHouses().get(1).getStones())
+        {
+            return getPlayer().get(0);
+        } else if (getHouses().get(0).getStones() < getHouses().get(1).getStones())
+        {
+            return getPlayer().get(1);
+
+        }else{
+            return null;
+        }
+    }
+
+    public boolean checkGameStatus()
+    {
+        boolean side1 = true;
+        boolean side2 = true;
+
+        for (int i = 0; i < 6; i++)
+        {
+//            System.out.println(i + ": " + getStores().get(i).getStones());
+            if(getStores().get(i).getStones() > 0) {
+                side1 = false;
+                break;
+            }
+        }
+        for (int j = 6; j < 12; j++)
+        {
+//            System.out.println(j + ": " + getStores().get(j).getStones());
+            if(getStores().get(j).getStones() > 0) {
+                side2 = false;
+            }
+        }
+
+        if(side1 || side2)
+        {
+            System.out.println("\nGame Over!");
+
+            Player winner = checkWinner();
+
+            if(!winner.equals(null))
+            {
+                System.out.println(winner + " Wins!\n");
+            }
+            System.out.println("Resulting board:");
+            return setIsGameOver(true);
+        }
+
+        return isGameOver();
     }
 
     public Player getPlayerTurn() {
