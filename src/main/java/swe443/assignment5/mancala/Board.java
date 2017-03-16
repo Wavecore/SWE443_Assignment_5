@@ -42,9 +42,6 @@ import swe443.assignment5.mancala.Player;
    
    //==========================================================================
    public void setUpBoard(  ) {
-       createPlayer().withName("Player1").withBoard(this);
-       createPlayer().withName("Player2").withBoard(this);
-
        House house1 = createHouses().withBoard(this);
        House house2 = createHouses().withBoard(this);
 
