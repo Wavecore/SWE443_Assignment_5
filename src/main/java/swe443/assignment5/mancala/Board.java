@@ -59,7 +59,7 @@ import swe443.assignment5.mancala.Player;
        }
        for (int i = 0; i < 6; i++) {
            Store store2 = storeSide1.get(i).createOpposite().withBoard(this);
-           store2.withStones(5);
+           store2.withStones(4);
            store2.withRightSide(house2);
            store2.withRightSide(house1);
        }
@@ -347,8 +347,10 @@ import swe443.assignment5.mancala.Player;
    }
 
    // Below is for testing purposes
-   public String printBoard()
+   public void printBoard()
    {
-        return "";
+       System.out.println(getPlayer());
+       System.out.println(getStores());
+       System.out.println(getHouses());
    }
 }

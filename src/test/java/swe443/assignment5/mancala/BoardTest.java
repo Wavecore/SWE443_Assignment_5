@@ -12,10 +12,7 @@ public class BoardTest {
     public void setUpBoard() throws Exception {
         Board board = new Board();
         board.setUpBoard();
-
-        System.out.println(board.getPlayer());
-        System.out.println(board.getStores());
-        System.out.println(board.getHouses());
+        board.printBoard();
 
     }
 }
