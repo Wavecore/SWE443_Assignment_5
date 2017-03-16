@@ -19,6 +19,8 @@ public class BoardTest {
         board.printPlayerList();
         board.printBoard();
 
+//        board.checkOpposites();
+
         System.out.println(board.getPlayerTurn() + "'s turn");
         System.out.print("Player1 ");
         player1.getBoard().makeMove(player1, 0);
@@ -31,7 +33,7 @@ public class BoardTest {
 
         System.out.println(board.getPlayerTurn() + "'s turn");
         System.out.print("Player2 ");
-        player1.getBoard().makeMove(player2, 9);
+        player2.getBoard().makeMove(player2, 9);
         board.printBoard();
 
         System.out.println(board.getPlayerTurn() + "'s turn");
@@ -41,22 +43,27 @@ public class BoardTest {
 
         System.out.println(board.getPlayerTurn() + "'s turn");
         System.out.print("Player2 ");
-        player1.getBoard().makeMove(player2, 6);
+        player2.getBoard().makeMove(player2, 6);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1,4);
         board.printBoard();
 
         System.out.println(board.getPlayerTurn() + "'s turn");
         System.out.print("Player2 ");
-        player1.getBoard().makeMove(player2,7);
-        board.printBoard();
-
-        System.out.println(board.getPlayerTurn() + "'s turn");
-        System.out.print("Player2 ");
-        player1.getBoard().makeMove(player2,8);
+        player2.getBoard().makeMove(player2,8);
         board.printBoard();
 
         System.out.println(board.getPlayerTurn() + "'s turn");
         System.out.print("Player1 ");
         player1.getBoard().makeMove(player1, 1);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player2 ");
+        player2.getBoard().makeMove(player2,6);
         board.printBoard();
     }
 }

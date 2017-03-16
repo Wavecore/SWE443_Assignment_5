@@ -45,8 +45,8 @@ import swe443.assignment5.mancala.Player;
        House house1 = createHouses().withBoard(this);
        House house2 = createHouses().withBoard(this);
 
-       house1.setRightSide(house1);
-       house2.setRightSide(house2);
+//       house1.setRightSide(house1);
+//       house2.setRightSide(house2);
 
        ArrayList<Store> storeSide1 = new ArrayList<Store>();
 
@@ -58,7 +58,14 @@ import swe443.assignment5.mancala.Player;
            storeSide1.add(store1);
        }
        for (int i = 0; i < 6; i++) {
-           Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
+           //Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
+           //store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
+
+           Store store2 = createStores().withBoard(this);
+
+           storeSide1.get(storeSide1.size()-1-i).setOpposite(store2);
+           store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
+
            store2.withStones(4);
            store2.setRightSide(house2);
            store2.setLeftSide(house1);
@@ -347,6 +354,14 @@ import swe443.assignment5.mancala.Player;
    }
 
    // Below is for testing purposes
+    public void checkOpposites()
+    {
+        for(int i = 0; i < getStores().size(); i++)
+        {
+            System.out.println(getStores().get(i) + " --> " + getStores().get(i).getOpposite());
+        }
+    }
+
     public void printPlayerList()
     {
         System.out.println(getPlayer());
@@ -375,14 +390,13 @@ import swe443.assignment5.mancala.Player;
         getStores().get(i).setStones(0);
 
         int j = i + 1;
-        int lastEvent = 0;
+        int current = 0;
 
         while(stoneCount > 0)
         {
-            int current = j % (getStores().size());
+            current = j % (getStores().size());
 
             getStores().get(current).setStones(getStores().get(current).getStones()+1);
-            lastEvent = current;
             stoneCount--;
             if(current == 5 || current == 11)
             {
@@ -390,18 +404,19 @@ import swe443.assignment5.mancala.Player;
                     getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
                     stoneCount--;
                     if (stoneCount < 1) {
+                        System.out.println("lastEvent position: Home");
                         System.out.println("Player gets to play again");
 //                    getStores().get(current).lastSownEvent();
                         return true;
                     }
                 }
-                j++;
             }
             j++;
         }
 
-        System.out.println("lastEvent: " + lastEvent);
-        getStores().get(lastEvent).lastSownEvent();
+        System.out.println("lastEvent position:  " + (current+1));
+        getStores().get(current).lastSownEvent(current);
+
         return true;
     }
 

@@ -4,8 +4,9 @@
     <list default="true" id="8316fda8-8584-4b22-9901-e2bb0fe61424" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/House.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/House.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StorePO.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StorePO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" afterPath="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -100,11 +101,11 @@
       <file leaf-file-name="Store.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+            <state relative-caret-position="399">
+              <caret line="59" column="69" lean-forward="false" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
               <folding>
-                <element signature="e#4586#4587#0" expanded="true" />
-                <element signature="e#4619#4620#0" expanded="true" />
+                <element signature="e#5284#5285#0" expanded="true" />
+                <element signature="e#5317#5318#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,8 +114,8 @@
       <file leaf-file-name="House.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/House.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="110" column="4" lean-forward="true" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+            <state relative-caret-position="188">
+              <caret line="276" column="16" lean-forward="false" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
               <folding>
                 <element signature="e#1710#1711#0" expanded="true" />
                 <element signature="e#1771#1772#0" expanded="true" />
@@ -130,11 +131,13 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="397" column="20" lean-forward="false" selection-start-line="397" selection-start-column="20" selection-end-line="397" selection-end-column="20" />
+            <state relative-caret-position="83">
+              <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
               <folding>
-                <element signature="e#0#11221#0" expanded="true" />
-                <element signature="e#2180#2187#0" expanded="true" />
+                <element signature="e#0#11745#0" expanded="true" />
+                <element signature="e#2184#2191#0" expanded="true" />
+                <element signature="e#9961#9962#0" expanded="true" />
+                <element signature="e#10008#10009#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,11 +146,9 @@
       <file leaf-file-name="BoardTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -543,9 +544,11 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Player.java" />
-        <option value="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/HousePO.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/House.java" />
+        <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StorePO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java" />
+        <option value="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" />
       </list>
@@ -1057,34 +1060,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BoardTest - 2017.03.16 at 04h 36m 54s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 06m 11s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 37m 07s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 06m 30s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 37m 25s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 07m 02s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 38m 02s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 08m 10s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 38m 52s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 08m 27s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 39m 10s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 09m 07s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 40m 12s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 09m 53s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 43m 44s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 11m 12s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 45m 00s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 11m 43s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 04h 47m 05s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 13h 12m 05s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1138,13 +1141,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1379,14 +1375,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1710">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/CreatorCreator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1488,6 +1476,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/HousePO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="52" column="27" lean-forward="false" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
@@ -1498,39 +1494,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/HousePO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="52" column="27" lean-forward="false" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+          <caret line="122" column="46" lean-forward="false" selection-start-line="122" selection-start-column="46" selection-end-line="122" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StorePO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="397" column="20" lean-forward="false" selection-start-line="397" selection-start-column="20" selection-end-line="397" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#11221#0" expanded="true" />
-            <element signature="e#2180#2187#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/House.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="110" column="4" lean-forward="true" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+        <state relative-caret-position="188">
+          <caret line="276" column="16" lean-forward="false" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
           <folding>
             <element signature="e#1710#1711#0" expanded="true" />
             <element signature="e#1771#1772#0" expanded="true" />
@@ -1542,13 +1533,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#11745#0" expanded="true" />
+            <element signature="e#2184#2191#0" expanded="true" />
+            <element signature="e#9961#9962#0" expanded="true" />
+            <element signature="e#10008#10009#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+        <state relative-caret-position="399">
+          <caret line="59" column="69" lean-forward="false" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
           <folding>
-            <element signature="e#4586#4587#0" expanded="true" />
-            <element signature="e#4619#4620#0" expanded="true" />
+            <element signature="e#5284#5285#0" expanded="true" />
+            <element signature="e#5317#5318#0" expanded="true" />
           </folding>
         </state>
       </provider>

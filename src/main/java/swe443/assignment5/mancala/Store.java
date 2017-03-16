@@ -33,35 +33,45 @@ import swe443.assignment5.mancala.util.StoreSet;
 
    
    //==========================================================================
-   public int takeOppositePebbles(  )
+   public int takeOppositePebbles(int current)
    {
-      int opposite = getOpposite().getStones();
-      getOpposite().setStones(0);
-      return opposite;
+       Store opp = getBoard().getStores().get(current).getOpposite();
+       System.out.println("Opposite: " + opp);
+
+       int opposite = opp.getStones();
+       getBoard().getStores().get(current).getOpposite().setStones(0);
+       System.out.println("Opposite side stolen!");
+       return opposite;
    }
 
    
    //==========================================================================
-   public void lastSownEvent(  )
+   public void lastSownEvent(int current)
    {
+       System.out.println("Stone count = " + getStones());
+
        if(getStones() == 1) {
-//           System.out.println(getRightSide());
-//           System.out.println(getRightSide().getStones());
-           takeOppositePebbles();
-//           getRightSide().setStones(getRightSide().getStones() + takeOppositePebbles());
-           System.out.println("Opposite side stolen!");
+           int opposite = takeOppositePebbles(current);
+           int currentStore = getBoard().getStores().get(current).getStones();
+
+           System.out.println("Current Store Count: " + currentStore + ", Opposite Store Count: " + opposite);
+
+           getBoard().getStores().get(current).setStones(0);
+           System.out.println(getBoard().getStores().get(current).getRightSide());
+//           getBoard().getStores().get(current).getRightSide().setStones(getBoard().getStores().get(current).getRightSide().getStones() + currentStore + opposite);
        }
 
        if(getBoard().getPlayer().get(0).isMyTurn()) {
+           System.out.println("Next turn: " + getBoard().getPlayer().get(1));
            getBoard().getPlayer().get(0).setMyTurn(false);
            getBoard().getPlayer().get(1).setMyTurn(true);
        }
        else
        {
+           System.out.println("Next turn: " + getBoard().getPlayer().get(0));
            getBoard().getPlayer().get(0).setMyTurn(true);
            getBoard().getPlayer().get(1).setMyTurn(false);
        }
-
    }
 
    
