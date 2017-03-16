@@ -37,7 +37,10 @@ import swe443.assignment5.mancala.util.HouseSet;
    //==========================================================================
    public void lastSownEvent(  )
    {
-       System.out.println("Player gets to play again");
+      boolean gameStatus = getBoard().checkGameStatus();
+
+      if(!gameStatus)
+         System.out.println("Player gets to play again");
    }
 
    

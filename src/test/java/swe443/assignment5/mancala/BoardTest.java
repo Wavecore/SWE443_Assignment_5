@@ -65,5 +65,61 @@ public class BoardTest {
         System.out.print("Player2 ");
         player2.getBoard().makeMove(player2,6);
         board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1, 0);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player2 ");
+        player2.getBoard().makeMove(player2,7);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1, 2);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player2 ");
+        player2.getBoard().makeMove(player2,11);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1, 4);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1, 5);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1, 0);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player2 ");
+        player2.getBoard().makeMove(player2,9);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1, 1);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player2 ");
+        player2.getBoard().makeMove(player2,10);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player2 ");
+        player2.getBoard().makeMove(player2,11);
+        board.printBoard();
+
     }
 }
