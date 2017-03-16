@@ -5,9 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StorePO.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StorePO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" afterPath="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -88,25 +85,21 @@
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="285">
               <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="e#1110#1155#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Store.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Store.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="59" column="69" lean-forward="false" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
-              <folding>
-                <element signature="e#5284#5285#0" expanded="true" />
-                <element signature="e#5317#5318#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,10 +110,6 @@
             <state relative-caret-position="188">
               <caret line="276" column="16" lean-forward="false" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
               <folding>
-                <element signature="e#1710#1711#0" expanded="true" />
-                <element signature="e#1771#1772#0" expanded="true" />
-                <element signature="e#3624#3625#0" expanded="true" />
-                <element signature="e#3655#3656#0" expanded="true" />
                 <element signature="e#7204#7205#0" expanded="true" />
                 <element signature="e#7238#7239#0" expanded="true" />
               </folding>
@@ -131,24 +120,26 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+            <state relative-caret-position="341">
+              <caret line="390" column="29" lean-forward="false" selection-start-line="390" selection-start-column="29" selection-end-line="390" selection-end-column="29" />
               <folding>
-                <element signature="e#0#11745#0" expanded="true" />
-                <element signature="e#2184#2191#0" expanded="true" />
-                <element signature="e#9961#9962#0" expanded="true" />
-                <element signature="e#10008#10009#0" expanded="true" />
+                <element signature="e#0#12831#0" expanded="true" />
+                <element signature="e#2094#2101#0" expanded="true" />
+                <element signature="e#10741#10742#0" expanded="true" />
+                <element signature="e#10788#10789#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BoardTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="15">
+              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,8 +147,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="188" column="7" lean-forward="true" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="7" />
+            <state relative-caret-position="2580">
+              <caret line="188" column="7" lean-forward="false" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="7" />
               <folding>
                 <element signature="e#0#5899#0" expanded="true" />
               </folding>
@@ -548,9 +539,9 @@
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/House.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StorePO.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/util/StoreSet.java" />
-        <option value="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" />
+        <option value="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
       </list>
     </option>
   </component>
@@ -1060,40 +1051,40 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BoardTest - 2017.03.16 at 13h 06m 11s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 14h 40m 52s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 06m 30s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 14h 41m 20s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 07m 02s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 09m 39s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 08m 10s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 10m 51s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 08m 27s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 12m 03s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 09m 07s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 12m 55s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 09m 53s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 13m 40s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 11m 12s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 15m 24s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 11m 43s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 15m 52s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BoardTest - 2017.03.16 at 13h 12m 05s.xml">
+    <history-entry file="BoardTest - 2017.03.16 at 15h 17m 44s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="748" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1104,8 +1095,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.83387095" sideWeight="0.51976573" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.72096777" sideWeight="0.48023427" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.72096777" sideWeight="0.48023427" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1116,8 +1107,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1167,7 +1158,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#1110#1155#0" expanded="false" />
           </folding>
         </state>
@@ -1192,7 +1182,6 @@
         <state relative-caret-position="330">
           <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#1110#1155#0" expanded="false" />
           </folding>
         </state>
@@ -1203,10 +1192,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1710#1711#0" expanded="true" />
-            <element signature="e#1771#1772#0" expanded="true" />
-            <element signature="e#3624#3625#0" expanded="true" />
-            <element signature="e#3655#3656#0" expanded="true" />
             <element signature="e#7204#7205#0" expanded="true" />
             <element signature="e#7238#7239#0" expanded="true" />
           </folding>
@@ -1253,7 +1238,6 @@
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#1110#1155#0" expanded="false" />
           </folding>
         </state>
@@ -1271,7 +1255,6 @@
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#1110#1155#0" expanded="false" />
           </folding>
         </state>
@@ -1289,7 +1272,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#1110#1155#0" expanded="false" />
           </folding>
         </state>
@@ -1386,7 +1368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1410,18 +1391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4575">
           <caret line="337" column="4" lean-forward="true" selection-start-line="337" selection-start-column="4" selection-end-line="337" selection-end-column="4" />
-          <folding>
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2093#2094#0" expanded="false" />
-            <element signature="e#2223#2224#0" expanded="false" />
-            <element signature="e#2292#2293#0" expanded="false" />
-            <element signature="e#2331#2332#0" expanded="false" />
-            <element signature="e#2385#2386#0" expanded="false" />
-            <element signature="e#2453#2454#0" expanded="false" />
-            <element signature="e#2487#2488#0" expanded="false" />
-            <element signature="e#3256#3257#0" expanded="false" />
-            <element signature="e#3294#3295#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1467,10 +1436,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="285">
           <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#1110#1155#0" expanded="false" />
           </folding>
         </state>
@@ -1486,8 +1454,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="188" column="7" lean-forward="true" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="7" />
+        <state relative-caret-position="2580">
+          <caret line="188" column="7" lean-forward="false" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="7" />
           <folding>
             <element signature="e#0#5899#0" expanded="true" />
           </folding>
@@ -1510,49 +1478,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/House.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="276" column="16" lean-forward="false" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
           <folding>
-            <element signature="e#1710#1711#0" expanded="true" />
-            <element signature="e#1771#1772#0" expanded="true" />
-            <element signature="e#3624#3625#0" expanded="true" />
-            <element signature="e#3655#3656#0" expanded="true" />
             <element signature="e#7204#7205#0" expanded="true" />
             <element signature="e#7238#7239#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="38" column="3" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+        <state relative-caret-position="341">
+          <caret line="390" column="29" lean-forward="false" selection-start-line="390" selection-start-column="29" selection-end-line="390" selection-end-column="29" />
           <folding>
-            <element signature="e#0#11745#0" expanded="true" />
-            <element signature="e#2184#2191#0" expanded="true" />
-            <element signature="e#9961#9962#0" expanded="true" />
-            <element signature="e#10008#10009#0" expanded="true" />
+            <element signature="e#0#12831#0" expanded="true" />
+            <element signature="e#2094#2101#0" expanded="true" />
+            <element signature="e#10741#10742#0" expanded="true" />
+            <element signature="e#10788#10789#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Store.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="59" column="69" lean-forward="false" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
+        <state relative-caret-position="15">
+          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
           <folding>
-            <element signature="e#5284#5285#0" expanded="true" />
-            <element signature="e#5317#5318#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

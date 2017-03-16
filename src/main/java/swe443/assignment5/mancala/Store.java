@@ -58,7 +58,7 @@ import swe443.assignment5.mancala.util.StoreSet;
 
            getBoard().getStores().get(current).setStones(0);
            System.out.println(getBoard().getStores().get(current).getRightSide());
-//           getBoard().getStores().get(current).getRightSide().setStones(getBoard().getStores().get(current).getRightSide().getStones() + currentStore + opposite);
+           getBoard().getStores().get(current).getRightSide().setStones(getBoard().getStores().get(current).getRightSide().getStones() + currentStore + opposite);
        }
 
        if(getBoard().getPlayer().get(0).isMyTurn()) {

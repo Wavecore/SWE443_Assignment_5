@@ -18,7 +18,7 @@
    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
  */
-   
+
 package swe443.assignment5.mancala;
 
 import de.uniks.networkparser.interfaces.SendableEntity;
@@ -33,327 +33,337 @@ import swe443.assignment5.mancala.House;
 import swe443.assignment5.mancala.util.StoreSet;
 import swe443.assignment5.mancala.util.PlayerSet;
 import swe443.assignment5.mancala.Player;
-   /**
-    * 
-    * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
+/**
+ *
+ * @see <a href='../../../../../../src/main/java/Model.java'>Model.java</a>
  */
-   public  class Board implements SendableEntity
+public  class Board implements SendableEntity
 {
-   
-   //==========================================================================
-   public void setUpBoard(  ) {
-       House house1 = createHouses().withBoard(this);
-       House house2 = createHouses().withBoard(this);
 
-//       house1.setRightSide(house1);
-//       house2.setRightSide(house2);
+    //==========================================================================
+    public void setUpBoard(  ) {
+        House house1 = createHouses().withBoard(this);
+        House house2 = createHouses().withBoard(this);
 
-       ArrayList<Store> storeSide1 = new ArrayList<Store>();
 
-       for (int i = 0; i < 6; i++) {
-           Store store1 = createStores().withBoard(this);
-           store1.withStones(4);
-           store1.setRightSide(house1);
-           store1.setLeftSide(house2);
-           storeSide1.add(store1);
-       }
-       for (int i = 0; i < 6; i++) {
-           //Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
-           //store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
-
-           Store store2 = createStores().withBoard(this);
-
-           storeSide1.get(storeSide1.size()-1-i).setOpposite(store2);
-           store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
-
-           store2.withStones(4);
-           store2.setRightSide(house2);
-           store2.setLeftSide(house1);
-       }
-   }
-
-   
-   //==========================================================================
-   
-   protected PropertyChangeSupport listeners = null;
-   
-   public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
-   {
-      if (listeners != null) {
-   		listeners.firePropertyChange(propertyName, oldValue, newValue);
-   		return true;
-   	}
-   	return false;
-   }
-   
-   public boolean addPropertyChangeListener(PropertyChangeListener listener) 
-   {
-   	if (listeners == null) {
-   		listeners = new PropertyChangeSupport(this);
-   	}
-   	listeners.addPropertyChangeListener(listener);
-   	return true;
-   }
-   
-   public boolean addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
-   	if (listeners == null) {
-   		listeners = new PropertyChangeSupport(this);
-   	}
-   	listeners.addPropertyChangeListener(propertyName, listener);
-   	return true;
-   }
-   
-   public boolean removePropertyChangeListener(PropertyChangeListener listener) {
-   	if (listeners == null) {
-   		listeners.removePropertyChangeListener(listener);
-   	}
-   	listeners.removePropertyChangeListener(listener);
-   	return true;
-   }
-
-   public boolean removePropertyChangeListener(String propertyName,PropertyChangeListener listener) {
-   	if (listeners != null) {
-   		listeners.removePropertyChangeListener(propertyName, listener);
-   	}
-   	return true;
-   }
-
-   
-   //==========================================================================
-   
-   
-   public void removeYou()
-   {
-      withoutHouses(this.getHouses().toArray(new House[this.getHouses().size()]));
-      withoutStores(this.getStores().toArray(new Store[this.getStores().size()]));
-      withoutPlayer(this.getPlayer().toArray(new Player[this.getPlayer().size()]));
-      firePropertyChange("REMOVE_YOU", this, null);
-   }
-
-   
-   /********************************************************************
-    * <pre>
-    *              one                       many
-    * Board ----------------------------------- House
-    *              board                   houses
-    * </pre>
-    */
-   
-   public static final String PROPERTY_HOUSES = "houses";
-
-   private HouseSet houses = null;
-   
-   public HouseSet getHouses()
-   {
-      if (this.houses == null)
-      {
-         return HouseSet.EMPTY_SET;
-      }
-   
-      return this.houses;
-   }
-
-   public Board withHouses(House... value)
-   {
-      if(value==null){
-         return this;
-      }
-      for (House item : value)
-      {
-         if (item != null)
-         {
-            if (this.houses == null)
-            {
-               this.houses = new HouseSet();
+        ArrayList<Store> storeSide1 = new ArrayList<Store>();
+        Store previous = null;
+        for (int i = 0; i < 6; i++) {
+            Store store1 = createStores().withBoard(this);
+            store1.withStones(4);
+            if(previous == null){
+                store1.setLeftSide(house2);
+                previous = store1;
             }
-            
-            boolean changed = this.houses.add (item);
-
-            if (changed)
-            {
-               item.withBoard(this);
-               firePropertyChange(PROPERTY_HOUSES, null, item);
+            else{
+                store1.setLeftSide(previous);
+                previous = store1;
             }
-         }
-      }
-      return this;
-   } 
+            storeSide1.add(store1);
+        }
+        previous.setRightSide(house1);
+        previous = null;
+        for (int i = 0; i < 6; i++) {
+            //Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
+            //store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
 
-   public Board withoutHouses(House... value)
-   {
-      for (House item : value)
-      {
-         if ((this.houses != null) && (item != null))
-         {
-            if (this.houses.remove(item))
-            {
-               item.setBoard(null);
-               firePropertyChange(PROPERTY_HOUSES, item, null);
+            Store store2 = createStores().withBoard(this);
+            store2.withStones(4);
+            storeSide1.get(storeSide1.size()-1-i).setOpposite(store2);
+            if(previous == null){
+                store2.setLeftSide(house1);
+                previous = store2;
             }
-         }
-      }
-      return this;
-   }
-
-   public House createHouses()
-   {
-      House value = new House();
-      withHouses(value);
-      return value;
-   } 
-
-   public Store createHousesStore()
-   {
-      Store value = new Store();
-      withHouses(value);
-      return value;
-   } 
-
-   
-   /********************************************************************
-    * <pre>
-    *              one                       many
-    * Board ----------------------------------- Store
-    *              board                   stores
-    * </pre>
-    */
-   
-   public static final String PROPERTY_STORES = "stores";
-
-   private StoreSet stores = null;
-   
-   public StoreSet getStores()
-   {
-      if (this.stores == null)
-      {
-         return StoreSet.EMPTY_SET;
-      }
-   
-      return this.stores;
-   }
-
-   public Board withStores(Store... value)
-   {
-      if(value==null){
-         return this;
-      }
-      for (Store item : value)
-      {
-         if (item != null)
-         {
-            if (this.stores == null)
-            {
-               this.stores = new StoreSet();
+            else{
+                store2.setLeftSide(previous);
+                previous = store2;
             }
-            
-            boolean changed = this.stores.add (item);
+        }
+        previous.setRightSide(house2);
+    }
 
-            if (changed)
+
+    //==========================================================================
+
+    protected PropertyChangeSupport listeners = null;
+
+    public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
+    {
+        if (listeners != null) {
+            listeners.firePropertyChange(propertyName, oldValue, newValue);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addPropertyChangeListener(PropertyChangeListener listener)
+    {
+        if (listeners == null) {
+            listeners = new PropertyChangeSupport(this);
+        }
+        listeners.addPropertyChangeListener(listener);
+        return true;
+    }
+
+    public boolean addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        if (listeners == null) {
+            listeners = new PropertyChangeSupport(this);
+        }
+        listeners.addPropertyChangeListener(propertyName, listener);
+        return true;
+    }
+
+    public boolean removePropertyChangeListener(PropertyChangeListener listener) {
+        if (listeners == null) {
+            listeners.removePropertyChangeListener(listener);
+        }
+        listeners.removePropertyChangeListener(listener);
+        return true;
+    }
+
+    public boolean removePropertyChangeListener(String propertyName,PropertyChangeListener listener) {
+        if (listeners != null) {
+            listeners.removePropertyChangeListener(propertyName, listener);
+        }
+        return true;
+    }
+
+
+    //==========================================================================
+
+
+    public void removeYou()
+    {
+        withoutHouses(this.getHouses().toArray(new House[this.getHouses().size()]));
+        withoutStores(this.getStores().toArray(new Store[this.getStores().size()]));
+        withoutPlayer(this.getPlayer().toArray(new Player[this.getPlayer().size()]));
+        firePropertyChange("REMOVE_YOU", this, null);
+    }
+
+
+    /********************************************************************
+     * <pre>
+     *              one                       many
+     * Board ----------------------------------- House
+     *              board                   houses
+     * </pre>
+     */
+
+    public static final String PROPERTY_HOUSES = "houses";
+
+    private HouseSet houses = null;
+
+    public HouseSet getHouses()
+    {
+        if (this.houses == null)
+        {
+            return HouseSet.EMPTY_SET;
+        }
+
+        return this.houses;
+    }
+
+    public Board withHouses(House... value)
+    {
+        if(value==null){
+            return this;
+        }
+        for (House item : value)
+        {
+            if (item != null)
             {
-               item.withBoard(this);
-               firePropertyChange(PROPERTY_STORES, null, item);
-            }
-         }
-      }
-      return this;
-   } 
+                if (this.houses == null)
+                {
+                    this.houses = new HouseSet();
+                }
 
-   public Board withoutStores(Store... value)
-   {
-      for (Store item : value)
-      {
-         if ((this.stores != null) && (item != null))
-         {
-            if (this.stores.remove(item))
+                boolean changed = this.houses.add (item);
+
+                if (changed)
+                {
+                    item.withBoard(this);
+                    firePropertyChange(PROPERTY_HOUSES, null, item);
+                }
+            }
+        }
+        return this;
+    }
+
+    public Board withoutHouses(House... value)
+    {
+        for (House item : value)
+        {
+            if ((this.houses != null) && (item != null))
             {
-               item.setBoard(null);
-               firePropertyChange(PROPERTY_STORES, item, null);
+                if (this.houses.remove(item))
+                {
+                    item.setBoard(null);
+                    firePropertyChange(PROPERTY_HOUSES, item, null);
+                }
             }
-         }
-      }
-      return this;
-   }
+        }
+        return this;
+    }
 
-   public Store createStores()
-   {
-      Store value = new Store();
-      withStores(value);
-      return value;
-   } 
+    public House createHouses()
+    {
+        House value = new House();
+        withHouses(value);
+        return value;
+    }
 
-   
-   /********************************************************************
-    * <pre>
-    *              one                       many
-    * Board ----------------------------------- Player
-    *              board                   player
-    * </pre>
-    */
-   
-   public static final String PROPERTY_PLAYER = "player";
+    public Store createHousesStore()
+    {
+        Store value = new Store();
+        withHouses(value);
+        return value;
+    }
 
-   private PlayerSet player = null;
-   
-   public PlayerSet getPlayer()
-   {
-      if (this.player == null)
-      {
-         return PlayerSet.EMPTY_SET;
-      }
-   
-      return this.player;
-   }
 
-   public Board withPlayer(Player... value)
-   {
-      if(value==null){
-         return this;
-      }
-      for (Player item : value)
-      {
-         if (item != null)
-         {
-            if (this.player == null)
+    /********************************************************************
+     * <pre>
+     *              one                       many
+     * Board ----------------------------------- Store
+     *              board                   stores
+     * </pre>
+     */
+
+    public static final String PROPERTY_STORES = "stores";
+
+    private StoreSet stores = null;
+
+    public StoreSet getStores()
+    {
+        if (this.stores == null)
+        {
+            return StoreSet.EMPTY_SET;
+        }
+
+        return this.stores;
+    }
+
+    public Board withStores(Store... value)
+    {
+        if(value==null){
+            return this;
+        }
+        for (Store item : value)
+        {
+            if (item != null)
             {
-               this.player = new PlayerSet();
-            }
-            
-            boolean changed = this.player.add (item);
+                if (this.stores == null)
+                {
+                    this.stores = new StoreSet();
+                }
 
-            if (changed)
+                boolean changed = this.stores.add (item);
+
+                if (changed)
+                {
+                    item.withBoard(this);
+                    firePropertyChange(PROPERTY_STORES, null, item);
+                }
+            }
+        }
+        return this;
+    }
+
+    public Board withoutStores(Store... value)
+    {
+        for (Store item : value)
+        {
+            if ((this.stores != null) && (item != null))
             {
-               item.withBoard(this);
-               firePropertyChange(PROPERTY_PLAYER, null, item);
+                if (this.stores.remove(item))
+                {
+                    item.setBoard(null);
+                    firePropertyChange(PROPERTY_STORES, item, null);
+                }
             }
-         }
-      }
-      return this;
-   } 
+        }
+        return this;
+    }
 
-   public Board withoutPlayer(Player... value)
-   {
-      for (Player item : value)
-      {
-         if ((this.player != null) && (item != null))
-         {
-            if (this.player.remove(item))
+    public Store createStores()
+    {
+        Store value = new Store();
+        withStores(value);
+        return value;
+    }
+
+
+    /********************************************************************
+     * <pre>
+     *              one                       many
+     * Board ----------------------------------- Player
+     *              board                   player
+     * </pre>
+     */
+
+    public static final String PROPERTY_PLAYER = "player";
+
+    private PlayerSet player = null;
+
+    public PlayerSet getPlayer()
+    {
+        if (this.player == null)
+        {
+            return PlayerSet.EMPTY_SET;
+        }
+
+        return this.player;
+    }
+
+    public Board withPlayer(Player... value)
+    {
+        if(value==null){
+            return this;
+        }
+        for (Player item : value)
+        {
+            if (item != null)
             {
-               item.setBoard(null);
-               firePropertyChange(PROPERTY_PLAYER, item, null);
+                if (this.player == null)
+                {
+                    this.player = new PlayerSet();
+                }
+
+                boolean changed = this.player.add (item);
+
+                if (changed)
+                {
+                    item.withBoard(this);
+                    firePropertyChange(PROPERTY_PLAYER, null, item);
+                }
             }
-         }
-      }
-      return this;
-   }
+        }
+        return this;
+    }
 
-   public Player createPlayer()
-   {
-      Player value = new Player();
-      withPlayer(value);
-      return value;
-   }
+    public Board withoutPlayer(Player... value)
+    {
+        for (Player item : value)
+        {
+            if ((this.player != null) && (item != null))
+            {
+                if (this.player.remove(item))
+                {
+                    item.setBoard(null);
+                    firePropertyChange(PROPERTY_PLAYER, item, null);
+                }
+            }
+        }
+        return this;
+    }
 
-   // Below is for testing purposes
+    public Player createPlayer()
+    {
+        Player value = new Player();
+        withPlayer(value);
+        return value;
+    }
+
+    // Below is for testing purposes
     public void checkOpposites()
     {
         for(int i = 0; i < getStores().size(); i++)
@@ -367,24 +377,31 @@ import swe443.assignment5.mancala.Player;
         System.out.println(getPlayer());
     }
 
-   public void printBoard()
-   {
-       System.out.println(getStores());
-       System.out.println(getHouses());
-       System.out.println();
-   }
+    public void printBoard()
+    {
+        StoreSet s = getStores();
+        HouseSet h = getHouses();
+        for(int x = s.size()-1; x >= s.size()/2;x--)
+            System.out.print(" "+ s.get(x));
+        System.out.println();
+        System.out.println(h.get(1)+"           "+h.get(0));
+        for(int x = 0; x < s.size()/2;x++)
+            System.out.print(" "+ s.get(x));
+        System.out.println();
+        System.out.println();
+    }
 
     public boolean makeMove(Player player, int i) {
 
 
-       if(!player.isMyTurn())
-           return false;
+        if(!player.isMyTurn())
+            return false;
 
-       System.out.println("selects position " + (i + 1));
-       if(i < 0 || i > 11)
-           return false;
-       if (getStores().get(i).getStones() < 1)
-           return false;
+        System.out.println("selects position " + (i + 1));
+        if(i < 0 || i > 11)
+            return false;
+        if (getStores().get(i).getStones() < 1)
+            return false;
 
         int stoneCount = getStores().get(i).getStones();
         getStores().get(i).setStones(0);
