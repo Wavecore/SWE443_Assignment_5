@@ -19,7 +19,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
 
       while (this.getPattern().getHasMatch())
       {
-         matches.add((Player) this.getCurrentMatch());
+         matches.add(this.getCurrentMatch());
          
          this.getPattern().findMatch();
       }
@@ -50,7 +50,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Player) getCurrentMatch()).ismyTurn();
+         return getCurrentMatch().ismyTurn();
       }
       return false;
    }
@@ -87,7 +87,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Player) getCurrentMatch()).isMyTurn();
+         return getCurrentMatch().isMyTurn();
       }
       return false;
    }
@@ -96,7 +96,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
    {
       if (this.getPattern().getHasMatch())
       {
-         ((Player) getCurrentMatch()).setMyTurn(value);
+         getCurrentMatch().setMyTurn(value);
       }
       return this;
    }
@@ -148,7 +148,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Player) getCurrentMatch()).getName();
+         return getCurrentMatch().getName();
       }
       return null;
    }
@@ -157,7 +157,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
    {
       if (this.getPattern().getHasMatch())
       {
-         ((Player) getCurrentMatch()).setName(value);
+         getCurrentMatch().setName(value);
       }
       return this;
    }
@@ -196,7 +196,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Player) this.getCurrentMatch()).getBoard();
+         return this.getCurrentMatch().getBoard();
       }
       return null;
    }

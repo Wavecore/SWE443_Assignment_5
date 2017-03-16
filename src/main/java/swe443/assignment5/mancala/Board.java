@@ -24,6 +24,9 @@ package swe443.assignment5.mancala;
 import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.util.HouseSet;
 import swe443.assignment5.mancala.House;
@@ -36,12 +39,30 @@ import swe443.assignment5.mancala.Player;
  */
    public  class Board implements SendableEntity
 {
-
    
    //==========================================================================
-   public void setUpBoard(  )
-   {
-      
+   public void setUpBoard(  ) {
+       createPlayer().withName("Player1").withBoard(this);
+       createPlayer().withName("Player2").withBoard(this);
+
+       House house1 = createHouses().withBoard(this);
+       House house2 = createHouses().withBoard(this);
+
+       ArrayList<Store> storeSide1 = new ArrayList<Store>();
+
+       for (int i = 0; i < 6; i++) {
+           Store store1 = createStores().withBoard(this);
+           store1.withStones(4);
+           store1.withRightSide(house1);
+           store1.withRightSide(house2);
+           storeSide1.add(store1);
+       }
+       for (int i = 0; i < 6; i++) {
+           Store store2 = storeSide1.get(i).createOpposite().withBoard(this);
+           store2.withStones(5);
+           store2.withRightSide(house2);
+           store2.withRightSide(house1);
+       }
    }
 
    
@@ -323,5 +344,11 @@ import swe443.assignment5.mancala.Player;
       Player value = new Player();
       withPlayer(value);
       return value;
-   } 
+   }
+
+   // Below is for testing purposes
+   public String printBoard()
+   {
+        return "";
+   }
 }

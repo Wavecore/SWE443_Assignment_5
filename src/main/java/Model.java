@@ -35,7 +35,7 @@ public class Model {
 
         Clazz playerClass = model.createClazz("Player")
                 .withAttribute("myTurn", DataType.BOOLEAN)
-                .withAttribute("name", DataType.STRING);;
+                .withAttribute("name", DataType.STRING);
         playerClass.withMethod("ismyTurn", DataType.BOOLEAN);
 
         //Board has MANY houses and a house has ONE board

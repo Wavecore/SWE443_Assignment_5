@@ -21,7 +21,7 @@ public class StorePO extends PatternObject<StorePO, Store>
 
       while (this.getPattern().getHasMatch())
       {
-         matches.add((Store) this.getCurrentMatch());
+         matches.add(this.getCurrentMatch());
          
          this.getPattern().findMatch();
       }
@@ -52,7 +52,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Store) getCurrentMatch()).takeOppositePebbles();
+         return getCurrentMatch().takeOppositePebbles();
       }
       return 0;
    }
@@ -64,7 +64,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-          ((Store) getCurrentMatch()).lastSownEvent();
+          getCurrentMatch().lastSownEvent();
       }
    }
 
@@ -115,7 +115,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Store) getCurrentMatch()).getStones();
+         return getCurrentMatch().getStones();
       }
       return 0;
    }
@@ -124,7 +124,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         ((Store) getCurrentMatch()).setStones(value);
+         getCurrentMatch().setStones(value);
       }
       return this;
    }
@@ -163,7 +163,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Store) this.getCurrentMatch()).getBoard();
+         return this.getCurrentMatch().getBoard();
       }
       return null;
    }
@@ -202,7 +202,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Store) this.getCurrentMatch()).getLeftSide();
+         return this.getCurrentMatch().getLeftSide();
       }
       return null;
    }
@@ -241,7 +241,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Store) this.getCurrentMatch()).getRightSide();
+         return this.getCurrentMatch().getRightSide();
       }
       return null;
    }
@@ -280,7 +280,7 @@ public class StorePO extends PatternObject<StorePO, Store>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Store) this.getCurrentMatch()).getOpposite();
+         return this.getCurrentMatch().getOpposite();
       }
       return null;
    }

@@ -24,7 +24,7 @@ public class BoardPO extends PatternObject<BoardPO, Board>
 
       while (this.getPattern().getHasMatch())
       {
-         matches.add((Board) this.getCurrentMatch());
+         matches.add(this.getCurrentMatch());
          
          this.getPattern().findMatch();
       }
@@ -55,7 +55,7 @@ public class BoardPO extends PatternObject<BoardPO, Board>
    {
       if (this.getPattern().getHasMatch())
       {
-          ((Board) getCurrentMatch()).setUpBoard();
+          getCurrentMatch().setUpBoard();
       }
    }
 
@@ -93,7 +93,7 @@ public class BoardPO extends PatternObject<BoardPO, Board>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Board) this.getCurrentMatch()).getHouses();
+         return this.getCurrentMatch().getHouses();
       }
       return null;
    }
@@ -132,7 +132,7 @@ public class BoardPO extends PatternObject<BoardPO, Board>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Board) this.getCurrentMatch()).getStores();
+         return this.getCurrentMatch().getStores();
       }
       return null;
    }
@@ -171,7 +171,7 @@ public class BoardPO extends PatternObject<BoardPO, Board>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Board) this.getCurrentMatch()).getPlayer();
+         return this.getCurrentMatch().getPlayer();
       }
       return null;
    }

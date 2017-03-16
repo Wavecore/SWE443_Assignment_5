@@ -19,7 +19,7 @@ public class HousePO extends PatternObject<HousePO, House>
 
       while (this.getPattern().getHasMatch())
       {
-         matches.add((House) this.getCurrentMatch());
+         matches.add(this.getCurrentMatch());
          
          this.getPattern().findMatch();
       }
@@ -50,7 +50,7 @@ public class HousePO extends PatternObject<HousePO, House>
    {
       if (this.getPattern().getHasMatch())
       {
-          ((House) getCurrentMatch()).lastSownEvent();
+          getCurrentMatch().lastSownEvent();
       }
    }
 
@@ -101,7 +101,7 @@ public class HousePO extends PatternObject<HousePO, House>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((House) getCurrentMatch()).getStones();
+         return getCurrentMatch().getStones();
       }
       return 0;
    }
@@ -110,7 +110,7 @@ public class HousePO extends PatternObject<HousePO, House>
    {
       if (this.getPattern().getHasMatch())
       {
-         ((House) getCurrentMatch()).setStones(value);
+         getCurrentMatch().setStones(value);
       }
       return this;
    }
@@ -149,7 +149,7 @@ public class HousePO extends PatternObject<HousePO, House>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((House) this.getCurrentMatch()).getBoard();
+         return this.getCurrentMatch().getBoard();
       }
       return null;
    }
@@ -188,7 +188,7 @@ public class HousePO extends PatternObject<HousePO, House>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((House) this.getCurrentMatch()).getLeftSide();
+         return this.getCurrentMatch().getLeftSide();
       }
       return null;
    }
@@ -227,7 +227,7 @@ public class HousePO extends PatternObject<HousePO, House>
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((House) this.getCurrentMatch()).getRightSide();
+         return this.getCurrentMatch().getRightSide();
       }
       return null;
    }
