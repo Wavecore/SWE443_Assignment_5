@@ -35,14 +35,33 @@ import swe443.assignment5.mancala.util.StoreSet;
    //==========================================================================
    public int takeOppositePebbles(  )
    {
-      return 0;
+      int opposite = getOpposite().getStones();
+      getOpposite().setStones(0);
+      return opposite;
    }
 
    
    //==========================================================================
    public void lastSownEvent(  )
    {
-      
+       if(getStones() == 1) {
+//           System.out.println(getRightSide());
+//           System.out.println(getRightSide().getStones());
+           takeOppositePebbles();
+//           getRightSide().setStones(getRightSide().getStones() + takeOppositePebbles());
+           System.out.println("Opposite side stolen!");
+       }
+
+       if(getBoard().getPlayer().get(0).isMyTurn()) {
+           getBoard().getPlayer().get(0).setMyTurn(false);
+           getBoard().getPlayer().get(1).setMyTurn(true);
+       }
+       else
+       {
+           getBoard().getPlayer().get(0).setMyTurn(true);
+           getBoard().getPlayer().get(1).setMyTurn(false);
+       }
+
    }
 
    
@@ -107,7 +126,7 @@ import swe443.assignment5.mancala.util.StoreSet;
          {
             value.withStores(this);
          }
-         
+
          firePropertyChange(PROPERTY_BOARD, oldValue, value);
          changed = true;
       }

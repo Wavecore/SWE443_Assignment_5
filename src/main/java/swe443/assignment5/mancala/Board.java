@@ -45,20 +45,23 @@ import swe443.assignment5.mancala.Player;
        House house1 = createHouses().withBoard(this);
        House house2 = createHouses().withBoard(this);
 
+       house1.setRightSide(house1);
+       house2.setRightSide(house2);
+
        ArrayList<Store> storeSide1 = new ArrayList<Store>();
 
        for (int i = 0; i < 6; i++) {
            Store store1 = createStores().withBoard(this);
            store1.withStones(4);
-           store1.withRightSide(house1);
-           store1.withRightSide(house2);
+           store1.setRightSide(house1);
+           store1.setLeftSide(house2);
            storeSide1.add(store1);
        }
        for (int i = 0; i < 6; i++) {
-           Store store2 = storeSide1.get(i).createOpposite().withBoard(this);
+           Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
            store2.withStones(4);
-           store2.withRightSide(house2);
-           store2.withRightSide(house1);
+           store2.setRightSide(house2);
+           store2.setLeftSide(house1);
        }
    }
 
@@ -344,10 +347,67 @@ import swe443.assignment5.mancala.Player;
    }
 
    // Below is for testing purposes
+    public void printPlayerList()
+    {
+        System.out.println(getPlayer());
+    }
+
    public void printBoard()
    {
-       System.out.println(getPlayer());
        System.out.println(getStores());
        System.out.println(getHouses());
+       System.out.println();
    }
+
+    public boolean makeMove(Player player, int i) {
+
+
+       if(!player.isMyTurn())
+           return false;
+
+       System.out.println("selects position " + (i + 1));
+       if(i < 0 || i > 11)
+           return false;
+       if (getStores().get(i).getStones() < 1)
+           return false;
+
+        int stoneCount = getStores().get(i).getStones();
+        getStores().get(i).setStones(0);
+
+        int j = i + 1;
+        int lastEvent = 0;
+
+        while(stoneCount > 0)
+        {
+            int current = j % (getStores().size());
+
+            getStores().get(current).setStones(getStores().get(current).getStones()+1);
+            lastEvent = current;
+            stoneCount--;
+            if(current == 5 || current == 11)
+            {
+                if(stoneCount > 0) {
+                    getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
+                    stoneCount--;
+                    if (stoneCount < 1) {
+                        System.out.println("Player gets to play again");
+//                    getStores().get(current).lastSownEvent();
+                        return true;
+                    }
+                }
+                j++;
+            }
+            j++;
+        }
+
+        System.out.println("lastEvent: " + lastEvent);
+        getStores().get(lastEvent).lastSownEvent();
+        return true;
+    }
+
+    public Player getPlayerTurn() {
+        if(getPlayer().get(0).isMyTurn())
+            return getPlayer().get(0);
+        return getPlayer().get(1);
+    }
 }
