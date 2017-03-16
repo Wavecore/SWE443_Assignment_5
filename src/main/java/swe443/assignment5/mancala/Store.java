@@ -33,16 +33,53 @@ import swe443.assignment5.mancala.util.StoreSet;
 
    
    //==========================================================================
-   public int takeOppositePebbles(  )
+   public int takeOppositePebbles()
    {
-      return 0;
+       Store opp = getOpposite();
+       System.out.println("Opposite: " + opp);
+
+       int opposite = opp.getStones();
+       opp.setStones(0);
+       System.out.println("Opposite side stolen!");
+       return opposite;
    }
 
    
    //==========================================================================
-   public void lastSownEvent(  )
+   public void lastSownEvent(int current)
    {
-      
+       System.out.println("Stone count = " + getStones());
+
+       if(getStones() == 1) {
+           int opposite = takeOppositePebbles();
+           int currentStore = getStones();
+
+           System.out.println("Current Store Count: " + currentStore + ", Opposite Store Count: " + opposite);
+
+           setStones(0);
+           System.out.println("Before House1: " + board.getHouses().get(0).getStones());
+           System.out.println("Before House2: " + board.getHouses().get(1).getStones());
+
+           if(current < 6)
+               board.getHouses().get(0).setStones(board.getHouses().get(0).getStones() + currentStore + opposite);
+           else
+               board.getHouses().get(1).setStones(board.getHouses().get(1).getStones() + currentStore + opposite);
+           
+           System.out.println("After House1: " + board.getHouses().get(0).getStones());
+           System.out.println("After House2: " + board.getHouses().get(1).getStones());
+       }
+
+       if(getBoard().getPlayer().get(0).isMyTurn()) {
+           System.out.println("Next turn: " + getBoard().getPlayer().get(1));
+           getBoard().getPlayer().get(0).setMyTurn(false);
+           getBoard().getPlayer().get(1).setMyTurn(true);
+       }
+       else
+       {
+           System.out.println("Next turn: " + getBoard().getPlayer().get(0));
+           getBoard().getPlayer().get(0).setMyTurn(true);
+           getBoard().getPlayer().get(1).setMyTurn(false);
+       }
    }
 
    
@@ -107,7 +144,7 @@ import swe443.assignment5.mancala.util.StoreSet;
          {
             value.withStores(this);
          }
-         
+
          firePropertyChange(PROPERTY_BOARD, oldValue, value);
          changed = true;
       }
