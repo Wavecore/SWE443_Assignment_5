@@ -170,7 +170,7 @@ public class BoardTest {
     }
 
     @Test
-    public void setUpCustomBoardBugFix() throws Exception {
+    public void setUpCustomBoardBugFix1() throws Exception {
         Board board = new Board();
         Player player1 = board.createPlayer().withName("Player1").withBoard(board).withMyTurn(true);
         Player player2 = board.createPlayer().withName("Player2").withBoard(board).withMyTurn(false);
@@ -184,6 +184,26 @@ public class BoardTest {
         System.out.println(board.getPlayerTurn() + "'s turn");
         System.out.print("Player1 ");
         player1.getBoard().makeMove(player1, 5);
+        board.printBoard();
+
+        board.checkGameStatus();
+    }
+
+    @Test
+    public void setUpCustomBoardBugFix2() throws Exception {
+        Board board = new Board();
+        Player player1 = board.createPlayer().withName("Player1").withBoard(board).withMyTurn(true);
+        Player player2 = board.createPlayer().withName("Player2").withBoard(board).withMyTurn(false);
+
+        int stores[] = {0, 8, 0, 0, 7, 2, 0, 0, 0, 1, 0, 0};
+        int homes[] = {9, 10};
+
+        board.setUpCustomBoard(stores, homes);
+        board.printBoard();
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        System.out.print("Player1 ");
+        player1.getBoard().makeMove(player1, 4);
         board.printBoard();
 
         board.checkGameStatus();
