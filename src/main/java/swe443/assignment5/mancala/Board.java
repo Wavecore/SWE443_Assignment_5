@@ -65,8 +65,6 @@ public  class Board implements SendableEntity
         previous.setRightSide(house1);
         previous = null;
         for (int i = 0; i < 6; i++) {
-            //Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
-            //store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
 
             Store store2 = createStores().withBoard(this);
             store2.withStones(3);
@@ -414,10 +412,6 @@ public  class Board implements SendableEntity
         int j = i + 1;
         int current = 0;
 
-//        System.out.println("i: " + i);
-//        System.out.println("Stone count: " + stoneCount);
-
-
         if((i == 5 || i == 11) && stoneCount == 1)
         {
             current = i % (getStores().size());
@@ -446,7 +440,6 @@ public  class Board implements SendableEntity
                         stoneCount--;
                         if (stoneCount < 1) {
                             System.out.println("lastEvent position: Home");
-//                        System.out.println("Player gets to play again");
                             getStores().get(current).getRightSide().lastSownEvent();
                             return true;
                         }
@@ -496,7 +489,6 @@ public  class Board implements SendableEntity
 
         for (int i = 0; i < 6; i++)
         {
-//            System.out.println(i + ": " + getStores().get(i).getStones());
             if(getStores().get(i).getStones() > 0) {
                 side1 = false;
                 break;
@@ -504,7 +496,6 @@ public  class Board implements SendableEntity
         }
         for (int j = 6; j < 12; j++)
         {
-//            System.out.println(j + ": " + getStores().get(j).getStones());
             if(getStores().get(j).getStones() > 0) {
                 side2 = false;
             }
@@ -571,9 +562,6 @@ public  class Board implements SendableEntity
         previous.setRightSide(house1);
         previous = null;
         for (int i = 0; i < 6; i++) {
-            //Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
-            //store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
-
             Store store2 = createStores().withBoard(this);
             store2.withStones(stores[i+6]);
             storeSide1.get(storeSide1.size()-1-i).setOpposite(store2);

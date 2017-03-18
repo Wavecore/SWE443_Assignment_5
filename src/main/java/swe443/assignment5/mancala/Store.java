@@ -36,7 +36,6 @@ import swe443.assignment5.mancala.util.StoreSet;
    public int takeOppositePebbles()
    {
        Store opp = getOpposite();
-//       System.out.println("Opposite: " + opp);
 
        int opposite = opp.getStones();
        opp.setStones(0);
@@ -56,25 +55,16 @@ import swe443.assignment5.mancala.util.StoreSet;
                int opposite = takeOppositePebbles();
                int currentStore = getStones();
 
-//           System.out.println("Current Store Count: " + currentStore + ", Opposite Store Count: " + opposite);
-
                setStones(0);
-//           System.out.println("Before House1: " + board.getHouses().get(0).getStones());
-//           System.out.println("Before House2: " + board.getHouses().get(1).getStones());
 
                if (current < 6)
                    board.getHouses().get(0).setStones(board.getHouses().get(0).getStones() + currentStore + opposite);
                else
                    board.getHouses().get(1).setStones(board.getHouses().get(1).getStones() + currentStore + opposite);
-
-//           System.out.println("After House1: " + board.getHouses().get(0).getStones());
-//           System.out.println("After House2: " + board.getHouses().get(1).getStones());
            }
        }
 
        boolean gameStatus = getBoard().checkGameStatus();
-
-//       System.out.println("gameStatus: " + gameStatus);
 
        if(!gameStatus)
        {
@@ -236,12 +226,5 @@ import swe443.assignment5.mancala.util.StoreSet;
       Store value = new Store();
       withOpposite(value);
       return value;
-   } 
-
-   
-   //==========================================================================
-   public void lastSownEvent(  )
-   {
-      
    }
 }
