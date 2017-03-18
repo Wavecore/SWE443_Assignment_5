@@ -122,4 +122,50 @@ public class BoardTest {
         board.printBoard();
 
     }
+
+    @Test
+    public void setUpCustomBoard() throws Exception {
+
+        Board board = new Board();
+
+        int stores[] = {1,2,3,4,5,6,7,8,9,10,11,12};
+        int homes[] = {1,2};
+
+        board.setUpCustomBoard(stores, homes);
+        board.printBoard();
+
+    }
+
+    @Test
+    public void setPlayerTurn() throws Exception {
+
+        Board board = new Board();
+
+        Player player1 = board.createPlayer().withName("Player1").withBoard(board).withMyTurn(true);
+        Player player2 = board.createPlayer().withName("Player2").withBoard(board).withMyTurn(false);
+
+        System.out.println(board.getPlayerTurn() + "'s turn");
+        board.setUpBoard();
+        board.printPlayerList();
+        board.printBoard();
+
+        board.setPlayerTurn(player2);
+        System.out.println(board.getPlayerTurn() + "'s turn");
+    }
+
+    @Test
+    public void setUpCustomBoardIsGameOver() throws Exception {
+
+        Board board = new Board();
+        Player player1 = board.createPlayer().withName("Player1").withBoard(board).withMyTurn(true);
+        Player player2 = board.createPlayer().withName("Player2").withBoard(board).withMyTurn(false);
+
+        int stores[] = {0,0,0,0,0,0,7,8,9,10,11,12};
+        int homes[] = {1,2};
+
+        board.setUpCustomBoard(stores, homes);
+        board.printBoard();
+
+        board.checkGameStatus();
+    }
 }
