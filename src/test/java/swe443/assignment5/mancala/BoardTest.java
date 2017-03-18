@@ -191,6 +191,7 @@ public class BoardTest {
 
     @Test
     public void setUpCustomBoardBugFix2() throws Exception {
+        //Adding comment to see if this commit goes through
         Board board = new Board();
         Player player1 = board.createPlayer().withName("Player1").withBoard(board).withMyTurn(true);
         Player player2 = board.createPlayer().withName("Player2").withBoard(board).withMyTurn(false);
