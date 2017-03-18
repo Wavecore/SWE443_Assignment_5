@@ -484,7 +484,7 @@ public  class Board implements SendableEntity
             return 2;
 
         }else{
-            return 3;
+            return 0;
         }
     }
 
@@ -515,7 +515,7 @@ public  class Board implements SendableEntity
 
             int winner = checkWinner();
 
-            if(!(winner == 3))
+            if(!(winner == 0))
             {
                 System.out.println("Player" + winner + " Wins!\n");
             }
