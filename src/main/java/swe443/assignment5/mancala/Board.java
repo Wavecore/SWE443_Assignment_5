@@ -473,18 +473,18 @@ public  class Board implements SendableEntity
         return isGameOver();
     }
 
-    public Player checkWinner()
+    public int checkWinner()
     {
 
         if(getHouses().get(0).getStones() > getHouses().get(1).getStones())
         {
-            return getPlayer().get(0);
+            return 1;
         } else if (getHouses().get(0).getStones() < getHouses().get(1).getStones())
         {
-            return getPlayer().get(1);
+            return 2;
 
         }else{
-            return null;
+            return 3;
         }
     }
 
@@ -513,11 +513,15 @@ public  class Board implements SendableEntity
         {
             System.out.println("\nGame Over!");
 
-            Player winner = checkWinner();
+            int winner = checkWinner();
 
-            if(!winner.equals(null))
+            if(!(winner == 3))
             {
-                System.out.println(winner + " Wins!\n");
+                System.out.println("Player" + winner + " Wins!\n");
+            }
+            else
+            {
+                System.out.println("Tie Game!\n");
             }
             System.out.println("Resulting board:");
             printBoard();
