@@ -418,8 +418,9 @@ public  class Board implements SendableEntity
 //        System.out.println("Stone count: " + stoneCount);
 
 
-        if((i == 5 || i == 11) && stoneCount == 1)
+        if ((i == 5 && getPlayerTurn().toString().equals("Player1")) || (i == 11 && getPlayerTurn().toString().equals("Player2")))// && stoneCount == 1)
         {
+//            System.out.println("if");
             current = i % (getStores().size());
             System.out.println("Next available spot is a House");
             if (stoneCount > 0) {
@@ -433,15 +434,22 @@ public  class Board implements SendableEntity
             }
         }
 
-        else
-        {
+//        else
+//        {
+//            System.out.println("else");
             while (stoneCount > 0) {
                 current = j % (getStores().size());
 
                 getStores().get(current).setStones(getStores().get(current).getStones() + 1);
                 stoneCount--;
-                if (current == 5 || current == 11) {
+//                System.out.println("current: " + current + " Turn: " + getPlayerTurn());
+//                System.out.println(current == 5);
+//                System.out.println(getPlayerTurn().toString().equals("Player1"));
+
+                if ((current == 5 && getPlayerTurn().toString().equals("Player1")) || (current == 11 && getPlayerTurn().toString().equals("Player2"))) {
+//                    System.out.println("stoneCount: " + stoneCount);
                     if (stoneCount > 0) {
+//                        System.out.print("Added to home");
                         getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
                         stoneCount--;
                         if (stoneCount < 1) {
@@ -455,10 +463,13 @@ public  class Board implements SendableEntity
                 j++;
             }
 
-            System.out.println("lastEvent position:  " + (current + 1));
-            getStores().get(current).lastSownEvent(current);
-        }
-        return true;
+            printBoard();
+//            System.out.println("recursion");
+            makeMove(player, current);
+//            System.out.println("lastEvent position:  " + (current + 1));
+//            getStores().get(current).lastSownEvent(current);
+//        }
+        return false;
     }
 
     private boolean isGameOver = false;
@@ -527,9 +538,65 @@ public  class Board implements SendableEntity
         return isGameOver();
     }
 
+    public boolean setPlayerTurn(Player player)
+    {
+        if(getPlayer().get(0).equals(player)) {
+            getPlayer().get(0).setMyTurn(true);
+            getPlayer().get(1).setMyTurn(false);
+            return true;
+        }
+        else if(getPlayer().get(1).equals(player)) {
+            getPlayer().get(0).setMyTurn(false);
+            getPlayer().get(1).setMyTurn(true);
+            return true;
+        }
+        return false;
+   }
+    
     public Player getPlayerTurn() {
         if(getPlayer().get(0).isMyTurn())
             return getPlayer().get(0);
         return getPlayer().get(1);
+    }
+
+    public void setUpCustomBoard(int[] stores, int[] homes) {
+        House house1 = createHouses().withBoard(this).withStones(homes[0]);
+        House house2 = createHouses().withBoard(this).withStones(homes[1]);
+
+
+        ArrayList<Store> storeSide1 = new ArrayList<Store>();
+        Store previous = null;
+        for (int i = 0; i < 6; i++) {
+            Store store1 = createStores().withBoard(this);
+            store1.withStones(stores[i]);
+            if(previous == null){
+                store1.setLeftSide(house2);
+                previous = store1;
+            }
+            else{
+                store1.setLeftSide(previous);
+                previous = store1;
+            }
+            storeSide1.add(store1);
+        }
+        previous.setRightSide(house1);
+        previous = null;
+        for (int i = 0; i < 6; i++) {
+            //Store store2 = storeSide1.get(storeSide1.size()-1-i).createOpposite().withBoard(this).withOpposite(storeSide1.get(i));
+            //store2.setOpposite(storeSide1.get(storeSide1.size()-1-i));
+
+            Store store2 = createStores().withBoard(this);
+            store2.withStones(stores[i+6]);
+            storeSide1.get(storeSide1.size()-1-i).setOpposite(store2);
+            if(previous == null){
+                store2.setLeftSide(house1);
+                previous = store2;
+            }
+            else{
+                store2.setLeftSide(previous);
+                previous = store2;
+            }
+        }
+        previous.setRightSide(house2);
     }
 }
