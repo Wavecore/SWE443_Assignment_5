@@ -152,4 +152,20 @@ public class BoardTest {
         board.setPlayerTurn(player2);
         System.out.println(board.getPlayerTurn() + "'s turn");
     }
+
+    @Test
+    public void setUpCustomBoardIsGameOver() throws Exception {
+
+        Board board = new Board();
+        Player player1 = board.createPlayer().withName("Player1").withBoard(board).withMyTurn(true);
+        Player player2 = board.createPlayer().withName("Player2").withBoard(board).withMyTurn(false);
+
+        int stores[] = {0,0,0,0,0,0,7,8,9,10,11,12};
+        int homes[] = {1,2};
+
+        board.setUpCustomBoard(stores, homes);
+        board.printBoard();
+
+        board.checkGameStatus();
+    }
 }

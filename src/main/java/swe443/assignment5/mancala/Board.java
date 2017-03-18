@@ -552,7 +552,7 @@ public  class Board implements SendableEntity
         }
         return false;
    }
-    
+
     public Player getPlayerTurn() {
         if(getPlayer().get(0).isMyTurn())
             return getPlayer().get(0);

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ff9d380-f379-4396-bf25-461933ca4fb1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" afterPath="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" afterPath="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
     </list>
@@ -69,14 +68,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="554" column="4" lean-forward="false" selection-start-line="554" selection-start-column="4" selection-end-line="554" selection-end-column="4" />
+            <state relative-caret-position="110">
+              <caret line="470" column="11" lean-forward="true" selection-start-line="470" selection-start-column="11" selection-end-line="470" selection-end-column="11" />
               <folding>
-                <marker date="1489866445959" expanded="true" signature="12687:12726" ph="..." />
-                <marker date="1489866445959" expanded="true" signature="13034:13167" ph="..." />
+                <element signature="e#14459#14460#0" expanded="true" />
+                <element signature="e#14497#14498#0" expanded="true" />
+                <marker date="1489866612752" expanded="true" signature="12687:12726" ph="..." />
+                <marker date="1489866612752" expanded="true" signature="13034:13167" ph="..." />
               </folding>
             </state>
           </provider>
@@ -104,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BoardTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="133" column="25" lean-forward="false" selection-start-line="133" selection-start-column="25" selection-end-line="133" selection-end-column="25" />
+            <state relative-caret-position="393">
+              <caret line="166" column="27" lean-forward="true" selection-start-line="166" selection-start-column="27" selection-end-line="166" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -509,8 +510,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Model.java" />
         <option value="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/MancalaStoryBoard.java" />
         <option value="$PROJECT_DIR$/doc/refs.html" />
-        <option value="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java" />
+        <option value="$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java" />
       </list>
     </option>
   </component>
@@ -1047,15 +1048,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BoardTest - 2017.03.18 at 15h 31m 43s.xml">
-      <configuration name="BoardTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BoardTest - 2017.03.18 at 15h 32m 06s.xml">
-      <configuration name="BoardTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BoardTest - 2017.03.18 at 15h 34m 10s.xml">
-      <configuration name="BoardTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BoardTest - 2017.03.18 at 15h 34m 45s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
@@ -1075,6 +1067,15 @@
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="BoardTest - 2017.03.18 at 15h 47m 15s.xml">
+      <configuration name="BoardTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest - 2017.03.18 at 15h 51m 51s.xml">
+      <configuration name="BoardTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest - 2017.03.18 at 15h 52m 28s.xml">
+      <configuration name="BoardTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest - 2017.03.18 at 15h 55m 22s.xml">
       <configuration name="BoardTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1165,8 +1166,10 @@
         <state relative-caret-position="6585">
           <caret line="476" column="10" lean-forward="false" selection-start-line="476" selection-start-column="10" selection-end-line="476" selection-end-column="10" />
           <folding>
-            <marker date="1489866445959" expanded="true" signature="12687:12726" ph="..." />
-            <marker date="1489866445959" expanded="true" signature="13034:13167" ph="..." />
+            <element signature="e#14459#14460#0" expanded="true" />
+            <element signature="e#14497#14498#0" expanded="true" />
+            <marker date="1489866612752" expanded="true" signature="12687:12726" ph="..." />
+            <marker date="1489866612752" expanded="true" signature="13034:13167" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1288,22 +1291,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="133" column="25" lean-forward="false" selection-start-line="133" selection-start-column="25" selection-end-line="133" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="110">
+          <caret line="470" column="11" lean-forward="true" selection-start-line="470" selection-start-column="11" selection-end-line="470" selection-end-column="11" />
+          <folding>
+            <element signature="e#14459#14460#0" expanded="true" />
+            <element signature="e#14497#14498#0" expanded="true" />
+            <marker date="1489866612752" expanded="true" signature="12687:12726" ph="..." />
+            <marker date="1489866612752" expanded="true" signature="13034:13167" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/swe443/assignment5/mancala/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/swe443/assignment5/mancala/BoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="554" column="4" lean-forward="false" selection-start-line="554" selection-start-column="4" selection-end-line="554" selection-end-column="4" />
-          <folding>
-            <marker date="1489866445959" expanded="true" signature="12687:12726" ph="..." />
-            <marker date="1489866445959" expanded="true" signature="13034:13167" ph="..." />
-          </folding>
+        <state relative-caret-position="393">
+          <caret line="166" column="27" lean-forward="true" selection-start-line="166" selection-start-column="27" selection-end-line="166" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
