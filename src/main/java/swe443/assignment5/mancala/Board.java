@@ -392,6 +392,8 @@ public  class Board implements SendableEntity
         System.out.println();
     }
 
+
+
     public boolean makeMove(Player player, int i) {
 
         if(isGameOver())
@@ -472,7 +474,7 @@ public  class Board implements SendableEntity
         return isGameOver();
     }
 
-    private Player checkWinner()
+    public Player checkWinner()
     {
 
         if(getHouses().get(0).getStones() > getHouses().get(1).getStones())

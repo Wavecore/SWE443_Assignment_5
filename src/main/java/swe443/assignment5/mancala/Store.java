@@ -237,4 +237,11 @@ import swe443.assignment5.mancala.util.StoreSet;
       withOpposite(value);
       return value;
    } 
+
+   
+   //==========================================================================
+   public void lastSownEvent(  )
+   {
+      
+   }
 }
