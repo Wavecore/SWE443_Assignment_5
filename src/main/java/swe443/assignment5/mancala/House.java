@@ -24,7 +24,6 @@ package swe443.assignment5.mancala;
 import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
-import swe443.assignment5.mancala.Board;
 import swe443.assignment5.mancala.util.HouseSet;
    /**
     * 
