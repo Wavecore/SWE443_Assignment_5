@@ -440,30 +440,7 @@ public  class Board implements SendableEntity
             return 0;
         }
     }
-
-
-
-    public Player getPlayerTurn() {
-        if(getPlayer().get(0).isMyTurn())
-            return getPlayer().get(0);
-        return getPlayer().get(1);
-    }
-
-    public boolean setPlayerTurn(Player player)
-    {
-        if(getPlayer().get(0).equals(player)) {
-            getPlayer().get(0).setMyTurn(true);
-            getPlayer().get(1).setMyTurn(false);
-            return true;
-        }
-        else if(getPlayer().get(1).equals(player)) {
-            getPlayer().get(0).setMyTurn(false);
-            getPlayer().get(1).setMyTurn(true);
-            return true;
-        }
-        return false;
-    }
-
+    
     public void setUpCustomBoard(int[] stores, int[] homes) {
 
         House house1 = createHouses().withBoard(this).withStones(homes[0]);

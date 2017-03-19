@@ -37,7 +37,7 @@ import swe443.assignment5.mancala.util.HouseSet;
    //==========================================================================
    public void lastSownEvent(  )
    {
- 
+         this.getBoard().setTurn(!this.getBoard().isTurn());
          System.out.println("Player gets to play again");
    }
 
