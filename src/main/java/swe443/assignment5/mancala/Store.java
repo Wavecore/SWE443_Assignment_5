@@ -227,11 +227,11 @@ import swe443.assignment5.mancala.util.StoreSet;
            }
        }
 
-       boolean gameStatus = getBoard().checkGameStatus();
+      // boolean gameStatus = getBoard().checkGameStatus();
 
 //       System.out.println("gameStatus: " + gameStatus);
 
-       if(!gameStatus)
+   /*    if(!gameStatus)
        {
            if (getBoard().getPlayer().get(0).isMyTurn()) {
                System.out.println("Next turn: " + getBoard().getPlayer().get(1));
@@ -243,5 +243,6 @@ import swe443.assignment5.mancala.util.StoreSet;
                getBoard().getPlayer().get(1).setMyTurn(false);
            }
        }
+       */
    }
 }

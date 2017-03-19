@@ -236,4 +236,20 @@ public class BoardPO extends PatternObject<BoardPO, Board>
       return false;
    }
 
+   
+   //==========================================================================
+   
+
+
+   
+   //==========================================================================
+   
+   public void checkGameStatus()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Board) getCurrentMatch()).checkGameStatus();
+      }
+   }
+
 }

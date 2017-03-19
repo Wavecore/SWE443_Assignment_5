@@ -434,4 +434,12 @@ public class BoardSet extends SimpleSet<Board>
       return result;
    }
 
+   
+   //==========================================================================
+   
+   public BoardSet checkGameStatus()
+   {
+      return BoardSet.EMPTY_SET;
+   }
+
 }

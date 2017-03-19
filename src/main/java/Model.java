@@ -32,6 +32,7 @@ public class Model {
                 .withAttribute("turn", DataType.BOOLEAN);
         boardClass.withMethod("setUpBoard", DataType.VOID);
         boardClass.withMethod("isGameOver", DataType.BOOLEAN);
+        boardClass.withMethod("checkGameStatus", DataType.VOID);
         //boardClass.withMethod("setUpBoardTest", DataType.VOID, new Parameter[]{});
 
         //Clazz gameClass = model.createClazz("Game")
