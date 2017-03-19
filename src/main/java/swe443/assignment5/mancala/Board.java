@@ -440,7 +440,7 @@ public  class Board implements SendableEntity
             return 0;
         }
     }
-    
+
     public void setUpCustomBoard(int[] stores, int[] homes) {
 
         House house1 = createHouses().withBoard(this).withStones(homes[0]);
@@ -545,5 +545,15 @@ public  class Board implements SendableEntity
        }
        System.out.println("Resulting board:");
        printBoard();
+   }
+
+   
+   //==========================================================================
+   public Player getPlayerTurn(  )
+   {
+      for(int x =0; x < this.player.size();x++)
+          if(player.get(x).isMyTurn() == this.turn)
+              return player.get(x);
+      return null;
    }
 }

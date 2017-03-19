@@ -4,6 +4,7 @@ import de.uniks.networkparser.graph.DataType;
 import de.uniks.networkparser.graph.Parameter;
 import org.sdmlib.models.classes.ClassModel;
 import org.sdmlib.storyboards.Storyboard;
+import swe443.assignment5.mancala.Player;
 //import swe443.assignment5.mancala.*;
 
 
@@ -27,20 +28,22 @@ public class Model {
         storeClass.withMethod("lastSownEvent",DataType.VOID, new Parameter(DataType.INT).with("current"));
         storeClass.withSuperClazz(houseClass);
 
+        Clazz playerClass = model.createClazz("Player")
+                .withAttribute("myTurn", DataType.BOOLEAN)
+                .withAttribute("name", DataType.STRING);
 
         Clazz boardClass = model.createClazz("Board")
                 .withAttribute("turn", DataType.BOOLEAN);
         boardClass.withMethod("setUpBoard", DataType.VOID);
         boardClass.withMethod("isGameOver", DataType.BOOLEAN);
         boardClass.withMethod("checkGameStatus", DataType.VOID);
+        boardClass.withMethod("getPlayerTurn",DataType.create(playerClass));
         //boardClass.withMethod("setUpBoardTest", DataType.VOID, new Parameter[]{});
 
         //Clazz gameClass = model.createClazz("Game")
         //        .withAttribute("gameDone", DataType.BOOLEAN);
 
-        Clazz playerClass = model.createClazz("Player")
-                .withAttribute("myTurn", DataType.BOOLEAN)
-                .withAttribute("name", DataType.STRING);
+
         //playerClass.withMethod("ismyTurn", DataType.BOOLEAN);
 
         //Board has MANY houses and a house has ONE board

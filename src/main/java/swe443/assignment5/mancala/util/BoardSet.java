@@ -442,4 +442,19 @@ public class BoardSet extends SimpleSet<Board>
       return BoardSet.EMPTY_SET;
    }
 
+   
+   //==========================================================================
+   
+   public PlayerSet getPlayerTurn()
+   {
+      
+      PlayerSet result = new PlayerSet();
+      
+      for (Board obj : this)
+      {
+         result.add( obj.getPlayerTurn() );
+      }
+      return result;
+   }
+
 }

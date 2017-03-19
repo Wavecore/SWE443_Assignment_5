@@ -252,4 +252,16 @@ public class BoardPO extends PatternObject<BoardPO, Board>
       }
    }
 
+   
+   //==========================================================================
+   
+   public swe443.assignment5.mancala.Player getPlayerTurn()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Board) getCurrentMatch()).getPlayerTurn();
+      }
+      return null;
+   }
+
 }

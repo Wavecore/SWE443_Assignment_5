@@ -35,7 +35,7 @@ import swe443.assignment5.mancala.util.StoreSet;
    //==========================================================================
    public int takeOppositePebbles()
    {
-       Store opp = getOpposite();
+       Store opp = this.getOpposite();
 //       System.out.println("Opposite: " + opp);
 
        int opposite = opp.getStones();
@@ -203,8 +203,17 @@ import swe443.assignment5.mancala.util.StoreSet;
    //==========================================================================
    public void lastSownEvent(int current)
    {
-//       System.out.println("Stone count = " + getStones());
+       House h = null;                                                                          //House to add stones into
+       if(this.board.isTurn() && current >= 0 && current < this.board.getStores().size()/2)     // If it is player 1's turn and this is player 1's store
+           h = this.board.getHouses().get(0);                                                   // We will be moving the stolen stone to player 1's house
+       else if(!this.board.isTurn() && current > this.board.getStores().size()/2 &&             // If it is player 2's turn and this is player 2's store
+               current < (this.board.getStores().size()+this.board.getHouses().size()))
+           h = this.board.getHouses().get(1);                                                   // We will move the stolen stones to player 2's house
+       h.setStones(h.getStones()+this.takeOppositePebbles()+1);
+       this.setStones(0);
 
+
+       /*
        if((current < 6 && getBoard().getPlayer().get(0).isMyTurn()) || (current > 5 && getBoard().getPlayer().get(1).isMyTurn())) {
 
            if (getStones() == 1) {
