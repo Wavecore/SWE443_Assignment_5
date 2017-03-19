@@ -264,4 +264,27 @@ public class BoardPO extends PatternObject<BoardPO, Board>
       return null;
    }
 
+   
+   //==========================================================================
+   
+   public void printBoard()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Board) getCurrentMatch()).printBoard();
+      }
+   }
+
+   
+   //==========================================================================
+   
+   public int checkWinner()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Board) getCurrentMatch()).checkWinner();
+      }
+      return 0;
+   }
+
 }

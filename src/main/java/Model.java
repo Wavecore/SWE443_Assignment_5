@@ -38,22 +38,13 @@ public class Model {
         boardClass.withMethod("isGameOver", DataType.BOOLEAN);
         boardClass.withMethod("checkGameStatus", DataType.VOID);
         boardClass.withMethod("getPlayerTurn",DataType.create(playerClass));
-        //boardClass.withMethod("setUpBoardTest", DataType.VOID, new Parameter[]{});
-
-        //Clazz gameClass = model.createClazz("Game")
-        //        .withAttribute("gameDone", DataType.BOOLEAN);
-
-
-        //playerClass.withMethod("ismyTurn", DataType.BOOLEAN);
+        boardClass.withMethod("printBoard", DataType.VOID);
+        boardClass.withMethod("checkWinner", DataType.INT);
 
         //Board has MANY houses and a house has ONE board
         houseClass.withBidirectional(boardClass, "board", Cardinality.ONE, "houses", Cardinality.MANY);
         //Board has MANY stores and store has ONE board
         storeClass.withBidirectional(boardClass, "board", Cardinality.ONE, "stores", Cardinality.MANY);
-        //Board has ONE game and game has ONE board
-     //   gameClass.withBidirectional(boardClass, "board", Cardinality.ONE, "game", Cardinality.ONE);
-        //Game has MANY players and player has ONE board
-      //  gameClass.withBidirectional(playerClass, "player", Cardinality.MANY, "game", Cardinality.ONE);
         //House has ONE house on its rightSide
         boardClass.withBidirectional(playerClass,"player", Cardinality.MANY, "board", Cardinality.ONE);
 
