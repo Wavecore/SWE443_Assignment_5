@@ -34,6 +34,7 @@ import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.util.PlayerSet;
 import swe443.assignment5.mancala.Player;
 import de.uniks.networkparser.list.BooleanList;
+import de.uniks.networkparser.list.NumberList;
 
 public class BoardSet extends SimpleSet<Board>
 {
@@ -417,6 +418,67 @@ public class BoardSet extends SimpleSet<Board>
       }
       
       return this;
+   }
+
+   
+   //==========================================================================
+   
+   public de.uniks.networkparser.list.BooleanList isGameOver()
+   {
+      
+      de.uniks.networkparser.list.BooleanList result = new de.uniks.networkparser.list.BooleanList();
+      
+      for (Board obj : this)
+      {
+         result.add( obj.isGameOver() );
+      }
+      return result;
+   }
+
+   
+   //==========================================================================
+   
+   public BoardSet checkGameStatus()
+   {
+      return BoardSet.EMPTY_SET;
+   }
+
+   
+   //==========================================================================
+   
+   public PlayerSet getPlayerTurn()
+   {
+      
+      PlayerSet result = new PlayerSet();
+      
+      for (Board obj : this)
+      {
+         result.add( obj.getPlayerTurn() );
+      }
+      return result;
+   }
+
+   
+   //==========================================================================
+   
+   public BoardSet printBoard()
+   {
+      return BoardSet.EMPTY_SET;
+   }
+
+   
+   //==========================================================================
+   
+   public NumberList checkWinner()
+   {
+      
+      NumberList result = new NumberList();
+      
+      for (Board obj : this)
+      {
+         result.add( obj.checkWinner() );
+      }
+      return result;
    }
 
 }

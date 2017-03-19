@@ -81,6 +81,7 @@ public  class Board implements SendableEntity
             }
         }
         previous.setRightSide(house2);
+        this.setTurn(true);
     }
 
 
@@ -395,165 +396,61 @@ public  class Board implements SendableEntity
 
 
     public boolean makeMove(Player player, int i) {
-
-        if(isGameOver())
-            return false;
-
-        if(!player.isMyTurn())
-            return false;
-
-        System.out.println("selects position " + (i + 1));
-        if(i < 0 || i > 11)
-            return false;
-        if(getStores().get(i).getStones() < 1)
-            return false;
-
-        int stoneCount = getStores().get(i).getStones();
-        getStores().get(i).setStones(0);
-
-        int j = i + 1;
-        int current = 0;
-
-//        System.out.println("i: " + i);
-//        System.out.println("Stone count: " + stoneCount);
-
-
- /*       if ((current == 5 && getPlayerTurn().toString().equals("Player1")) || (current == 11 && getPlayerTurn().toString().equals("Player2")))
-        {
-            current = i % (getStores().size());
-            System.out.println("Next available spot is a House");
-            if (stoneCount > 0) {
-                getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
-                stoneCount--;
-                if (stoneCount < 1) {
-                    System.out.println("lastEvent position: Home");
-                    getStores().get(current).getRightSide().lastSownEvent();
-                    return true;
-                }
-            }
+        if(isGameOver())                                               // If the game is over
+            return false;                                               // Don't so any moves
+        if (player.isMyTurn() != this.turn)                                   // If a player is making a move out of turn
+            return false;                                               // Ignore him, he is a jerk
+        if (this.turn && ((i >= this.stores.size() / 2) || (i < 0)))              // If player one is making an invalid move
+            return false;                                               // Ignore him
+        else if (!this.turn && ((i >= this.stores.size()) || (i < this.stores.size()/2))) // If player two is making an invalid move
+            return false;                                               // Ignore him
+        House pickedStore = this.stores.get(i);                                                // Get the chosen store
+        int stoneCount = pickedStore.getStones();                                              // Get the stones from the store
+        if(stoneCount == 0) return false;                                                       // If the store is empty this is an invalid move
+        pickedStore.setStones(0);                                                               // Set the stones in store to 0
+        int finalDestination = (i + stoneCount);                                                // Calculate the place the final stone will go
+        if (!this.turn)
+            finalDestination++;                                                           // If its player 2's turn account for player 1's house
+        finalDestination = finalDestination % (this.houses.size() + this.stores.size());             // Simplify it to a place on the board
+        for (int x = 0; x < stoneCount; x++) {                                            // for every stone in the store
+            pickedStore = pickedStore.getRightSide();                                           // Get move right
+            pickedStore.setStones(pickedStore.getStones() + 1);                                  // Add a stone to the house/store
+        }                                                                                       // When we are done adding stones
+         if ((finalDestination == this.stores.size() / 2 && this.turn) ||
+                (finalDestination == this.stores.size() + 1 && !this.turn)) {                            // Check to see if the final destination is the player's house
+            pickedStore.lastSownEvent();                                                        // If it is player gets another turn
         }
-*/
+        else if ((pickedStore.getStones() == 1) && (finalDestination != this.stores.size() / 2) &&      // Else if the we sowed the last stone in an empty store
+                (finalDestination != this.stores.size() + 1)) {
+            ((Store) pickedStore).lastSownEvent(finalDestination);                               //  We may be able to steal the opposite pit's stones
+        }
 
-            while (stoneCount > 0) {
-                current = j % (getStores().size());
-
-                getStores().get(current).setStones(getStores().get(current).getStones() + 1);
-                stoneCount--;
-                if ((current == 5 && getPlayerTurn().toString().equals("Player1")) || (current == 11 && getPlayerTurn().toString().equals("Player2"))){
-                    if (stoneCount > 0) {
-                        getStores().get(current).getRightSide().setStones(getStores().get(current).getRightSide().getStones() + 1);
-                        stoneCount--;
-                        if (stoneCount < 1) {
-                            System.out.println("lastEvent position: Home");
-//                        System.out.println("Player gets to play again");
-                            getStores().get(current).getRightSide().lastSownEvent();
-                            return true;
-                        }
-                    }
-                }
-                j++;
-            }
-
-            System.out.println("lastEvent position:  " + (current + 1));
-            getStores().get(current).lastSownEvent(current);
-
-        return false;
-    }
-
-    private boolean isGameOver = false;
-
-    public boolean isGameOver()
-    {
-        return this.isGameOver;
-    }
-
-    public boolean setIsGameOver(boolean isGameOver)
-    {
-        this.isGameOver = isGameOver;
-        return isGameOver();
+        this.setTurn(!this.turn);                                                               //  Update Turn
+        if(isGameOver())                                                                            // If the game is over
+            checkGameStatus();                                                                      // Determine the winner and stuff
+        return true;
     }
 
     public int checkWinner()
     {
-
-        if(getHouses().get(0).getStones() > getHouses().get(1).getStones())
+        System.out.println(getHouses().get(0).getStones());
+        System.out.println(getHouses().get(1).getStones());
+        if(this.getHouses().get(0).getStones() > this.getHouses().get(1).getStones())
         {
             return 1;
-        } else if (getHouses().get(0).getStones() < getHouses().get(1).getStones())
+        }
+        else if (this.getHouses().get(0).getStones() < this.getHouses().get(1).getStones())
         {
             return 2;
 
-        }else{
+        }
+        else{
             return 0;
         }
     }
 
-    public boolean checkGameStatus()
-    {
-        boolean side1 = true;
-        boolean side2 = true;
-
-        for (int i = 0; i < 6; i++)
-        {
-//            System.out.println(i + ": " + getStores().get(i).getStones());
-            if(getStores().get(i).getStones() > 0) {
-                side1 = false;
-                break;
-            }
-        }
-        for (int j = 6; j < 12; j++)
-        {
-//            System.out.println(j + ": " + getStores().get(j).getStones());
-            if(getStores().get(j).getStones() > 0) {
-                side2 = false;
-            }
-        }
-
-        if(side1 || side2)
-        {
-            System.out.println("\nGame Over!");
-
-            int winner = checkWinner();
-
-            if(!(winner == 0))
-            {
-                System.out.println("Player" + winner + " Wins!\n");
-            }
-            else
-            {
-                System.out.println("Tie Game!\n");
-            }
-            System.out.println("Resulting board:");
-            printBoard();
-            return setIsGameOver(true);
-        }
-
-        return isGameOver();
-    }
-
-    public Player getPlayerTurn() {
-        if(getPlayer().get(0).isMyTurn())
-            return getPlayer().get(0);
-        return getPlayer().get(1);
-    }
-
-    public boolean setPlayerTurn(Player player)
-    {
-        if(getPlayer().get(0).equals(player)) {
-            getPlayer().get(0).setMyTurn(true);
-            getPlayer().get(1).setMyTurn(false);
-            return true;
-        }
-        else if(getPlayer().get(1).equals(player)) {
-            getPlayer().get(0).setMyTurn(false);
-            getPlayer().get(1).setMyTurn(true);
-            return true;
-        }
-        return false;
-    }
-
     public void setUpCustomBoard(int[] stores, int[] homes) {
-
+        this.setTurn(true);
         House house1 = createHouses().withBoard(this).withStones(homes[0]);
         House house2 = createHouses().withBoard(this).withStones(homes[1]);
 
@@ -620,4 +517,51 @@ public  class Board implements SendableEntity
       setTurn(value);
       return this;
    } 
+
+   
+   //==========================================================================
+   public boolean isGameOver(  )
+   {
+       if(this.turn){
+           for(int x = 0; x < this.stores.size()/2; x++)
+               if(this.stores.get(x).getStones() != 0)
+                   return false;
+       }
+       else {
+           for(int x = this.stores.size() / 2; x < this.stores.size(); x++)
+               if (this.stores.get(x).getStones() != 0)
+                   return false;
+       }
+       return true;
+   }
+
+   
+   //==========================================================================
+   public void checkGameStatus(  )
+   {
+       System.out.println("\nGame Over!");
+
+       int winner = checkWinner();
+
+       if(!(winner == 0))
+       {
+           System.out.println("Player" + winner + " Wins!\n");
+       }
+       else
+       {
+           System.out.println("Tie Game!\n");
+       }
+       System.out.println("Resulting board:");
+       printBoard();
+   }
+
+   
+   //==========================================================================
+   public Player getPlayerTurn(  )
+   {
+      for(int x =0; x < this.player.size();x++)
+          if(player.get(x).isMyTurn() == this.turn)
+              return player.get(x);
+      return null;
+   }
 }

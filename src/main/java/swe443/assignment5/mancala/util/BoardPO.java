@@ -224,4 +224,67 @@ public class BoardPO extends PatternObject<BoardPO, Board>
       return this;
    }
    
+   
+   //==========================================================================
+   
+   public boolean isGameOver()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Board) getCurrentMatch()).isGameOver();
+      }
+      return false;
+   }
+
+   
+   //==========================================================================
+   
+
+
+   
+   //==========================================================================
+   
+   public void checkGameStatus()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Board) getCurrentMatch()).checkGameStatus();
+      }
+   }
+
+   
+   //==========================================================================
+   
+   public swe443.assignment5.mancala.Player getPlayerTurn()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Board) getCurrentMatch()).getPlayerTurn();
+      }
+      return null;
+   }
+
+   
+   //==========================================================================
+   
+   public void printBoard()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Board) getCurrentMatch()).printBoard();
+      }
+   }
+
+   
+   //==========================================================================
+   
+   public int checkWinner()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Board) getCurrentMatch()).checkWinner();
+      }
+      return 0;
+   }
+
 }

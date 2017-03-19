@@ -4,6 +4,7 @@ import de.uniks.networkparser.graph.DataType;
 import de.uniks.networkparser.graph.Parameter;
 import org.sdmlib.models.classes.ClassModel;
 import org.sdmlib.storyboards.Storyboard;
+import swe443.assignment5.mancala.Player;
 //import swe443.assignment5.mancala.*;
 
 
@@ -27,27 +28,23 @@ public class Model {
         storeClass.withMethod("lastSownEvent",DataType.VOID, new Parameter(DataType.INT).with("current"));
         storeClass.withSuperClazz(houseClass);
 
+        Clazz playerClass = model.createClazz("Player")
+                .withAttribute("myTurn", DataType.BOOLEAN)
+                .withAttribute("name", DataType.STRING);
 
         Clazz boardClass = model.createClazz("Board")
                 .withAttribute("turn", DataType.BOOLEAN);
         boardClass.withMethod("setUpBoard", DataType.VOID);
-
-        //Clazz gameClass = model.createClazz("Game")
-        //        .withAttribute("gameDone", DataType.BOOLEAN);
-
-        Clazz playerClass = model.createClazz("Player")
-                .withAttribute("myTurn", DataType.BOOLEAN)
-                .withAttribute("name", DataType.STRING);
-        //playerClass.withMethod("ismyTurn", DataType.BOOLEAN);
+        boardClass.withMethod("isGameOver", DataType.BOOLEAN);
+        boardClass.withMethod("checkGameStatus", DataType.VOID);
+        boardClass.withMethod("getPlayerTurn",DataType.create(playerClass));
+        boardClass.withMethod("printBoard", DataType.VOID);
+        boardClass.withMethod("checkWinner", DataType.INT);
 
         //Board has MANY houses and a house has ONE board
         houseClass.withBidirectional(boardClass, "board", Cardinality.ONE, "houses", Cardinality.MANY);
         //Board has MANY stores and store has ONE board
         storeClass.withBidirectional(boardClass, "board", Cardinality.ONE, "stores", Cardinality.MANY);
-        //Board has ONE game and game has ONE board
-     //   gameClass.withBidirectional(boardClass, "board", Cardinality.ONE, "game", Cardinality.ONE);
-        //Game has MANY players and player has ONE board
-      //  gameClass.withBidirectional(playerClass, "player", Cardinality.MANY, "game", Cardinality.ONE);
         //House has ONE house on its rightSide
         boardClass.withBidirectional(playerClass,"player", Cardinality.MANY, "board", Cardinality.ONE);
 
@@ -65,67 +62,6 @@ public class Model {
         storyboard.add("setup the board and game");
 
 
-/*
-        //Initalize the Game and board
-        Game mancala = new Game();
-        Board mainBoard = new Board().withGame(mancala);
-
-        //Create two players
-        Player abe = new Player().withName("Abe").withGame(mancala).withMyTurn(true);
-        Player bob = new Player().withName("Bob").withGame(mancala).withMyTurn(false);
-
-
-        //Initalize 12 Stores
-        Store sOne = new Store().withBoard(mainBoard);
-        sOne.withStones(3);
-        Store sTwo = new Store().withBoard(mainBoard);
-        sTwo.withStones(3);
-        sTwo.setLeftSide(sOne);
-        Store sThree = new Store().withBoard(mainBoard);
-        sThree.withStones(3);
-        sThree.setLeftSide(sTwo);
-        Store sFour = new Store().withBoard(mainBoard);
-        sFour.withStones(3);
-        sFour.setLeftSide(sThree);
-        Store sFive = new Store().withBoard(mainBoard);
-        sFive.withStones(3);
-        sFive.setLeftSide(sFour);
-        Store sSix = new Store().withBoard(mainBoard);
-        sSix.withStones(3);
-        sSix.setLeftSide(sFive);
-
-        Store sSeven = new Store().withBoard(mainBoard);
-        sSeven.withStones(3);
-        Store sEight = new Store().withBoard(mainBoard);
-        sEight.withStones(3);
-        sEight.setLeftSide(sSeven);
-        Store sNine = new Store().withBoard(mainBoard);
-        sNine.withStones(3);
-        sNine.setLeftSide(sEight);
-        Store sTen = new Store().withBoard(mainBoard);
-        sTen.withStones(3);
-        sTen.setLeftSide(sNine);
-        Store sEleven = new Store().withBoard(mainBoard);
-        sEleven.withStones(3);
-        sEleven.setLeftSide(sTen);
-        Store sTwelve = new Store().withBoard(mainBoard);
-        sTwelve.withStones(3);
-        sTwelve.setLeftSide(sEleven);
-
-        //Initialize 2 Houses
-        House hAbe = new House().withBoard(mainBoard).withStones(0);
-        hAbe.setLeftSide(sSix);
-        hAbe.setRightSide(sSeven);
-        House hBob = new House().withBoard(mainBoard).withStones(0);
-        hBob.setLeftSide(sTwelve);
-        hBob.setRightSide(sOne);
-
-
-
-        storyboard.addObjectDiagram(mancala, mainBoard, abe, bob);
-        storyboard.dumpHTML();
-
-*/
 
 
     }
