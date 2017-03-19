@@ -230,7 +230,7 @@ public class MancalaStoryBoard {
                 "       4. Bob now has 18 stones in his House and ties with Joe's score.");
         storyboard.addObjectDiagram("gameBoard", board);
         storyboard.assertEquals("It Bob's turn", player1 ,board.getPlayerTurn() );
-//       storyboard.assertEquals("Bob has 18 stones in his house", 18, Integer.parseInt(board.getHouses().get(0).toString()));
+       storyboard.assertEquals("Bob has 18 stones in his house", 18, Integer.parseInt(board.getHouses().get(0).toString()));
         storyboard.assertEquals("Stones in Bob's Store 6 is 0", 0, Integer.parseInt(board.getStores().get(5).toString()));
 
 
@@ -238,8 +238,8 @@ public class MancalaStoryBoard {
                 "                Joe has 18 stones in his house. Since they have the same amount, Bob and Joe end the game in a tie ");
         storyboard.addObjectDiagram("gameBoard", board);
         storyboard.assertEquals("Joe has 18 stone in his house", 18,Integer.parseInt(board.getHouses().get(1).toString()));
-//        storyboard.assertEquals("Bob has 18 stone in his house", 18, Integer.parseInt(board.getHouses().get(0).toString()));
-       // storyboard.assertTrue("The game has ended", board.isGameOver());
+        storyboard.assertEquals("Bob has 18 stone in his house", 18, Integer.parseInt(board.getHouses().get(0).toString()));
+        storyboard.assertTrue("The game has ended", board.isGameOver());
         System.out.println();
         storyboard.assertEquals("There is no winner", board.checkWinner(),0);
 
@@ -317,7 +317,7 @@ public class MancalaStoryBoard {
                 "     3. Bob wants to maximize his chances of winning. It is his turn and he selects store 5 with 7 stones in it");
         storyboard.addObjectDiagram("gameBoard", board);
         storyboard.assertEquals("It Joes's turn", board.getPlayerTurn(),player2);
-        //storyboard.assertEquals("Bob now has 10 stones in his house", 10, Integer.parseInt(board.getHouses().get(0).toString()));
+        storyboard.assertEquals("Bob now has 10 stones in his house", 10, Integer.parseInt(board.getHouses().get(0).toString()));
         storyboard.assertEquals("Stones in Bob's Store 5 is 0", 0, Integer.parseInt(board.getStores().get(4).toString()));
 
 
@@ -335,7 +335,7 @@ public class MancalaStoryBoard {
 
 
         storyboard.assertEquals("Board states its Joe's turn", board.getPlayerTurn(),player2);
-        //storyboard.assertEquals("Bob has 10 stones in his house", 10, Integer.parseInt(board.getHouses().get(0).toString()));
+        storyboard.assertEquals("Bob has 10 stones in his house", 10, Integer.parseInt(board.getHouses().get(0).toString()));
         storyboard.assertEquals("Stones in Store 11 is 1", 1, Integer.parseInt(board.getStores().get(10).toString()));
         storyboard.addObjectDiagram("gameBoard", board);
 
@@ -352,7 +352,7 @@ public class MancalaStoryBoard {
 
 
         storyboard.assertEquals("Board states its Bob's turn", board.getPlayerTurn(),player1);
-//        storyboard.assertEquals("Bob has 10 stones in his house", 10, Integer.parseInt(board.getHouses().get(0).toString()));
+        storyboard.assertEquals("Bob has 10 stones in his house", 10, Integer.parseInt(board.getHouses().get(0).toString()));
         storyboard.addObjectDiagram("gameBoard", board);
 
 
