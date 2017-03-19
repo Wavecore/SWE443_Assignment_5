@@ -19,7 +19,10 @@
    "nodes":[
       {
          "typ":"clazz",
-         "id":"gameBoard : Board"
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=true"
+         ]
       },
       {
          "typ":"clazz",
@@ -621,7 +624,10 @@
    "nodes":[
       {
          "typ":"clazz",
-         "id":"gameBoard : Board"
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=false"
+         ]
       },
       {
          "typ":"clazz",
@@ -725,7 +731,7 @@
          "typ":"clazz",
          "id":"P15 : Player",
          "attributes":[
-            "myTurn=false",
+            "myTurn=true",
             "name=Bob"
          ]
       },
@@ -733,7 +739,7 @@
          "typ":"clazz",
          "id":"P16 : Player",
          "attributes":[
-            "myTurn=true",
+            "myTurn=false",
             "name=Joe"
          ]
       }
@@ -1212,15 +1218,18 @@
    json["options"]={"canvasid":"canvasInitBoardWith2Moves8", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
-<p>Check: It is Joes turn true</p>
-<p>3. Joe (player2) select store position 9</p>
+<p>Check: it is Joe turn now Joe actual Joe</p>
+<p>3. Joe (player2) select store position 10</p>
 <script>
    var json = {
    "typ":"objectdiagram",
    "nodes":[
       {
          "typ":"clazz",
-         "id":"gameBoard : Board"
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=false"
+         ]
       },
       {
          "typ":"clazz",
@@ -1233,7 +1242,7 @@
          "typ":"clazz",
          "id":"H2 : House",
          "attributes":[
-            "stones=0"
+            "stones=1"
          ]
       },
       {
@@ -1296,14 +1305,14 @@
          "typ":"clazz",
          "id":"S11 : Store",
          "attributes":[
-            "stones=0"
+            "stones=3"
          ]
       },
       {
          "typ":"clazz",
          "id":"S12 : Store",
          "attributes":[
-            "stones=4"
+            "stones=0"
          ]
       },
       {
@@ -1812,7 +1821,9 @@
    g.layout(100,100);
 </script>
 <p>4. (Post-condition) turn is still with Joe because he got his last stone in the houses</p>
-<p>Check: It is still Joe's turn false</p>
+<p>Check: It is still Joe turn Joe actual Joe</p>
+<p>Check: Joe has 1 stone in his house 1 actual 1</p>
+<p>Check: Bob has 0 stone in his house 0 actual 0</p>
 
 </body>
 </html>

@@ -12,55 +12,58 @@
 <script src="includes/graph.js"></script>
 </head><body>
 <p>Storyboard <a href='.././src/test/java/swe443/assignment5/mancala/MancalaStoryBoard.java' type='text/x-java'>Winning</a></p>
-<p>1. (Pre-condition) Game has already been playing and it is currently Bobs turns and he selects store position 1.  The current score is joe has 20 stone in his house and bob has 17 stone his his house</p>
+<p>1. (Pre-condition) The game is currently going on and it is Bob's turn.  Bob currently has 17 stone in his house and Joe has 21 </p>
 <script>
    var json = {
    "typ":"objectdiagram",
    "nodes":[
       {
          "typ":"clazz",
-         "id":"gameBoard : Board"
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=true"
+         ]
       },
       {
          "typ":"clazz",
          "id":"H1 : House",
          "attributes":[
-            "stones=2"
+            "stones=17"
          ]
       },
       {
          "typ":"clazz",
          "id":"H2 : House",
          "attributes":[
-            "stones=0"
+            "stones=21"
          ]
       },
       {
          "typ":"clazz",
          "id":"S3 : Store",
          "attributes":[
-            "stones=0"
+            "stones=1"
          ]
       },
       {
          "typ":"clazz",
          "id":"S4 : Store",
          "attributes":[
-            "stones=4"
+            "stones=3"
          ]
       },
       {
          "typ":"clazz",
          "id":"S5 : Store",
          "attributes":[
-            "stones=0"
+            "stones=2"
          ]
       },
       {
          "typ":"clazz",
          "id":"S6 : Store",
          "attributes":[
-            "stones=5"
+            "stones=1"
          ]
       },
       {
@@ -81,49 +84,49 @@
          "typ":"clazz",
          "id":"S9 : Store",
          "attributes":[
-            "stones=1"
+            "stones=0"
          ]
       },
       {
          "typ":"clazz",
          "id":"S10 : Store",
          "attributes":[
-            "stones=6"
+            "stones=0"
          ]
       },
       {
          "typ":"clazz",
          "id":"S11 : Store",
          "attributes":[
-            "stones=2"
+            "stones=0"
          ]
       },
       {
          "typ":"clazz",
          "id":"S12 : Store",
          "attributes":[
-            "stones=6"
+            "stones=0"
          ]
       },
       {
          "typ":"clazz",
          "id":"S13 : Store",
          "attributes":[
-            "stones=6"
+            "stones=2"
          ]
       },
       {
          "typ":"clazz",
          "id":"S14 : Store",
          "attributes":[
-            "stones=4"
+            "stones=1"
          ]
       },
       {
          "typ":"clazz",
          "id":"P15 : Player",
          "attributes":[
-            "myTurn=false",
+            "myTurn=true",
             "name=Bob"
          ]
       },
@@ -131,7 +134,7 @@
          "typ":"clazz",
          "id":"P16 : Player",
          "attributes":[
-            "myTurn=true",
+            "myTurn=false",
             "name=Joe"
          ]
       }
@@ -610,7 +613,2417 @@
    json["options"]={"canvasid":"canvasWinning2", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
-<p>Check: Joe now has 20 stone in his house 20 actual 0</p>
+<p>2. It was Bob's turn he select position 1 the next turn is Joe's</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=false"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H1 : House",
+         "attributes":[
+            "stones=17"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H2 : House",
+         "attributes":[
+            "stones=21"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S3 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S4 : Store",
+         "attributes":[
+            "stones=4"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S5 : Store",
+         "attributes":[
+            "stones=2"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S6 : Store",
+         "attributes":[
+            "stones=1"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S7 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S8 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S9 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S10 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S11 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S12 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S13 : Store",
+         "attributes":[
+            "stones=2"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S14 : Store",
+         "attributes":[
+            "stones=1"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P15 : Player",
+         "attributes":[
+            "myTurn=true",
+            "name=Bob"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P16 : Player",
+         "attributes":[
+            "myTurn=false",
+            "name=Joe"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H1 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H2 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P15 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P16 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S8 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S9 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S10 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S11 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S12 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S13 : Store"
+         }
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasWinning4", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>3. It was Joe's turn and he select position 11, the next turn still is Joe's</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=false"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H1 : House",
+         "attributes":[
+            "stones=17"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H2 : House",
+         "attributes":[
+            "stones=22"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S3 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S4 : Store",
+         "attributes":[
+            "stones=4"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S5 : Store",
+         "attributes":[
+            "stones=2"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S6 : Store",
+         "attributes":[
+            "stones=1"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S7 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S8 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S9 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S10 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S11 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S12 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S13 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S14 : Store",
+         "attributes":[
+            "stones=2"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P15 : Player",
+         "attributes":[
+            "myTurn=true",
+            "name=Bob"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P16 : Player",
+         "attributes":[
+            "myTurn=false",
+            "name=Joe"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H1 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H2 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P15 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P16 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S8 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S9 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S10 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S11 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S12 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S13 : Store"
+         }
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasWinning6", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>4. (Post-Condition) It was Joe's turn and selected postion 12, since all of his stores are 0 he wins</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=true"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H1 : House",
+         "attributes":[
+            "stones=17"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H2 : House",
+         "attributes":[
+            "stones=23"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S3 : Store",
+         "attributes":[
+            "stones=1"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S4 : Store",
+         "attributes":[
+            "stones=4"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S5 : Store",
+         "attributes":[
+            "stones=2"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S6 : Store",
+         "attributes":[
+            "stones=1"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S7 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S8 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S9 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S10 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S11 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S12 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S13 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S14 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P15 : Player",
+         "attributes":[
+            "myTurn=true",
+            "name=Bob"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P16 : Player",
+         "attributes":[
+            "myTurn=false",
+            "name=Joe"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H1 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H2 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P15 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P16 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S8 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S9 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S10 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S11 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S12 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S13 : Store"
+         }
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasWinning8", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>5. (post) it is currently Joe's turn and he will select store 12 since all his store are zero he will win the game!</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"gameBoard : Board",
+         "attributes":[
+            "turn=true"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H1 : House",
+         "attributes":[
+            "stones=17"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"H2 : House",
+         "attributes":[
+            "stones=23"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S3 : Store",
+         "attributes":[
+            "stones=1"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S4 : Store",
+         "attributes":[
+            "stones=4"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S5 : Store",
+         "attributes":[
+            "stones=2"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S6 : Store",
+         "attributes":[
+            "stones=1"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S7 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S8 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S9 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S10 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S11 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S12 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S13 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"S14 : Store",
+         "attributes":[
+            "stones=0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P15 : Player",
+         "attributes":[
+            "myTurn=true",
+            "name=Bob"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"P16 : Player",
+         "attributes":[
+            "myTurn=false",
+            "name=Joe"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H1 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"houses",
+            "id":"H2 : House"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"stores",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P15 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"player",
+            "id":"P16 : Player"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"board",
+            "id":"gameBoard : Board"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H1 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S3 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"H2 : House"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S4 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S3 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S5 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S4 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S6 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S5 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S7 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S6 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S8 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S7 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S9 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"opposite",
+            "id":"S8 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S10 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S9 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S11 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S10 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S12 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S11 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S13 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S12 : Store"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"rightSide",
+            "id":"S14 : Store"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"leftSide",
+            "id":"S13 : Store"
+         }
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasWinning10", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>Check: store 7 should be 0 0 actual 0</p>
+<p>Check: store 8 should be 0 0 actual 0</p>
+<p>Check: store 9 should be 0 0 actual 0</p>
+<p>Check: store 10 should be 0 0 actual 0</p>
+<p>Check: store 11 should be 0 0 actual 0</p>
+<p>Check: store 12 should be 0 0 actual 0</p>
+<p>Check: The winner of the game is Joe! 2 actual 2</p>
 
 </body>
 </html>
