@@ -418,7 +418,7 @@ public  class Board implements SendableEntity
 //        System.out.println("Stone count: " + stoneCount);
 
 
-        if ((current == 5 && getPlayerTurn().toString().equals("Player1")) || (current == 11 && getPlayerTurn().toString().equals("Player2")))
+ /*       if ((current == 5 && getPlayerTurn().toString().equals("Player1")) || (current == 11 && getPlayerTurn().toString().equals("Player2")))
         {
             current = i % (getStores().size());
             System.out.println("Next available spot is a House");
@@ -432,7 +432,7 @@ public  class Board implements SendableEntity
                 }
             }
         }
-
+*/
 
             while (stoneCount > 0) {
                 current = j % (getStores().size());
