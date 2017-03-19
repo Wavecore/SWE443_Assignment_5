@@ -210,7 +210,7 @@ import swe443.assignment5.mancala.util.StoreSet;
                current < (this.board.getStores().size()+this.board.getHouses().size()))
            h = this.board.getHouses().get(1);                                                   // We will move the stolen stones to player 2's house
       // System.out.println("Possible?" + h);
-       if(h != null) {
+       if(h != null && this.getOpposite().getStones() != 0) {
            h.setStones(h.getStones() + this.takeOppositePebbles() + 1);
            this.setStones(0);
        }
