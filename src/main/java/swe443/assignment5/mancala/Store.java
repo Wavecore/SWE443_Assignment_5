@@ -209,49 +209,10 @@ import swe443.assignment5.mancala.util.StoreSet;
        else if(!this.board.isTurn() && current > this.board.getStores().size()/2 &&             // If it is player 2's turn and this is player 2's store
                current < (this.board.getStores().size()+this.board.getHouses().size()))
            h = this.board.getHouses().get(1);                                                   // We will move the stolen stones to player 2's house
-       h.setStones(h.getStones()+this.takeOppositePebbles()+1);
-       this.setStones(0);
-
-
-       /*
-       if((current < 6 && getBoard().getPlayer().get(0).isMyTurn()) || (current > 5 && getBoard().getPlayer().get(1).isMyTurn())) {
-
-           if (getStones() == 1) {
-               int opposite = takeOppositePebbles();
-               int currentStore = getStones();
-
-//           System.out.println("Current Store Count: " + currentStore + ", Opposite Store Count: " + opposite);
-
-               setStones(0);
-//           System.out.println("Before House1: " + board.getHouses().get(0).getStones());
-//           System.out.println("Before House2: " + board.getHouses().get(1).getStones());
-
-               if (current < 6)
-                   board.getHouses().get(0).setStones(board.getHouses().get(0).getStones() + currentStore + opposite);
-               else
-                   board.getHouses().get(1).setStones(board.getHouses().get(1).getStones() + currentStore + opposite);
-
-//           System.out.println("After House1: " + board.getHouses().get(0).getStones());
-//           System.out.println("After House2: " + board.getHouses().get(1).getStones());
-           }
+      // System.out.println("Possible?" + h);
+       if(h != null) {
+           h.setStones(h.getStones() + this.takeOppositePebbles() + 1);
+           this.setStones(0);
        }
-
-      // boolean gameStatus = getBoard().checkGameStatus();
-
-//       System.out.println("gameStatus: " + gameStatus);
-
-   /*    if(!gameStatus)
-       {
-           if (getBoard().getPlayer().get(0).isMyTurn()) {
-               System.out.println("Next turn: " + getBoard().getPlayer().get(1));
-               getBoard().getPlayer().get(0).setMyTurn(false);
-               getBoard().getPlayer().get(1).setMyTurn(true);
-           } else {
-               System.out.println("Next turn: " + getBoard().getPlayer().get(0));
-               getBoard().getPlayer().get(0).setMyTurn(true);
-               getBoard().getPlayer().get(1).setMyTurn(false);
-           }
-       }
-       */
    }
 }

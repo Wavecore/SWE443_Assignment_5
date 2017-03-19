@@ -9,6 +9,22 @@ import static org.junit.Assert.*;
  */
 public class BoardTest {
     @Test
+    public void tempTest() throws  Exception{
+        Board board = new Board();
+        Player player1 = board.createPlayer().withName("Player1").withBoard(board).withMyTurn(true);
+        Player player2 = board.createPlayer().withName("Player2").withBoard(board).withMyTurn(false);
+
+        int stores[] = {1,0,0,0,0,0,0,0,0,3,2,1};
+        int homes[] = {1,2};
+
+        board.setUpCustomBoard(stores, homes);
+        board.printBoard();
+
+        board.makeMove(player1,12);
+        board.printBoard();
+    }
+
+    @Test
     public void setUpBoard() throws Exception {
         Board board = new Board();
 
@@ -136,7 +152,7 @@ public class BoardTest {
 
     }
 
-    @Test
+   /* @Test
     public void setPlayerTurn() throws Exception {
 
         Board board = new Board();
@@ -151,7 +167,7 @@ public class BoardTest {
 
         board.setPlayerTurn(player2);
         System.out.println(board.getPlayerTurn() + "'s turn");
-    }
+    }*/
 
     @Test
     public void setUpCustomBoardIsGameOver() throws Exception {

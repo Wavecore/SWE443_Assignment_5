@@ -364,8 +364,8 @@ public class MancalaStoryBoard {
         storyboard.assertEquals("Store number 6 contains 1 stones", 1,Integer.parseInt(board.getStores().get(5).toString()));
         storyboard.assertEquals("It Bob's turn", player1,board.getPlayerTurn());
 
-
         System.out.println("It is "+board.getPlayerTurn() + "'s turn");
+
         System.out.print("Bob ");
         player1.getBoard().makeMove(player1,5);
         board.printBoard();
@@ -384,7 +384,8 @@ public class MancalaStoryBoard {
         storyboard.assertEquals("Joe has 18 stone in his house", 18,Integer.parseInt(board.getHouses().get(1).toString()));
 //        storyboard.assertEquals("Bob has 18 stone in his house", 18, Integer.parseInt(board.getHouses().get(0).toString()));
        // storyboard.assertTrue("The game has ended", board.isGameOver());
-        storyboard.assertEquals("There is no winner", board.checkWinner(),2);
+        System.out.println();
+        storyboard.assertEquals("There is no winner", board.checkWinner(),0);
 
 
         System.out.println("====================================================================");
