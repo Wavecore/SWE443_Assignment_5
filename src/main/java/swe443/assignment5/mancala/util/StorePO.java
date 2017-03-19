@@ -285,4 +285,20 @@ public class StorePO extends PatternObject<StorePO, Store>
       return null;
    }
 
+   
+   //==========================================================================
+   
+
+
+   
+   //==========================================================================
+   
+   public void lastSownEvent(int current)
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Store) getCurrentMatch()).lastSownEvent(current);
+      }
+   }
+
 }

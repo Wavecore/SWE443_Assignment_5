@@ -110,17 +110,7 @@ public class PlayerSet extends SimpleSet<Player>
    
    //==========================================================================
    
-   public de.uniks.networkparser.list.BooleanList ismyTurn()
-   {
-      
-      de.uniks.networkparser.list.BooleanList result = new de.uniks.networkparser.list.BooleanList();
-      
-      for (Player obj : this)
-      {
-         result.add( obj.ismyTurn() );
-      }
-      return result;
-   }
+
 
 
    /**

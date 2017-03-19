@@ -569,4 +569,12 @@ public class StoreSet extends SimpleSet<Store>
       return this;
    }
 
+   
+   //==========================================================================
+   
+   public StoreSet lastSownEvent(int p0)
+   {
+      return StoreSet.EMPTY_SET;
+   }
+
 }

@@ -592,4 +592,32 @@ public  class Board implements SendableEntity
         }
         previous.setRightSide(house2);
     }
+
+   
+   //==========================================================================
+   
+   public static final String PROPERTY_TURN = "turn";
+   
+   private boolean turn;
+
+   public boolean isTurn()
+   {
+      return this.turn;
+   }
+   
+   public void setTurn(boolean value)
+   {
+      if (this.turn != value) {
+      
+         boolean oldValue = this.turn;
+         this.turn = value;
+         this.firePropertyChange(PROPERTY_TURN, oldValue, value);
+      }
+   }
+   
+   public Board withTurn(boolean value)
+   {
+      setTurn(value);
+      return this;
+   } 
 }

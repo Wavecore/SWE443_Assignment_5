@@ -12,6 +12,8 @@ import swe443.assignment5.mancala.util.StoreSet;
 import swe443.assignment5.mancala.util.PlayerPO;
 import swe443.assignment5.mancala.Player;
 import swe443.assignment5.mancala.util.PlayerSet;
+import org.sdmlib.models.pattern.AttributeConstraint;
+import org.sdmlib.models.pattern.Pattern;
 
 public class BoardPO extends PatternObject<BoardPO, Board>
 {
@@ -176,4 +178,50 @@ public class BoardPO extends PatternObject<BoardPO, Board>
       return null;
    }
 
+   public BoardPO createTurnCondition(boolean value)
+   {
+      new AttributeConstraint()
+      .withAttrName(Board.PROPERTY_TURN)
+      .withTgtValue(value)
+      .withSrc(this)
+      .withModifier(this.getPattern().getModifier())
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public BoardPO createTurnAssignment(boolean value)
+   {
+      new AttributeConstraint()
+      .withAttrName(Board.PROPERTY_TURN)
+      .withTgtValue(value)
+      .withSrc(this)
+      .withModifier(Pattern.CREATE)
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public boolean getTurn()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Board) getCurrentMatch()).isTurn();
+      }
+      return false;
+   }
+   
+   public BoardPO withTurn(boolean value)
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         ((Board) getCurrentMatch()).setTurn(value);
+      }
+      return this;
+   }
+   
 }

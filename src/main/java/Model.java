@@ -1,6 +1,7 @@
 import de.uniks.networkparser.graph.Cardinality;
 import de.uniks.networkparser.graph.Clazz;
 import de.uniks.networkparser.graph.DataType;
+import de.uniks.networkparser.graph.Parameter;
 import org.sdmlib.models.classes.ClassModel;
 import org.sdmlib.storyboards.Storyboard;
 //import swe443.assignment5.mancala.*;
@@ -23,11 +24,12 @@ public class Model {
 
         Clazz storeClass = model.createClazz("Store");
         storeClass.withMethod("takeOppositePebbles", DataType.INT);
-        storeClass.withMethod("lastSownEvent",DataType.VOID);
+        storeClass.withMethod("lastSownEvent",DataType.VOID, new Parameter(DataType.INT).with("current"));
         storeClass.withSuperClazz(houseClass);
 
 
-        Clazz boardClass = model.createClazz("Board");
+        Clazz boardClass = model.createClazz("Board")
+                .withAttribute("turn", DataType.BOOLEAN);
         boardClass.withMethod("setUpBoard", DataType.VOID);
 
         //Clazz gameClass = model.createClazz("Game")
@@ -36,7 +38,7 @@ public class Model {
         Clazz playerClass = model.createClazz("Player")
                 .withAttribute("myTurn", DataType.BOOLEAN)
                 .withAttribute("name", DataType.STRING);
-        playerClass.withMethod("ismyTurn", DataType.BOOLEAN);
+        //playerClass.withMethod("ismyTurn", DataType.BOOLEAN);
 
         //Board has MANY houses and a house has ONE board
         houseClass.withBidirectional(boardClass, "board", Cardinality.ONE, "houses", Cardinality.MANY);

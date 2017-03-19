@@ -33,6 +33,7 @@ import swe443.assignment5.mancala.util.StoreSet;
 import swe443.assignment5.mancala.Store;
 import swe443.assignment5.mancala.util.PlayerSet;
 import swe443.assignment5.mancala.Player;
+import de.uniks.networkparser.list.BooleanList;
 
 public class BoardSet extends SimpleSet<Board>
 {
@@ -354,6 +355,65 @@ public class BoardSet extends SimpleSet<Board>
       for (Board obj : this)
       {
          obj.withoutPlayer(value);
+      }
+      
+      return this;
+   }
+
+
+   /**
+    * Loop through the current set of Board objects and collect a list of the turn attribute values. 
+    * 
+    * @return List of boolean objects reachable via turn attribute
+    */
+   public BooleanList getTurn()
+   {
+      BooleanList result = new BooleanList();
+      
+      for (Board obj : this)
+      {
+         result.add(obj.isTurn());
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Board objects and collect those Board objects where the turn attribute matches the parameter value. 
+    * 
+    * @param value Search value
+    * 
+    * @return Subset of Board objects that match the parameter
+    */
+   public BoardSet filterTurn(boolean value)
+   {
+      BoardSet result = new BoardSet();
+      
+      for (Board obj : this)
+      {
+         if (value == obj.isTurn())
+         {
+            result.add(obj);
+         }
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Board objects and assign value to the turn attribute of each of it. 
+    * 
+    * @param value New attribute value
+    * 
+    * @return Current set of Board objects now with new attribute values.
+    */
+   public BoardSet withTurn(boolean value)
+   {
+      for (Board obj : this)
+      {
+         obj.setTurn(value);
       }
       
       return this;

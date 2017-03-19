@@ -35,6 +35,7 @@ public class BoardCreator implements SendableEntityCreator
       Board.PROPERTY_HOUSES,
       Board.PROPERTY_STORES,
       Board.PROPERTY_PLAYER,
+      Board.PROPERTY_TURN,
    };
    
    @Override
@@ -74,6 +75,11 @@ public class BoardCreator implements SendableEntityCreator
       {
          return ((Board) target).getPlayer();
       }
+
+      if (Board.PROPERTY_TURN.equalsIgnoreCase(attribute))
+      {
+         return ((Board) target).isTurn();
+      }
       
       return null;
    }
@@ -81,6 +87,12 @@ public class BoardCreator implements SendableEntityCreator
    @Override
    public boolean setValue(Object target, String attrName, Object value, String type)
    {
+      if (Board.PROPERTY_TURN.equalsIgnoreCase(attrName))
+      {
+         ((Board) target).setTurn((Boolean) value);
+         return true;
+      }
+
       if (SendableEntityCreator.REMOVE.equals(type) && value != null)
       {
          attrName = attrName + type;

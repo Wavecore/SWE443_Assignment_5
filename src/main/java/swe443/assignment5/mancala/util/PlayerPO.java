@@ -46,14 +46,7 @@ public class PlayerPO extends PatternObject<PlayerPO, Player>
    
    //==========================================================================
    
-   public boolean ismyTurn()
-   {
-      if (this.getPattern().getHasMatch())
-      {
-         return getCurrentMatch().ismyTurn();
-      }
-      return false;
-   }
+
 
    public PlayerPO createMyTurnCondition(boolean value)
    {
