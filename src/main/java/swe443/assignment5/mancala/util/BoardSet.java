@@ -419,4 +419,19 @@ public class BoardSet extends SimpleSet<Board>
       return this;
    }
 
+   
+   //==========================================================================
+   
+   public de.uniks.networkparser.list.BooleanList isGameOver()
+   {
+      
+      de.uniks.networkparser.list.BooleanList result = new de.uniks.networkparser.list.BooleanList();
+      
+      for (Board obj : this)
+      {
+         result.add( obj.isGameOver() );
+      }
+      return result;
+   }
+
 }

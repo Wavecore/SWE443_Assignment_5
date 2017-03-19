@@ -224,4 +224,16 @@ public class BoardPO extends PatternObject<BoardPO, Board>
       return this;
    }
    
+   
+   //==========================================================================
+   
+   public boolean isGameOver()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Board) getCurrentMatch()).isGameOver();
+      }
+      return false;
+   }
+
 }

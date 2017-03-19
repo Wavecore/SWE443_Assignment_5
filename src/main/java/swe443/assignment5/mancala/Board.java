@@ -395,8 +395,16 @@ public  class Board implements SendableEntity
 
 
     public boolean makeMove(Player player, int i) {
+        if(isGameOver())                                                // If the game is over
+           return checkGameStatus();                                    // Determine the winner and stuff
+        if(player.isMyTurn() != turn)                                   // If a player is making a move out of turn
+            return false;                                               // Ignore him, he is a jerk
+        if(turn && ((i >= stores.size()/2) || (i < 0)))                 // If player one is making an invalid move
+            return false;                                               // Ignore him
+        else if(!turn && ((i >= stores.size()) || (i < stores.size()))) // If player two is making an invalid move
+            return false;                                               // Ignore him
 
-        if(isGameOver())
+ /*       if(isGameOver())
             return false;
 
         if(!player.isMyTurn())
@@ -433,7 +441,7 @@ public  class Board implements SendableEntity
             }
         }
 */
-
+/*
             while (stoneCount > 0) {
                 current = j % (getStores().size());
 
@@ -458,9 +466,11 @@ public  class Board implements SendableEntity
             getStores().get(current).lastSownEvent(current);
 
         return false;
+        */
+return false;
     }
 
-    private boolean isGameOver = false;
+ /*   private boolean isGameOver = false;
 
     public boolean isGameOver()
     {
@@ -471,7 +481,7 @@ public  class Board implements SendableEntity
     {
         this.isGameOver = isGameOver;
         return isGameOver();
-    }
+    }*/
 
     public int checkWinner()
     {
@@ -525,10 +535,10 @@ public  class Board implements SendableEntity
             }
             System.out.println("Resulting board:");
             printBoard();
-            return setIsGameOver(true);
+            return false;//setIsGameOver(true); ===============================================================!!!
         }
 
-        return isGameOver();
+        return false;//isGameOver(); =================================!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     public Player getPlayerTurn() {
@@ -620,4 +630,21 @@ public  class Board implements SendableEntity
       setTurn(value);
       return this;
    } 
+
+   
+   //==========================================================================
+   public boolean isGameOver(  )
+   {
+       if(turn){
+           for(int x = 0; x < stores.size()/2; x++)
+               if(stores.get(x).getStones() != 0)
+                   return false;
+       }
+       else {
+           for(int x = stores.size() / 2; x < stores.size(); x++)
+               if (stores.get(x).getStones() != 0)
+                   return false;
+       }
+       return true;
+   }
 }

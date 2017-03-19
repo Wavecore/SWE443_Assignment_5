@@ -31,6 +31,8 @@ public class Model {
         Clazz boardClass = model.createClazz("Board")
                 .withAttribute("turn", DataType.BOOLEAN);
         boardClass.withMethod("setUpBoard", DataType.VOID);
+        boardClass.withMethod("isGameOver", DataType.BOOLEAN);
+        //boardClass.withMethod("setUpBoardTest", DataType.VOID, new Parameter[]{});
 
         //Clazz gameClass = model.createClazz("Game")
         //        .withAttribute("gameDone", DataType.BOOLEAN);
