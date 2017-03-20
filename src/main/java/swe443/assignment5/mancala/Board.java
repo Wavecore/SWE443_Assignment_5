@@ -26,6 +26,7 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import swe443.assignment5.mancala.Store;
@@ -40,7 +41,81 @@ import swe443.assignment5.mancala.Player;
  */
 public  class Board implements SendableEntity
 {
-
+    public static void main(String[] arg){
+        Scanner sc = new Scanner(System.in);
+        int gameState = 0;
+        System.out.println("I want to play a game.....");
+        while(gameState != -1){
+            System.out.println("Lets play mancala\n How many players should we have? (type -1 to quit)");
+            String s = sc.next();
+            try{
+                gameState = Integer.parseInt(s);
+            }
+            catch(Exception e){
+                System.out.println("Please enter a whole number");
+                continue;
+            }
+            if(gameState == -1)break;
+            else if(gameState == 0){
+                System.out.println("Really? You can't play with 0 players");
+                continue;
+            }
+            else if(gameState == 1){
+                System.out.println("Sorry you haven't purchased the CPU DLC try a different number");
+                continue;
+            }
+            else if(gameState > 2){
+                System.out.println("Eeehhhh, that is a pain to set up. Lets do a smaller number");
+                continue;
+            }
+            else if(gameState < 0){
+                System.out.println("Please enter a whole number");
+                continue;
+            }
+            Board b = new Board();
+            System.out.println("What is player 1's name?");
+            s = sc.next();
+            Player player1 = b.createPlayer().withName(s).withBoard(b).withMyTurn(true);
+            System.out.println("what is player 2's name?");
+            s = sc.next();
+            Player player2 = b.createPlayer().withName(s).withBoard(b).withMyTurn(false);
+            b.setUpBoard();
+            while(!b.isGameOver()){
+                Player p = null;
+                if(b.isTurn())p = player1;
+                else p = player2;
+                boolean validMove = false;
+                while(!validMove) {
+                    b.printBoard();
+                    System.out.println("It is " + p.getName() + "'s turn, pick a store to sow (1 through 12)");
+                    int move = -1;
+                    try {
+                        s = sc.next();
+                        move = Integer.parseInt(s);
+                    }
+                    catch(Exception e){
+                        System.out.println("Invalid move");
+                        continue;
+                    }
+                    validMove = b.makeMove(p,move-1);
+                    if(!validMove)
+                        System.out.println("Invalid move");
+                }
+            }
+            String playAgain = "";
+            while(!(playAgain.equals("yes") || playAgain.equals("no"))) {
+                System.out.println("Do you want to play again? (yes/no)");
+                playAgain = sc.next();
+                if (playAgain.equals("yes"))
+                    gameState = 0;
+                else if (playAgain.equals("no"))
+                    gameState = -1;
+                else
+                    System.out.println("Type 'yes' or 'no'");
+            }
+        }
+        System.out.println("Thank you for playing");
+    }
     //==========================================================================
     public void setUpBoard(  ) {
         House house1 = createHouses().withBoard(this);
