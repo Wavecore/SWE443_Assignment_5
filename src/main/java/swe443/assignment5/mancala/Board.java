@@ -508,8 +508,8 @@ public  class Board implements SendableEntity
 
     public int checkWinner()
     {
-        System.out.println(getHouses().get(0).getStones());
-        System.out.println(getHouses().get(1).getStones());
+        System.out.println(this.player.get(0).getName()+" has "+this.getHouses().get(0).getStones());
+        System.out.println(this.player.get(1).getName()+" has "+this.getHouses().get(1).getStones());
         if(this.getHouses().get(0).getStones() > this.getHouses().get(1).getStones())
         {
             return 1;
@@ -620,7 +620,7 @@ public  class Board implements SendableEntity
 
        if(!(winner == 0))
        {
-           System.out.println("Player" + winner + " Wins!\n");
+           System.out.println(this.player.get(winner-1).getName() + " Wins!\n");
        }
        else
        {
